@@ -24,3 +24,7 @@ pip install -r requirements.txt
 
 # Run this after installing new packages to save them to the list
 pip freeze > requirements.txt
+
+```
+ ### run the model
+python -m pipeline.runner
