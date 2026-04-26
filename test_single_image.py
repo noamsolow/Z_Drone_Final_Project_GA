@@ -1,14 +1,15 @@
 """
-Visual integration test for one drone localization sample.
+Visual integration test for one RANDOM drone localization sample.
 
 This script verifies the current Depth -> Mask path:
 
-1. Load the first dataset sample and its single YOLO bbox.
+1. Load a random dataset sample and its single YOLO bbox.
 2. Run Depth Anything V2 on the full original image.
 3. Extract the median relative depth inside the bbox.
 4. Plot the RGB image and depth map side by side with the same bbox overlay.
 """
 
+import random
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -36,13 +37,18 @@ def _draw_bbox(axis, bbox, edgecolor="red", linewidth=2.0):
 def main():
     dataset_root = Path(DEFAULT_DATASET_ROOT)
 
-    print("Loading first sample from dataset:")
+    print("Searching for samples in dataset:")
     print("  {}".format(dataset_root))
 
     loader = DroneDatasetLoader(dataset_root=dataset_root, strict=False)
-    sample = next(loader.iter_samples(), None)
-    if sample is None:
+    
+    # 1. המרת ה-Generator לרשימה ובחירת דגימה אקראית
+    samples = list(loader.iter_samples())
+    if not samples:
         raise RuntimeError("No valid .png samples with matching YOLO labels were found.")
+    
+    sample = random.choice(samples)
+    print("Selected random sample: {}".format(sample.image_path.name))
 
     image = loader.load_image(sample)
     bbox = sample.annotation.bbox
@@ -54,7 +60,7 @@ def main():
     depth_map = estimate_relative_depth(image, depth_model)
     median_relative_depth = extract_drone_relative_depth(depth_map, bbox)
 
-    print("\nSingle Image Integration Test")
+    print("\nSingle Image Integration Test (Random)")
     print("-----------------------------")
     print("Image: {}".format(sample.image_path))
     print("Label: {}".format(sample.label_path))
@@ -81,7 +87,10 @@ def main():
     axes[1].axis("off")
 
     fig.colorbar(depth_plot, ax=axes[1], fraction=0.046, pad=0.04, label="Relative depth")
-    plt.show()
+    
+    # 2. שמירה לקובץ במקום plt.show() כדי לעקוף את בעיית ה-Non-interactive backend בשרת
+    plt.savefig('test_output.png', bbox_inches='tight')
+    print("\nVisual test results saved to test_output.png!")
 
 
 if __name__ == "__main__":
