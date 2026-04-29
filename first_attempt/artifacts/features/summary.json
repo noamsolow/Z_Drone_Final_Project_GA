@@ -1,0 +1,27 @@
+{
+  "num_records": 14800,
+  "weather_counts": {
+    "clear_sky": 7344,
+    "light_rain": 7456
+  },
+  "time_of_day_counts": {
+    "10AM": 9734,
+    "8PM": 5066
+  },
+  "unique_true_distances_m": [
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    115.0,
+    125.0,
+    150.0
+  ],
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "features_csv": "first_attempt\\artifacts\\features\\features.csv"
+}
