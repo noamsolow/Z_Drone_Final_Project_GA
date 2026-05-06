@@ -26,11 +26,24 @@ def _metric_dict(true_values: np.ndarray, predicted_values: np.ndarray) -> Dict[
         return {
             "count": 0,
             "mae": 0.0,
+            "median_absolute_error": 0.0,
             "mean_relative_error": 0.0,
+            "median_relative_error": 0.0,
             "rmse": 0.0,
             "r2": 0.0,
+            "mean_signed_error": 0.0,
+            "median_signed_error": 0.0,
+            "p90_absolute_error": 0.0,
+            "p95_absolute_error": 0.0,
+            "max_absolute_error": 0.0,
+            "within_5m_rate": 0.0,
+            "within_10m_rate": 0.0,
+            "within_20m_rate": 0.0,
+            "overprediction_rate": 0.0,
+            "underprediction_rate": 0.0,
         }
 
+    signed_errors = predicted_values - true_values
     absolute_errors = np.abs(predicted_values - true_values)
     mae = float(np.mean(absolute_errors))
     relative_errors = absolute_errors / np.abs(true_values)
@@ -42,9 +55,21 @@ def _metric_dict(true_values: np.ndarray, predicted_values: np.ndarray) -> Dict[
     return {
         "count": int(true_values.size),
         "mae": mae,
+        "median_absolute_error": float(np.median(absolute_errors)),
         "mean_relative_error": float(np.mean(relative_errors)),
+        "median_relative_error": float(np.median(relative_errors)),
         "rmse": rmse,
         "r2": r2,
+        "mean_signed_error": float(np.mean(signed_errors)),
+        "median_signed_error": float(np.median(signed_errors)),
+        "p90_absolute_error": float(np.percentile(absolute_errors, 90)),
+        "p95_absolute_error": float(np.percentile(absolute_errors, 95)),
+        "max_absolute_error": float(np.max(absolute_errors)),
+        "within_5m_rate": float(np.mean(absolute_errors <= 5.0)),
+        "within_10m_rate": float(np.mean(absolute_errors <= 10.0)),
+        "within_20m_rate": float(np.mean(absolute_errors <= 20.0)),
+        "overprediction_rate": float(np.mean(signed_errors > 0.0)),
+        "underprediction_rate": float(np.mean(signed_errors < 0.0)),
     }
 
 
@@ -181,7 +206,21 @@ def build_grouped_error_summary(
                     "std_true_distance_m": float(np.std(group_true)) if group_true.size else 0.0,
                     "mean_prediction_m": float(np.mean(group_pred)) if group_pred.size else 0.0,
                     "mae": metrics["mae"],
+                    "median_absolute_error": metrics["median_absolute_error"],
                     "mean_relative_error": metrics["mean_relative_error"],
+                    "median_relative_error": metrics["median_relative_error"],
+                    "rmse": metrics["rmse"],
+                    "r2": metrics["r2"],
+                    "mean_signed_error": metrics["mean_signed_error"],
+                    "median_signed_error": metrics["median_signed_error"],
+                    "p90_absolute_error": metrics["p90_absolute_error"],
+                    "p95_absolute_error": metrics["p95_absolute_error"],
+                    "max_absolute_error": metrics["max_absolute_error"],
+                    "within_5m_rate": metrics["within_5m_rate"],
+                    "within_10m_rate": metrics["within_10m_rate"],
+                    "within_20m_rate": metrics["within_20m_rate"],
+                    "overprediction_rate": metrics["overprediction_rate"],
+                    "underprediction_rate": metrics["underprediction_rate"],
                 }
             )
 

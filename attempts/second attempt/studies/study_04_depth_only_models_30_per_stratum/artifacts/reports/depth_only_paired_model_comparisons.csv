@@ -1,0 +1,3 @@
+comparison_name,model_a,model_b,mean_mae_delta_a_minus_b,ci_low_95,ci_high_95,a_better_rate,b_better_rate,tie_rate,bootstrap_iterations
+best_model_vs_best_single,random_forest_top_24,bbox_only__bbox_midpoint__object_depth,-2.09180717993496,-2.6660720081805436,-1.481336266637569,0.5673611111111111,0.4326388888888889,0.0,1000
+best_tree_vs_best_linear,random_forest_top_24,greedy_forward_ols_k8,-1.1540477677829744,-1.6334807593693927,-0.6844900411891056,0.5284722222222222,0.47152777777777777,0.0,1000

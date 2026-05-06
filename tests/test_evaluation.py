@@ -18,6 +18,8 @@ class EvaluationTests(unittest.TestCase):
         self.assertIn("overall", evaluation)
         self.assertIn("per_distance_range", evaluation)
         self.assertAlmostEqual(evaluation["overall"]["mae"], (3.0 + 8.0 + 5.0) / 3.0)
+        self.assertIn("median_absolute_error", evaluation["overall"])
+        self.assertIn("within_10m_rate", evaluation["overall"])
         self.assertEqual(evaluation["per_distance_range"]["near"]["count"], 1)
         self.assertEqual(evaluation["per_distance_range"]["mid"]["count"], 1)
         self.assertEqual(evaluation["per_distance_range"]["far"]["count"], 1)

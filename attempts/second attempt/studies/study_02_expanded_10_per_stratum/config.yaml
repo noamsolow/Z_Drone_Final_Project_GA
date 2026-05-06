@@ -1,0 +1,38 @@
+study_name: study_02_expanded_10_per_stratum
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+study:
+  sample_count_per_stratum: 10
+  sample_seed: 20260503
+  progress_log_every_samples: 10
+  progress_log_every_methods: 1
+  inner_bbox_scale: 0.5
+  surrounding_bbox_scale: 1.8
+  context_windows:
+    - name: full_image
+      scale: null
+    - name: bbox_expand_4x
+      scale: 4.0
+    - name: bbox_expand_2x
+      scale: 2.0
+    - name: bbox_expand_1_5x
+      scale: 1.5
+    - name: bbox_only
+      scale: 1.0
+  aggregation_methods:
+    - inner50_median
+    - bbox_mean
+    - bbox_midpoint
+  score_fields:
+    - object_depth
+    - object_depth_percentile_5_95
+    - object_minus_ring
+    - object_minus_ring_normalized
+
+output_root: attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts

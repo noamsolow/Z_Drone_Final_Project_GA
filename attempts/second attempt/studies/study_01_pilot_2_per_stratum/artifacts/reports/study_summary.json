@@ -1,0 +1,24 @@
+{
+  "winner": {
+    "method_id": "bbox_only__bbox_midpoint__object_depth",
+    "context_window": "bbox_only",
+    "aggregation_method": "bbox_midpoint",
+    "score_field": "object_depth",
+    "count": 96,
+    "pearson_correlation": -0.6150693542624796,
+    "spearman_correlation": -0.5971614592322307,
+    "loocv_mae": 25.16718525402827,
+    "loocv_mean_relative_error": 0.4603636139676501,
+    "loocv_rmse": 30.800097059252582,
+    "loocv_r2": 0.3559404952581299,
+    "full_fit_intercept": 152.40201968473895,
+    "full_fit_slope": -27.487779419726458
+  },
+  "num_methods": 60,
+  "score_fields": [
+    "object_depth",
+    "object_depth_percentile_5_95",
+    "object_minus_ring",
+    "object_minus_ring_normalized"
+  ]
+}

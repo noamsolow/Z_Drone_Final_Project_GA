@@ -1,0 +1,85 @@
+study_name: study_03_multiscale_fusion
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+study:
+  sample_count_per_stratum: 10
+  sample_seed: 20260503
+  progress_log_every_samples: 10
+  progress_log_every_methods: 1
+  inner_bbox_scale: 0.5
+  surrounding_bbox_scale: 1.8
+  context_windows:
+    - name: full_image
+      scale: null
+    - name: bbox_expand_16x
+      scale: 16.0
+    - name: bbox_expand_10x
+      scale: 10.0
+    - name: bbox_expand_8x
+      scale: 8.0
+    - name: bbox_expand_6x
+      scale: 6.0
+    - name: bbox_expand_4x
+      scale: 4.0
+    - name: bbox_expand_2x
+      scale: 2.0
+    - name: bbox_expand_1_5x
+      scale: 1.5
+    - name: bbox_only
+      scale: 1.0
+  aggregation_methods:
+    - inner50_median
+    - bbox_mean
+    - bbox_midpoint
+  score_fields:
+    - object_depth
+    - object_depth_percentile_5_95
+    - object_minus_ring
+    - object_minus_ring_normalized
+
+multiscale_fusion:
+  enabled: true
+  goal: test whether combining several zoom levels beats the best single-scale method
+  single_scale_baselines:
+    - bbox_only__bbox_midpoint__object_depth
+    - bbox_expand_1_5x__bbox_midpoint__object_minus_ring
+  recommended_core_contexts:
+    - bbox_only
+    - bbox_expand_1_5x
+    - bbox_expand_2x
+    - bbox_expand_4x
+  optional_extra_contexts:
+    - bbox_expand_10x
+    - bbox_expand_16x
+    - bbox_expand_6x
+    - bbox_expand_8x
+    - full_image
+  planned_feature_families:
+    - per-scale raw object depth
+    - per-scale normalized object depth
+    - per-scale object-vs-ring contrast
+    - per-scale normalized object-vs-ring contrast
+    - cross-scale score differences
+  planned_models:
+    - single-feature linear calibration baselines
+    - multifeature linear regression
+    - ridge regression
+  success_criterion:
+    primary_metric: loocv_mae
+    must_beat:
+      - bbox_only__bbox_midpoint__object_depth
+      - bbox_expand_1_5x__bbox_midpoint__object_minus_ring
+
+existing_feature_sources:
+  selected_samples_csv: attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/selected_samples.csv
+  representation_records_csvs:
+    - attempts/second attempt/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
+    - attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
+
+output_root: attempts/second attempt/studies/study_03_multiscale_fusion/artifacts

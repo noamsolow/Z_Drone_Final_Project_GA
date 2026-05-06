@@ -198,6 +198,7 @@ def load_depth_anything_v2(
     model_name: str = DEFAULT_DEPTH_ANYTHING_V2_MODEL,
     device: Optional[str] = None,
     torch_dtype: Optional[Any] = None,
+    local_files_only: bool = False,
 ) -> DepthAnythingV2Adapter:
     """
     Load a Depth Anything V2 model using Hugging Face Transformers.
@@ -233,8 +234,15 @@ def load_depth_anything_v2(
     if torch_dtype is not None:
         model_kwargs["torch_dtype"] = torch_dtype
 
-    image_processor = AutoImageProcessor.from_pretrained(model_name)
-    model = AutoModelForDepthEstimation.from_pretrained(model_name, **model_kwargs)
+    image_processor = AutoImageProcessor.from_pretrained(
+        model_name,
+        local_files_only=local_files_only,
+    )
+    model = AutoModelForDepthEstimation.from_pretrained(
+        model_name,
+        local_files_only=local_files_only,
+        **model_kwargs
+    )
     model.to(resolved_device)
     model.eval()
 
