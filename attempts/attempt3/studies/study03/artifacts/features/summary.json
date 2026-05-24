@@ -1,0 +1,60 @@
+{
+  "num_rows": 15064,
+  "weather_counts": {
+    "clear_sky": 7547,
+    "light_rain": 7517
+  },
+  "time_of_day_counts": {
+    "10AM": 9998,
+    "8PM": 5066
+  },
+  "unique_true_distances_m": [
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    115.0,
+    125.0,
+    150.0
+  ],
+  "study_name": "study03_noisy_bbox_aggregation_random_forest",
+  "config_path": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study03\\config.yaml",
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "num_total_images": 15064,
+  "num_strata": 48,
+  "selected_samples_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study03\\artifacts\\features\\selected_samples.csv",
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study03\\artifacts\\features\\noisy_aggregated_feature_table.csv",
+  "depth_feature_count": 12,
+  "depth_spread_feature_count": 12,
+  "geometry_feature_count": 8,
+  "geometry_spread_feature_count": 8,
+  "contexts": [
+    "bbox_expand_4x",
+    "bbox_expand_2x",
+    "bbox_expand_1_5x",
+    "bbox_only"
+  ],
+  "aggregation_methods": [
+    "bbox_midpoint",
+    "bbox_mean",
+    "inner50_median"
+  ],
+  "jitter_box_names": [
+    "original",
+    "shift_left",
+    "shift_right",
+    "shift_up",
+    "shift_down",
+    "scale_down",
+    "scale_up"
+  ],
+  "num_jitter_boxes": 7,
+  "reused_rows": 0,
+  "missing_rows_to_compute": 15064,
+  "total_expected_rows": 15064
+}

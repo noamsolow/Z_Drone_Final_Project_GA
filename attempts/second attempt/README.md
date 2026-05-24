@@ -142,7 +142,7 @@ is doing before trusting the larger tables.
 
 ## 5. Overall Workflow
 
-This attempt ended up having four main studies.
+This attempt ended up having five main studies.
 
 ### Study 01: Pilot representation study
 
@@ -166,6 +166,14 @@ This attempt ended up having four main studies.
 - build a learned model from depth features only
 - goal: find the strongest depth-only combination before building the final
   stacked model
+
+### Study 06: All-images selected-subset random-forest study
+
+- use the full dataset instead of a balanced sample
+- keep only the strongest local zoom family plus `full_image`
+- keep all three aggregation methods, but only raw `object_depth`
+- goal: check whether the Study 04 depth-only story still holds when the
+  dataset becomes much larger and the feature space becomes much simpler
 
 ### Shared execution pattern
 
@@ -214,6 +222,22 @@ python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratu
 python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/analyze_study_04.py"
 ```
 
+#### Study 06
+
+1. build or resume an all-images representation cache
+2. restrict the feature space to a selected subset of contexts and
+   aggregations
+3. keep only the raw `object_depth` score field
+4. rank the single features again on the full dataset
+5. train a random-forest model on the simplified full-data table
+
+Commands:
+
+```bash
+python "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py" --dry-run
+python "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py"
+```
+
 ## 6. Why We Split Attempt 2 Into Multiple Studies
 
 We did not split the work into multiple studies just for organization. Each
@@ -235,6 +259,11 @@ study answered a different scientific question.
 
 - if we use only depth-derived features, can a learned model extract a
   stronger signal than any single hand-designed score?
+
+### Study 06 asked:
+
+- if we keep only the simplest raw-depth family and move to the full dataset,
+  do the main Study 04 conclusions still survive?
 
 This sequencing matters because each study built directly on the previous one
 instead of mixing too many variables at once.
@@ -814,11 +843,253 @@ same depth story:
 - tight crop for the core signal
 - immediate local context for correction
 
-## 13. What the Graphs Show
+## 13. Study 06: All-Images Selected-Subset Random Forest
+
+Folder:
+
+- `studies/study_06_all_images_midpoint_random_forest`
+
+### Motivation
+
+Study 04 gave us a strong depth-only lower model, but it still left two open
+questions:
+
+- do the same depth conclusions still hold when we move from a balanced sample
+  to the full dataset?
+- do we really need a large feature space, or can a much simpler raw-depth
+  subset still work?
+
+So Study 06 was designed as a stricter follow-up.
+
+It keeps the same general modeling idea as Study 04:
+
+- depth-only inputs
+- one fused feature row per image
+- balanced `5-fold` evaluation by stratum
+- random-forest learning
+
+But it changes two major things:
+
+- it uses all available dataset images
+- it intentionally shrinks the feature space to a simpler subset
+
+The goal was not to beat Study 04 by throwing in more feature families.
+The goal was to test whether the strongest Study 04 ideas remain stable under:
+
+- much more data
+- less feature engineering
+
+### What we used
+
+- full dataset
+- `48` exact strata
+- total `15,064` images
+- mean `313.8` images per stratum
+- total `225,960` representation rows
+
+Contexts:
+
+- `bbox_only`
+- `bbox_expand_1_5x`
+- `bbox_expand_2x`
+- `bbox_expand_4x`
+- `full_image`
+
+Aggregations:
+
+- `bbox_midpoint`
+- `bbox_mean`
+- `inner50_median`
+
+Score fields:
+
+- `object_depth`
+
+Total candidate features:
+
+- `5 x 3 x 1 = 15`
+
+This is a large simplification relative to Study 04:
+
+- Study 04 used `108` features
+- Study 06 uses only `15`
+
+### What we did
+
+Study 06 had three layers.
+
+#### Layer A: build an all-images representation cache
+
+We created a new cache for all images under the selected subset of:
+
+- contexts
+- aggregations
+- score fields
+
+To avoid recomputing everything from scratch, we reused compatible rows from
+older caches whenever possible.
+
+From the final cache summary:
+
+- reused rows from Study 04: `21,600`
+- newly computed rows: `204,360`
+
+#### Layer B: make the run resumable and robust
+
+Because the study is much heavier than Study 04, the implementation had to be
+more fault-tolerant.
+
+We added two important protections:
+
+1. save progress while the cache is being built
+   - `representation_records.csv` is written incrementally
+   - the run can resume after interruption
+
+2. handle tiny or nearly-flat bounding boxes safely
+   - if a resized inner or surrounding bbox collapses, the code falls back to
+     the full bbox instead of crashing the whole run
+
+This matters because the all-images run would otherwise be too fragile.
+
+#### Layer C: rerun the depth-only modeling on the simpler feature table
+
+Once the cache existed, we:
+
+1. built one fused feature row per image
+2. ranked all `15` single features
+3. trained a random forest on the selected subset
+4. compared the best single feature to the learned model
+
+### Main result
+
+Best single feature:
+
+- `bbox_only__bbox_midpoint__object_depth`
+- `CV MAE = 24.21 m`
+
+Best overall model:
+
+- `random_forest_top_24`
+- in practice it used all `15` available features
+- `CV MAE = 20.92 m`
+- `CV RMSE = 26.83 m`
+- `CV R^2 = 0.505`
+
+Improvement vs best single:
+
+- `MAE = -3.29 m`
+- about `13.6%` relative improvement in MAE
+
+### What the feature ranking says
+
+The single-feature leaderboard again showed the same core winner:
+
+- `bbox_only__bbox_midpoint__object_depth`
+
+The next-best features remained local:
+
+- `bbox_expand_1_5x__bbox_midpoint__object_depth`
+- `bbox_only__inner50_median__object_depth`
+- `bbox_expand_2x__bbox_midpoint__object_depth`
+
+At the bottom of the table were mainly:
+
+- `bbox_mean` variants
+- `full_image` variants
+
+So the simplified full-data study still supports the same ordering:
+
+- `bbox_only` is best
+- `1.5x` is the strongest nearby-context alternative
+- `2x` still helps
+- `4x` is weaker
+- `full_image` is consistently the weakest context family
+
+It also keeps the same aggregation story:
+
+- `bbox_midpoint` is strongest
+- `inner50_median` is second
+- `bbox_mean` is weakest
+
+### What the random forest learned
+
+The feature importances were dominated by:
+
+- `bbox_only__bbox_midpoint__object_depth`
+- `bbox_expand_1_5x__bbox_midpoint__object_depth`
+- `bbox_only__inner50_median__object_depth`
+- `bbox_expand_2x__bbox_midpoint__object_depth`
+
+If we group importance by context, the order is:
+
+- `bbox_only`
+- `bbox_expand_1_5x`
+- `bbox_expand_2x`
+- `bbox_expand_4x`
+- `full_image`
+
+If we group importance by aggregation, the order is:
+
+- `bbox_midpoint`
+- `inner50_median`
+- `bbox_mean`
+
+This is important because the model did not contradict the earlier studies.
+It amplified their strongest recurring pattern:
+
+- tight local crops carry the main signal
+- immediate local context helps as correction
+- broad global context is not the core solution
+
+### What the prediction table shows
+
+Study 06 also exposed a strong calibration pattern across exact distance:
+
+- short distances such as `20 m` and `30 m` are strongly overpredicted
+- middle distances around `80 m` to `100 m` are much better behaved
+- long distances such as `125 m` and especially `150 m` are strongly
+  underpredicted
+
+So even though the learned model improved the overall error, it still showed
+clear distance compression:
+
+- near distances are pushed upward
+- far distances are pulled downward
+
+This means the model learns a useful depth-only signal, but it still does not
+fully solve the conversion from relative depth to metric distance.
+
+### What this means
+
+Study 06 is valuable because it confirms several Study 04 ideas under harder,
+more realistic conditions.
+
+It supports the following conclusions:
+
+- the best single raw depth signal is still a tight crop around the drone
+- local context still helps more than broad scene context
+- `bbox_midpoint` is still the best simple aggregation
+- a depth-only random forest still beats any single raw-depth feature
+- this remains true even after we remove the ring and percentile feature
+  families
+
+So Study 06 strengthens the claim that the depth signal we found is not a
+small-sample artifact and not dependent on a very large handcrafted feature
+space.
+
+At the same time, it also highlights a remaining limitation:
+
+- the hardest near/far distances still need help beyond raw relative depth
+
+## 14. What the Graphs Show
 
 The graph-heavy analysis appears mainly in Study 03 and Study 04.
 
-### 13.1 Study 03 graph reading guide
+Study 06 currently relies on CSV and JSON report outputs rather than a
+dedicated graph package, so the visual guide below still focuses on the two
+studies that already generated analysis folders.
+
+### 14.1 Study 03 graph reading guide
 
 Main folder:
 
@@ -919,7 +1190,7 @@ What they teach:
 - the worst cells are still driven mainly by distance extremes
 - condition effects are secondary
 
-### 13.2 Study 04 graph reading guide
+### 14.2 Study 04 graph reading guide
 
 Main folder:
 
@@ -1010,7 +1281,7 @@ Together these show:
   is already hard
 - weather and time remain secondary effects
 
-## 14. What Worked Best and Worst
+## 15. What Worked Best and Worst
 
 ### What worked best
 
@@ -1019,6 +1290,8 @@ Together these show:
   context-relative alternative
 - `bbox_expand_2x` as a useful correction scale in multiscale settings
 - tree-based depth-only models once enough balanced data was available
+- the Study 06 all-images random forest when restricted to the simple
+  `object_depth` subset
 
 ### What worked poorly
 
@@ -1026,8 +1299,10 @@ Together these show:
 - very wide zooms like `8x`, `10x`, `16x` as dominant solutions
 - ring-based scores on `bbox_only`
 - assuming one global simple linear score would solve the whole range
+- expecting raw depth alone to fully solve the hardest near/far calibration
+  errors
 
-## 15. Why We Think the Results Look This Way
+## 16. Why We Think the Results Look This Way
 
 The overall pattern is actually quite consistent once we separate local and
 global context.
@@ -1052,14 +1327,21 @@ global context.
 - when reduced to a small number of scalar features, that extra context adds
   more noise than help
 
-### Why tree models helped in Study 04
+### Why tree models helped in Study 04 and Study 06
 
 - the best relationships are not fully linear
 - different depth features matter in different image situations
 - a tree ensemble can learn nonlinear combinations and conditional use of
   features without forcing one fixed slope for everyone
 
-## 16. Important Limitations
+### Why Study 06 still struggles at the distance extremes
+
+- monocular depth remains a relative signal, not a direct metric one
+- the mapping from raw depth to meters compresses the ends of the range
+- adding more data helped the model learn the pattern better, but did not
+  remove the underlying ambiguity at the closest and farthest distances
+
+## 17. Important Limitations
 
 - this is still synthetic-data-only analysis
 - the depth model outputs relative depth, not metric depth directly
@@ -1068,8 +1350,11 @@ global context.
 - even the best depth-only model still has meaningful error at the hardest
   distances
 - Study 04 is a lower-model study, not the final stacked production model
+- Study 06 uses the full dataset, but not a balanced one, so its headline
+  metrics should not be treated as directly identical to the Study 04
+  benchmark
 
-## 17. What We Conclude and What Comes Next
+## 18. What We Conclude and What Comes Next
 
 The second attempt gives a much clearer answer than we had at the start.
 
@@ -1096,17 +1381,24 @@ Study 04 shows that:
 - a tree model can beat the best linear fusion model
 - the gain looks statistically meaningful, not random
 
+Study 06 strengthens that conclusion by showing:
+
+- the same core single feature still wins on the full dataset
+- a much simpler raw-depth subset is still enough for a strong tree model
+- the depth-only story survives even after major feature-space simplification
+
 ### What should happen next
 
 The next attempt should likely:
 
 1. keep the Study 04 depth-only lower model idea
-2. use its output as a strong learned depth feature
-3. combine that lower-model output with the additional non-depth signals from
+2. keep the Study 06 lesson that a compact raw-depth subset is already useful
+3. use the learned depth-only output as a strong learned depth feature
+4. combine that lower-model output with the additional non-depth signals from
    attempt 1 in a final stacked model
-4. test whether that full model improves near/far performance further
+5. test whether that full model improves near/far performance further
 
-## 18. Files Produced by This Attempt
+## 19. Files Produced by This Attempt
 
 Main study folders:
 
@@ -1114,6 +1406,7 @@ Main study folders:
 - `studies/study_02_expanded_10_per_stratum`
 - `studies/study_03_multiscale_fusion`
 - `studies/study_04_depth_only_models_30_per_stratum`
+- `studies/study_06_all_images_midpoint_random_forest`
 
 Most important report files:
 
@@ -1134,7 +1427,15 @@ Most important report files:
   - `artifacts/reports/depth_only_paired_model_comparisons.csv`
   - `artifacts/reports/analysis/study_04_analysis.md`
 
-## 19. Bottom Line
+- Study 06
+  - `artifacts/features/summary.json`
+  - `artifacts/reports/summary.json`
+  - `artifacts/reports/single_feature_cv_metrics.csv`
+  - `artifacts/reports/subset_random_forest_metrics.csv`
+  - `artifacts/reports/subset_random_forest_feature_importances.csv`
+  - `artifacts/reports/subset_random_forest_predictions.csv`
+
+## 20. Bottom Line
 
 Attempt 2 succeeded in answering the question it set out to study.
 
@@ -1147,6 +1448,8 @@ We ended with a stronger and more precise answer:
 - broad-scene context is not the main path forward
 - a learned depth-only model can improve significantly over any single
   handcrafted score
+- that result still survives when we move to the full dataset and shrink the
+  feature space down to simple raw `object_depth`
 
 So the main output of attempt 2 is not just a winning score. It is a much
 clearer depth-design strategy for the next full model.

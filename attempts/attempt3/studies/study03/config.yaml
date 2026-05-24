@@ -1,0 +1,134 @@
+study_name: study03_noisy_bbox_aggregation_random_forest
+
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+study:
+  context_windows:
+    - name: bbox_expand_4x
+      scale: 4.0
+    - name: bbox_expand_2x
+      scale: 2.0
+    - name: bbox_expand_1_5x
+      scale: 1.5
+    - name: bbox_only
+      scale: 1.0
+  aggregation_methods:
+    - bbox_midpoint
+    - bbox_mean
+    - inner50_median
+  raw_depth_feature_name: bbox_only__inner50_median__object_depth__jitter_median
+  jitter_boxes:
+    - name: original
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_left
+      dx_frac: -0.08
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_right
+      dx_frac: 0.08
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_up
+      dx_frac: 0.0
+      dy_frac: -0.08
+      scale: 1.0
+    - name: shift_down
+      dx_frac: 0.0
+      dy_frac: 0.08
+      scale: 1.0
+    - name: scale_down
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 0.92
+    - name: scale_up
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.08
+  progress_log_every_samples: 25
+
+split:
+  seed: 20260520
+  holdout_fraction: 0.15
+  num_folds: 5
+
+lower_model:
+  score_feature_name: depth_lower_model_prediction
+  inner_num_folds: 5
+  inner_seed: 20260520
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_leaf: 2
+    max_features: sqrt
+    random_state: 20260518
+
+upper_random_forest:
+  candidate_configs:
+    - name: rf_shallow
+      n_estimators: 300
+      max_depth: 10
+      min_samples_leaf: 5
+      max_features: sqrt
+      random_state: 20260520
+    - name: rf_medium
+      n_estimators: 300
+      max_depth: 16
+      min_samples_leaf: 3
+      max_features: sqrt
+      random_state: 20260520
+    - name: rf_deep
+      n_estimators: 300
+      max_depth: 24
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+    - name: rf_unbounded
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+  model_candidate_names:
+    raw_depth_only_rf:
+      - rf_shallow
+      - rf_medium
+      - rf_deep
+      - rf_unbounded
+    geometry_metadata_rf:
+      - rf_shallow
+      - rf_medium
+      - rf_deep
+      - rf_unbounded
+    raw_depth_geometry_metadata_rf:
+      - rf_shallow
+      - rf_medium
+      - rf_deep
+      - rf_unbounded
+    small_rf_depth_only_rf:
+      - rf_shallow
+      - rf_medium
+      - rf_deep
+      - rf_unbounded
+    stacked_rf_depth_geometry_metadata_rf:
+      - rf_shallow
+      - rf_medium
+      - rf_deep
+      - rf_unbounded
+
+modeling:
+  model_names:
+    - raw_depth_only_rf
+    - geometry_metadata_rf
+    - raw_depth_geometry_metadata_rf
+    - small_rf_depth_only_rf
+    - stacked_rf_depth_geometry_metadata_rf
+
+output_root: attempts/attempt3/studies/study03/artifacts

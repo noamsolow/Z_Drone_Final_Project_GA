@@ -1,0 +1,49 @@
+winner_model_name,baseline_model_name,baseline_model_label,true_distance_m,mae_improvement_m,mean_relative_error_improvement,mean_signed_error_delta
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,20.0,0.36980581470922225,0.018490290735460935,2.0803157035640663
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,30.0,-0.06606937017664194,-0.0022023123392213573,0.15597202921969355
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,40.0,1.0572210418345929,0.02643052604586482,-1.7257959912467173
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,50.0,3.5491592919003274,0.07098318583800656,-3.7004892502597198
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,60.0,1.1380734754634148,0.01896789125772358,-1.7999623603063242
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,70.0,0.42829573931207676,0.006118510561601037,-0.8691725561771264
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,80.0,0.6602652609016015,0.008253315761270058,-1.450283204475964
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,90.0,0.4265707506875387,0.004739675007639305,-0.505744016779631
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,100.0,-0.12485558239475658,-0.0012485558239475752,1.4449773761088558
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,115.0,-0.44477899409202504,-0.0038676434268871684,1.2548021335569386
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,125.0,1.5281592936323065,0.012225274349058443,1.5535774296491436
+stacked_rf_depth_geometry_metadata_linear,raw_depth_geometry_metadata_linear,Raw Depth + Geometry + Metadata,150.0,3.2665926754780372,0.021777284503186944,3.2665926754780372
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,20.0,0.6813999185346074,0.034069995926730434,1.9243768822148386
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,30.0,0.008877546152049831,0.0002959182050681908,0.3679377971914626
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,40.0,0.9877765960824245,0.024694414902060646,-1.8877250210700263
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,50.0,3.732121607512358,0.07464243215024707,-4.1208377679103805
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,60.0,1.9421489340909925,0.0323691489015166,-2.641934971122403
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,70.0,0.3468705887788861,0.0049552941254126515,-1.0723188619591095
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,80.0,0.8509045730756792,0.010636307163446018,-1.8151670438685148
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,90.0,0.1205608537868379,0.0013395650420759686,0.15295404369699472
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,100.0,0.37684688717326154,0.0037684688717326137,1.879736713019482
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,115.0,0.02867554222013524,0.0002493525410446479,1.5246368675952349
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,125.0,2.1538748003651325,0.01723099840292104,2.245444162606944
+stacked_rf_depth_geometry_metadata_linear,geometry_metadata_linear,Geometry + Metadata,150.0,3.7371708981867826,0.024914472654578523,3.7371708981867826
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,20.0,13.134711044264794,0.6567355522132398,-35.074068169008314
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,30.0,13.534735784327534,0.4511578594775842,-32.347254800486695
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,40.0,12.91511672018341,0.32287791800458515,-15.582340497139647
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,50.0,4.472527098949804,0.08945054197899605,-2.400593315759666
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,60.0,3.60685086729411,0.06011418112156852,-0.30720242046616164
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,70.0,4.510061744397433,0.0644294534913919,0.7397862305383596
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,80.0,3.6754418389166474,0.04594302298645811,7.0357664548133165
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,90.0,4.801497440732122,0.05334997156369026,8.321483427061127
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,100.0,7.835626425523359,0.07835626425523363,5.144080881143452
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,115.0,9.689513991607718,0.08425664340528452,10.756292064166939
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,125.0,11.521499893483835,0.0921719991478707,11.613069255725646
+stacked_rf_depth_geometry_metadata_linear,small_rf_depth_only_linear,Small RF Depth Only,150.0,14.111768993370589,0.094078459955804,14.111768993370589
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,20.0,47.89772841977748,2.3948864209888736,-70.08858457768486
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,30.0,39.99456273710215,1.3331520912367378,-59.33996486994257
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,40.0,30.694312814608207,0.7673578203652052,-36.1579047566068
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,50.0,17.817517697600994,0.35635035395201997,-19.808259534058458
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,60.0,7.149230276159688,0.11915383793599493,-8.39024901979373
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,70.0,0.1267911733844116,0.0018113024769201569,-2.7075522316514586
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,80.0,-8.954377945521705,-0.11192972431902129,6.602477566874141
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,90.0,-0.34199855731382556,-0.003799983970153617,16.301945773738954
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,100.0,11.43778393886717,0.1143778393886717,18.512574682906823
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,115.0,26.626573223141722,0.23153541933166716,29.174805106410012
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,125.0,30.280802583063142,0.24224642066450514,30.372371945304955
+stacked_rf_depth_geometry_metadata_linear,raw_depth_only_linear,Raw Depth Only,150.0,39.30523073886941,0.2620348715924629,39.30523073886941

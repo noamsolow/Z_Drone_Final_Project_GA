@@ -1,0 +1,43 @@
+{
+  "study_name": "study02_stacked_big_random_forest",
+  "num_merged_rows": 13864,
+  "num_dev_rows": 11784,
+  "num_test_rows": 2080,
+  "selected_lower_model_name": "random_forest_top_24",
+  "selected_lower_feature_names": [
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_only__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "full_image__bbox_midpoint__object_depth",
+    "full_image__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "full_image__bbox_mean__object_depth"
+  ],
+  "num_selected_lower_features": 15,
+  "winner_model_name": "raw_depth_geometry_metadata_rf",
+  "winner_candidate_name": "rf_unbounded",
+  "winner_cv_oof_mae": 7.633880897905884,
+  "winner_cv_oof_mean_relative_error": 0.09632801309104536,
+  "winner_test_mae": 7.455447625573414,
+  "winner_test_mean_relative_error": 0.09376445201241357,
+  "selected_upper_candidates_by_model": {
+    "raw_depth_only_rf": "rf_shallow",
+    "geometry_metadata_rf": "rf_deep",
+    "raw_depth_geometry_metadata_rf": "rf_unbounded",
+    "small_rf_depth_only_rf": "rf_shallow",
+    "stacked_rf_depth_geometry_metadata_rf": "rf_deep"
+  },
+  "did_unbounded_depth_win_any_model": true,
+  "merged_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study02\\artifacts\\features\\merged_feature_table.csv",
+  "cv_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study02\\artifacts\\reports\\cv_metrics.json",
+  "test_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study02\\artifacts\\reports\\test_metrics.json",
+  "upper_rf_candidate_metrics_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study02\\artifacts\\reports\\upper_rf_candidate_metrics.csv"
+}

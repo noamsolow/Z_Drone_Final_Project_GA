@@ -1,0 +1,56 @@
+study_name: study_06_all_images_midpoint_random_forest
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+study:
+  use_all_images: true
+  sample_seed: 20260518
+  progress_log_every_samples: 25
+  progress_log_every_contexts: 1
+  progress_log_every_single_features: 10
+  inner_bbox_scale: 0.5
+  surrounding_bbox_scale: 1.8
+  context_windows:
+    - name: full_image
+      scale: null
+    - name: bbox_expand_4x
+      scale: 4.0
+    - name: bbox_expand_2x
+      scale: 2.0
+    - name: bbox_expand_1_5x
+      scale: 1.5
+    - name: bbox_only
+      scale: 1.0
+  aggregation_methods:
+    - inner50_median
+    - bbox_mean
+    - bbox_midpoint
+  score_fields:
+    - object_depth
+
+modeling:
+  enabled: true
+  num_folds: 5
+  cv_seed: 20260518
+  top_feature_pool_sizes:
+    - 12
+    - 24
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_leaf: 2
+    max_features: sqrt
+    random_state: 20260518
+
+existing_feature_sources:
+  representation_records_csvs:
+    - attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/artifacts/features/representation_records.csv
+    - attempts/second attempt/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
+    - attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
+
+output_root: attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/artifacts

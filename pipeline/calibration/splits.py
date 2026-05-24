@@ -76,6 +76,55 @@ def _allocate_test_counts(
     return floor_counts
 
 
+def make_stratified_cv_folds(
+    records: Sequence[Any],
+    num_folds: int = 5,
+    seed: int = 0,
+) -> Dict[str, Any]:
+    """Create deterministic CV folds using the first-attempt strata definition."""
+    if not records:
+        raise ValueError("Cannot split an empty record sequence.")
+    if num_folds < 2:
+        raise ValueError("num_folds must be at least 2.")
+
+    rng = random.Random(seed)
+    stratum_to_indices: Dict[str, List[int]] = defaultdict(list)
+    strata_by_index: Dict[int, str] = {}
+
+    for index, record in enumerate(records):
+        stratum_key = _make_stratum_key(record)
+        stratum_to_indices[stratum_key].append(index)
+        strata_by_index[index] = stratum_key
+
+    fold_buckets: List[List[int]] = [[] for _ in range(num_folds)]
+    all_indices = set(range(len(records)))
+    for stratum_key, indices in sorted(stratum_to_indices.items()):
+        shuffled_indices = list(indices)
+        rng.shuffle(shuffled_indices)
+        for offset, index in enumerate(shuffled_indices):
+            fold_buckets[offset % num_folds].append(index)
+
+    cv_folds: List[Dict[str, Any]] = []
+    for fold_index, val_indices in enumerate(fold_buckets):
+        val_sorted = sorted(val_indices)
+        val_set = set(val_sorted)
+        train_sorted = sorted(all_indices - val_set)
+        cv_folds.append(
+            {
+                "fold_index": fold_index,
+                "train_indices": train_sorted,
+                "val_indices": val_sorted,
+            }
+        )
+
+    return {
+        "seed": seed,
+        "num_folds": num_folds,
+        "cv_folds": cv_folds,
+        "strata_by_index": {str(index): stratum for index, stratum in strata_by_index.items()},
+    }
+
+
 def make_fixed_holdout_and_cv_splits(
     records: Sequence[Any],
     holdout_fraction: float = 0.15,

@@ -1,0 +1,51 @@
+{
+  "selected_lower_model_name": "random_forest_top_24",
+  "selected_lower_feature_names": [
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_only__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "full_image__bbox_midpoint__object_depth",
+    "full_image__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "full_image__bbox_mean__object_depth"
+  ],
+  "num_selected_lower_features": 15,
+  "random_forest_params": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 20260518
+  },
+  "study06_metrics_row": {
+    "model_name": "random_forest_top_24",
+    "model_family": "random_forest",
+    "num_features": "15",
+    "feature_names": "bbox_only__bbox_midpoint__object_depth | bbox_expand_1_5x__bbox_midpoint__object_depth | bbox_only__inner50_median__object_depth | bbox_expand_2x__bbox_midpoint__object_depth | bbox_expand_1_5x__inner50_median__object_depth | bbox_expand_4x__bbox_midpoint__object_depth | bbox_expand_2x__inner50_median__object_depth | bbox_expand_4x__inner50_median__object_depth | bbox_only__bbox_mean__object_depth | bbox_expand_4x__bbox_mean__object_depth | bbox_expand_2x__bbox_mean__object_depth | full_image__bbox_midpoint__object_depth | full_image__inner50_median__object_depth | bbox_expand_1_5x__bbox_mean__object_depth | full_image__bbox_mean__object_depth",
+    "cv_mae": 20.91989393894323,
+    "cv_median_absolute_error": "16.564543650793656",
+    "cv_mean_relative_error": 0.3783923538594781,
+    "cv_median_relative_error": "0.2268771164021162",
+    "cv_rmse": "26.83476812023357",
+    "cv_r2": "0.5045655357561546",
+    "cv_mean_signed_error": "0.2720174717586995",
+    "cv_median_signed_error": "1.1657275132275142",
+    "cv_p90_absolute_error": "45.34467923280424",
+    "cv_p95_absolute_error": "53.63292460317462",
+    "cv_max_absolute_error": "97.1455555555555",
+    "cv_within_5m_rate": "0.16980881571959638",
+    "cv_within_10m_rate": "0.3218268720127456",
+    "cv_within_20m_rate": "0.5749468932554435",
+    "cv_overprediction_rate": "0.5217737652681891",
+    "cv_underprediction_rate": "0.4782262347318109",
+    "rank": "1"
+  }
+}

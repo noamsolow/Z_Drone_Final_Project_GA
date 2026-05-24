@@ -228,3 +228,18 @@ def fit_depth_geometry_metadata_linear_model(records: Sequence[Any]) -> LinearRe
         continuous_feature_names=["relative_depth"] + GEOMETRY_FEATURE_NAMES,
         categorical_feature_names=["weather", "time_of_day"],
     )
+
+
+def fit_custom_linear_model(
+    records: Sequence[Any],
+    model_name: str,
+    continuous_feature_names: Iterable[str],
+    categorical_feature_names: Iterable[str],
+) -> LinearRegressionModel:
+    """Fit OLS on an arbitrary mix of continuous and categorical features."""
+    return _fit_linear_model(
+        records=records,
+        model_name=model_name,
+        continuous_feature_names=continuous_feature_names,
+        categorical_feature_names=categorical_feature_names,
+    )

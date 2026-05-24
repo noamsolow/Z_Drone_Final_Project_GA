@@ -1,0 +1,20 @@
+{
+  "study_name": "study_06_all_images_midpoint_random_forest",
+  "config_path": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\config.yaml",
+  "num_image_rows": 15064,
+  "num_available_features": 15,
+  "score_fields": [
+    "object_depth"
+  ],
+  "num_folds": 5,
+  "best_single_feature": "bbox_only__bbox_midpoint__object_depth",
+  "best_single_feature_cv_mae": 24.208941441547754,
+  "best_random_forest_model": "random_forest_top_24",
+  "best_random_forest_cv_mae": 20.91989393894323,
+  "best_random_forest_num_features": 15,
+  "fused_features_csv": "attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\fused_features\\depth_only_feature_table.csv",
+  "single_feature_metrics_csv": "attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\reports\\single_feature_cv_metrics.csv",
+  "random_forest_metrics_csv": "attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\reports\\subset_random_forest_metrics.csv",
+  "feature_importances_csv": "attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\reports\\subset_random_forest_feature_importances.csv",
+  "predictions_csv": "attempts\\second attempt\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\reports\\subset_random_forest_predictions.csv"
+}

@@ -1,0 +1,33 @@
+study_name: study01_linear_stacked_depth_comparison
+
+sources:
+  attempt1_features_csv: attempts/attempt1/artifacts/features/features.csv
+  study06_fused_features_csv: attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv
+  study06_metrics_csv: attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv
+
+split:
+  seed: 20260520
+  holdout_fraction: 0.15
+  num_folds: 5
+
+lower_model:
+  selected_model_name: random_forest_top_24
+  inner_num_folds: 5
+  inner_seed: 20260520
+  score_feature_name: depth_lower_model_prediction
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_leaf: 2
+    max_features: sqrt
+    random_state: 20260518
+
+modeling:
+  model_names:
+    - raw_depth_only_linear
+    - geometry_metadata_linear
+    - raw_depth_geometry_metadata_linear
+    - small_rf_depth_only_linear
+    - stacked_rf_depth_geometry_metadata_linear
+
+output_root: attempts/attempt3/studies/study01/artifacts

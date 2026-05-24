@@ -262,18 +262,31 @@ def compute_depth_representation(
 
     image_height, image_width = depth_map.shape[:2]
     full_bbox = clamp_bbox(bbox, image_width=image_width, image_height=image_height)
-    focus_bbox = resize_bbox_about_center(
-        bbox=full_bbox,
-        scale=inner_bbox_scale,
-        image_width=image_width,
-        image_height=image_height,
-    )
-    surrounding_bbox = resize_bbox_about_center(
-        bbox=full_bbox,
-        scale=surrounding_bbox_scale,
-        image_width=image_width,
-        image_height=image_height,
-    )
+    try:
+        focus_bbox = resize_bbox_about_center(
+            bbox=full_bbox,
+            scale=inner_bbox_scale,
+            image_width=image_width,
+            image_height=image_height,
+        )
+    except ValueError:
+        # Very small or nearly-flat detections can collapse when shrunk around
+        # center. In that case, fall back to the full bbox rather than failing
+        # the entire study run.
+        focus_bbox = full_bbox
+
+    try:
+        surrounding_bbox = resize_bbox_about_center(
+            bbox=full_bbox,
+            scale=surrounding_bbox_scale,
+            image_width=image_width,
+            image_height=image_height,
+        )
+    except ValueError:
+        # Tight edge cases can also collapse when expanded and clamped near
+        # image borders. Falling back to the full bbox keeps the representation
+        # defined; the ring terms will naturally collapse to zero.
+        surrounding_bbox = full_bbox
 
     if aggregation_method == "inner50_median":
         object_depth = float(np.median(_extract_bbox_values(depth_map, focus_bbox)))
