@@ -35,4 +35,4 @@ study:
     - object_minus_ring
     - object_minus_ring_normalized
 
-output_root: attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts
+output_root: attempts/attempt2/studies/study_02_expanded_10_per_stratum/artifacts

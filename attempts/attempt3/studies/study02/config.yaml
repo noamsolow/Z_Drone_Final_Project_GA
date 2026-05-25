@@ -2,8 +2,8 @@ study_name: study02_stacked_big_random_forest
 
 sources:
   attempt1_features_csv: attempts/attempt1/artifacts/features/features.csv
-  study06_fused_features_csv: attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv
-  study06_metrics_csv: attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv
+  study06_fused_features_csv: attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv
+  study06_metrics_csv: attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv
 
 split:
   seed: 20260520

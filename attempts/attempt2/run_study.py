@@ -60,7 +60,7 @@ def run_study(
     if not features_csv_path.exists():
         raise FileNotFoundError(
             "Expected cached representation records at {}. "
-            "Run attempts/second attempt/run_extract_features.py first.".format(features_csv_path)
+            "Run attempts/attempt2/run_extract_features.py first.".format(features_csv_path)
         )
 
     records = read_depth_representation_records_csv(features_csv_path)

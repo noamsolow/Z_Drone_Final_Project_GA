@@ -160,7 +160,7 @@ Main analysis files:
 To regenerate the graph package:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/analyze_study_04.py"
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/analyze_study_04.py"
 ```
 
 ## Dependency Note
@@ -181,19 +181,19 @@ Recommended order:
 1. Build or extend the Study 04 feature cache:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/run_extend_feature_cache.py"
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/run_extend_feature_cache.py"
 ```
 
 2. Run the classic per-method ranking for the same Study 04 cache:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/run_study.py" --config "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/config.yaml"
+.\.venv\Scripts\python.exe "attempts/attempt2/run_study.py" --config "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/config.yaml"
 ```
 
 3. Run the dedicated depth-only lower-model search:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/run_depth_only_model_study.py"
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/run_depth_only_model_study.py"
 ```
 
 If you want the tree-based models too, install:

@@ -77,9 +77,9 @@ multiscale_fusion:
       - bbox_expand_1_5x__bbox_midpoint__object_minus_ring
 
 existing_feature_sources:
-  selected_samples_csv: attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/selected_samples.csv
+  selected_samples_csv: attempts/attempt2/studies/study_02_expanded_10_per_stratum/artifacts/features/selected_samples.csv
   representation_records_csvs:
-    - attempts/second attempt/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
-    - attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
+    - attempts/attempt2/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
+    - attempts/attempt2/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
 
-output_root: attempts/second attempt/studies/study_03_multiscale_fusion/artifacts
+output_root: attempts/attempt2/studies/study_03_multiscale_fusion/artifacts

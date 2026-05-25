@@ -1,14 +1,13 @@
 """
-Study 06: all-images midpoint-only random forest.
+Study 06: all-images selected-subset random forest.
 
 This study mirrors the core Study 04 idea, but changes two things:
-
 - use every available dataset image instead of a 30-per-stratum sample
-- keep only `bbox_midpoint` aggregation features
+- keep only a selected subset of contexts and aggregations from the config
 
-The script reuses any cached midpoint rows from earlier studies, computes only
-the missing midpoint rows, then trains and evaluates random-forest models on
-the midpoint-only fused feature table.
+The script reuses any cached rows from earlier studies, computes only the
+missing rows for the configured subset, then trains and evaluates random-forest
+models on the fused feature table.
 """
 
 from __future__ import annotations
@@ -16,8 +15,10 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 from collections import Counter, defaultdict
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -58,7 +59,7 @@ DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.yaml")
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run Study 06 all-images midpoint-only random forest.")
+    parser = argparse.ArgumentParser(description="Run Study 06 all-images selected-subset random forest.")
     parser.add_argument(
         "--config",
         type=Path,
@@ -77,6 +78,19 @@ def load_config(config_path: Optional[Path] = None) -> Dict[str, Any]:
     path = Path(config_path or DEFAULT_CONFIG_PATH)
     with path.open("r", encoding="utf-8") as handle:
         return yaml.safe_load(handle)
+
+
+def _resolve_score_fields(study_config: Dict[str, Any]) -> List[str]:
+    requested = list(study_config.get("score_fields", DEPTH_SCORE_FIELD_NAMES))
+    invalid = [name for name in requested if name not in DEPTH_SCORE_FIELD_NAMES]
+    if invalid:
+        raise ValueError(
+            "Unsupported score_fields {}. Expected a subset of {}.".format(
+                invalid,
+                DEPTH_SCORE_FIELD_NAMES,
+            )
+        )
+    return requested
 
 
 def _normalize_path(path: str) -> str:
@@ -215,6 +229,36 @@ def _write_csv_rows(rows: Iterable[Dict[str, Any]], output_path: Path) -> None:
             writer.writerow(row)
 
 
+def _append_representation_records_csv(
+    records: Sequence[DepthRepresentationRecord],
+    output_path: Path,
+) -> None:
+    if not records:
+        return
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    file_exists = output_path.exists()
+    with output_path.open("a", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=DepthRepresentationRecord.__dataclass_fields__.keys())
+        if not file_exists or output_path.stat().st_size == 0:
+            writer.writeheader()
+        for record in records:
+            writer.writerow(asdict(record))
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def _write_feature_summary_checkpoint(
+    output_path: Path,
+    all_records: Sequence[DepthRepresentationRecord],
+    selected_sample_records: Sequence[SelectedSampleRecord],
+    summary_payload: Dict[str, Any],
+) -> None:
+    summary = summarize_depth_representation_records(all_records, selected_sample_records)
+    summary.update(summary_payload)
+    summary["representation_records_csv"] = str(output_path.parent / "representation_records.csv")
+    _write_json(summary, output_path)
+
+
 def _build_feature_cache(
     resolved_config: Dict[str, Any],
     config_path: Path,
@@ -224,11 +268,16 @@ def _build_feature_cache(
     output_root = Path(resolved_config["output_root"])
     features_dir = output_root / "features"
     features_dir.mkdir(parents=True, exist_ok=True)
+    features_csv_path = features_dir / "representation_records.csv"
+    features_summary_path = features_dir / "summary.json"
 
     study_config = resolved_config.get("study", {})
-    source_paths = [
+    source_paths = []
+    if features_csv_path.exists():
+        source_paths.append(features_csv_path)
+    source_paths.extend(
         Path(path) for path in resolved_config.get("existing_feature_sources", {}).get("representation_records_csvs", [])
-    ]
+    )
     dataset_root = Path(resolved_config["dataset_root"])
     strict = bool(resolved_config.get("strict", True))
 
@@ -241,6 +290,7 @@ def _build_feature_cache(
     context_specs = resolve_context_window_specs(study_config.get("context_windows"))
     context_order = [spec.name for spec in context_specs]
     aggregation_methods = list(study_config.get("aggregation_methods", ["bbox_midpoint"]))
+    score_fields = _resolve_score_fields(study_config)
     for aggregation_method in aggregation_methods:
         if aggregation_method not in SUPPORTED_AGGREGATION_METHODS:
             raise ValueError(
@@ -281,6 +331,7 @@ def _build_feature_cache(
         "selected_samples_csv": str(selected_samples_output_path),
         "desired_contexts": list(context_order),
         "desired_aggregations": list(aggregation_methods),
+        "desired_score_fields": list(score_fields),
         "reused_rows": len(existing_records_by_key),
         "missing_rows_to_compute": len(missing_keys),
         "total_expected_rows": total_expected_rows,
@@ -290,7 +341,7 @@ def _build_feature_cache(
 
     if verbose:
         print(
-            "[study-06] All-images midpoint setup\n"
+            "[study-06] All-images selected-subset setup\n"
             "  config: {}\n"
             "  dataset_root: {}\n"
             "  total_images: {}\n"
@@ -298,6 +349,7 @@ def _build_feature_cache(
             "  selected_images: {}\n"
             "  desired_contexts: {}\n"
             "  desired_aggregations: {}\n"
+            "  desired_score_fields: {}\n"
             "  reusable_rows: {}\n"
             "  missing_rows_to_compute: {}\n"
             "  total_expected_rows: {}".format(
@@ -308,6 +360,7 @@ def _build_feature_cache(
                 len(selected_sample_records),
                 ", ".join(context_order),
                 ", ".join(aggregation_methods),
+                ", ".join(score_fields),
                 len(existing_records_by_key),
                 len(missing_keys),
                 total_expected_rows,
@@ -316,10 +369,36 @@ def _build_feature_cache(
 
     if dry_run:
         summary_payload["dry_run"] = True
-        _write_json(summary_payload, features_dir / "summary.json")
+        _write_json(summary_payload, features_summary_path)
         return summary_payload
 
     all_records: List[DepthRepresentationRecord] = list(existing_records_by_key.values())
+    if not features_csv_path.exists():
+        existing_sorted = sorted(
+            all_records,
+            key=lambda record: (
+                float(record.true_distance_m),
+                str(record.weather),
+                str(record.time_of_day),
+                str(record.image_path),
+                str(record.context_window),
+                str(record.aggregation_method),
+            ),
+        )
+        write_depth_representation_records_csv(existing_sorted, features_csv_path)
+        _write_feature_summary_checkpoint(
+            output_path=features_summary_path,
+            all_records=existing_sorted,
+            selected_sample_records=selected_sample_records,
+            summary_payload=summary_payload,
+        )
+    else:
+        _write_feature_summary_checkpoint(
+            output_path=features_summary_path,
+            all_records=all_records,
+            selected_sample_records=selected_sample_records,
+            summary_payload=summary_payload,
+        )
 
     if missing_keys:
         sample_lookup = {_normalize_path(str(sample.image_path)): sample for sample in all_samples}
@@ -345,6 +424,7 @@ def _build_feature_cache(
         progress_log_every_contexts = max(1, int(study_config.get("progress_log_every_contexts", 1)))
 
         for sample_index, selected_sample in enumerate(selected_sample_records, start=1):
+            new_records_for_sample: List[DepthRepresentationRecord] = []
             missing_context_specs = []
             for context_spec in context_specs:
                 missing_aggs = [
@@ -389,11 +469,11 @@ def _build_feature_cache(
                     bbox=sample.annotation.bbox,
                     context_spec=context_spec,
                 )
-                depth_map = estimate_relative_depth(depth_model, crop_data.crop_rgb)
+                depth_map = estimate_relative_depth(crop_data["image"], depth_model)
                 for aggregation_method in missing_aggs:
                     representation = compute_depth_representation(
                         depth_map=depth_map,
-                        local_bbox=crop_data.local_bbox,
+                        bbox=crop_data["local_bbox"],
                         aggregation_method=aggregation_method,
                         inner_bbox_scale=float(study_config.get("inner_bbox_scale", 0.5)),
                         surrounding_bbox_scale=float(study_config.get("surrounding_bbox_scale", 1.8)),
@@ -403,13 +483,14 @@ def _build_feature_cache(
                         context_name=context_spec.name,
                         context_scale=context_spec.scale,
                         aggregation_method=aggregation_method,
-                        crop_bbox=crop_data.crop_bbox,
-                        local_bbox=crop_data.local_bbox,
+                        crop_bbox=crop_data["crop_bbox"],
+                        local_bbox=crop_data["local_bbox"],
                         representation=representation,
                     )
                     key = _record_key(record.image_path, record.context_window, record.aggregation_method)
                     existing_records_by_key[key] = record
                     all_records.append(record)
+                    new_records_for_sample.append(record)
                 if verbose and (
                     context_index == 1
                     or context_index == len(missing_context_specs)
@@ -423,6 +504,14 @@ def _build_feature_cache(
                             len(all_records),
                         )
                     )
+            if new_records_for_sample:
+                _append_representation_records_csv(new_records_for_sample, features_csv_path)
+                _write_feature_summary_checkpoint(
+                    output_path=features_summary_path,
+                    all_records=all_records,
+                    selected_sample_records=selected_sample_records,
+                    summary_payload=summary_payload,
+                )
 
     all_records = sorted(
         all_records,
@@ -437,12 +526,12 @@ def _build_feature_cache(
     )
     features_csv_path = write_depth_representation_records_csv(
         all_records,
-        features_dir / "representation_records.csv",
+        features_csv_path,
     )
     summary = summarize_depth_representation_records(all_records, selected_sample_records)
     summary.update(summary_payload)
     summary["representation_records_csv"] = str(features_csv_path)
-    _write_json(summary, features_dir / "summary.json")
+    _write_json(summary, features_summary_path)
     return summary
 
 
@@ -476,7 +565,10 @@ def _predict_linear_regression(x_values: np.ndarray, fit_result: Dict[str, Any])
     )
 
 
-def _pivot_records_to_image_rows(records: Sequence[DepthRepresentationRecord]) -> Tuple[List[Dict[str, Any]], List[str]]:
+def _pivot_records_to_image_rows(
+    records: Sequence[DepthRepresentationRecord],
+    score_fields: Sequence[str],
+) -> Tuple[List[Dict[str, Any]], List[str]]:
     rows_by_image: Dict[str, Dict[str, Any]] = {}
     feature_names: List[str] = []
     for record in records:
@@ -493,7 +585,7 @@ def _pivot_records_to_image_rows(records: Sequence[DepthRepresentationRecord]) -
                 "time_of_day": str(record.time_of_day),
             },
         )
-        for score_field in DEPTH_SCORE_FIELD_NAMES:
+        for score_field in score_fields:
             method_id = build_method_id(record.context_window, record.aggregation_method, score_field)
             row[method_id] = float(getattr(record, score_field))
             if method_id not in feature_names:
@@ -689,7 +781,8 @@ def _run_modeling(
     fused_features_dir.mkdir(parents=True, exist_ok=True)
     reports_dir.mkdir(parents=True, exist_ok=True)
 
-    image_rows, available_feature_names = _pivot_records_to_image_rows(records)
+    score_fields = _resolve_score_fields(resolved_config.get("study", {}))
+    image_rows, available_feature_names = _pivot_records_to_image_rows(records, score_fields=score_fields)
     fused_features_path = fused_features_dir / "depth_only_feature_table.csv"
     _write_csv_rows(image_rows, fused_features_path)
 
@@ -700,16 +793,18 @@ def _run_modeling(
 
     if verbose:
         print(
-            "[study-06] Midpoint random-forest modeling\n"
+            "[study-06] Selected-subset random-forest modeling\n"
             "  config: {}\n"
             "  fused_features_csv: {}\n"
             "  num_image_rows: {}\n"
-            "  num_midpoint_features: {}\n"
+            "  num_available_features: {}\n"
+            "  score_fields: {}\n"
             "  num_folds: {}".format(
                 config_path,
                 fused_features_path,
                 len(image_rows),
                 len(available_feature_names),
+                ", ".join(score_fields),
                 num_folds,
             )
         )
@@ -795,15 +890,16 @@ def _run_modeling(
     for rank_index, row in enumerate(model_rows, start=1):
         row["rank"] = rank_index
 
-    _write_csv_rows(model_rows, reports_dir / "midpoint_random_forest_metrics.csv")
-    _write_csv_rows(importance_rows, reports_dir / "midpoint_random_forest_feature_importances.csv")
-    _write_csv_rows(prediction_rows, reports_dir / "midpoint_random_forest_predictions.csv")
+    _write_csv_rows(model_rows, reports_dir / "subset_random_forest_metrics.csv")
+    _write_csv_rows(importance_rows, reports_dir / "subset_random_forest_feature_importances.csv")
+    _write_csv_rows(prediction_rows, reports_dir / "subset_random_forest_predictions.csv")
 
     summary = {
         "study_name": resolved_config.get("study_name", output_root.name),
         "config_path": str(config_path),
         "num_image_rows": len(image_rows),
-        "num_midpoint_features": len(available_feature_names),
+        "num_available_features": len(available_feature_names),
+        "score_fields": list(score_fields),
         "num_folds": num_folds,
         "best_single_feature": single_feature_rows[0]["method_id"],
         "best_single_feature_cv_mae": float(single_feature_rows[0]["cv_mae"]),
@@ -812,9 +908,9 @@ def _run_modeling(
         "best_random_forest_num_features": int(best_model["num_features"]),
         "fused_features_csv": str(fused_features_path),
         "single_feature_metrics_csv": str(reports_dir / "single_feature_cv_metrics.csv"),
-        "random_forest_metrics_csv": str(reports_dir / "midpoint_random_forest_metrics.csv"),
-        "feature_importances_csv": str(reports_dir / "midpoint_random_forest_feature_importances.csv"),
-        "predictions_csv": str(reports_dir / "midpoint_random_forest_predictions.csv"),
+        "random_forest_metrics_csv": str(reports_dir / "subset_random_forest_metrics.csv"),
+        "feature_importances_csv": str(reports_dir / "subset_random_forest_feature_importances.csv"),
+        "predictions_csv": str(reports_dir / "subset_random_forest_predictions.csv"),
     }
     _write_json(summary, reports_dir / "summary.json")
     return summary

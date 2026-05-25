@@ -92,7 +92,7 @@ depth_only_modeling:
 
 existing_feature_sources:
   representation_records_csvs:
-    - attempts/second attempt/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
-    - attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
+    - attempts/attempt2/studies/study_03_multiscale_fusion/artifacts/features/representation_records.csv
+    - attempts/attempt2/studies/study_02_expanded_10_per_stratum/artifacts/features/representation_records.csv
 
-output_root: attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/artifacts
+output_root: attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/artifacts

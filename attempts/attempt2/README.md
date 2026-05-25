@@ -1,6 +1,6 @@
-# Second Attempt: Relative Depth Representation and Depth-Only Modeling Study
+# Attempt 2: Relative Depth Representation and Depth-Only Modeling Study
 
-This document summarizes the full workflow of the second attempt. It is
+This document summarizes the full workflow of Attempt 2. It is
 written as a continuation of the first attempt README: attempt 1 asked how far
 we can get with a direct calibration model, while attempt 2 asks a more
 focused question first:
@@ -35,7 +35,7 @@ That created a natural next question:
 Before we combine depth with anything else, what is the best way to extract
 the drone's depth signal from the image?
 
-So the second attempt intentionally separated the problem into stages.
+So Attempt 2 intentionally separated the problem into stages.
 
 Instead of immediately building another full final model, we first studied:
 
@@ -101,7 +101,7 @@ Why this matters:
 
 ## 4. What We Built
 
-The second attempt added a reusable study layer on top of the shared pipeline.
+Attempt 2 added a reusable study layer on top of the shared pipeline.
 
 ### Reusable pipeline code
 
@@ -120,7 +120,7 @@ Under `pipeline/` we rely on:
 
 ### Study workflow code
 
-Under `attempts/second attempt/` and its study folders we added:
+Under `attempts/attempt2/` and its study folders we added:
 
 - `run_extract_features.py`
 - `run_study.py`
@@ -187,8 +187,8 @@ Across the phase, the workflow usually followed one of these patterns.
 Commands:
 
 ```bash
-python "attempts/second attempt/run_extract_features.py" --config "<study-config>"
-python "attempts/second attempt/run_study.py" --config "<study-config>"
+python "attempts/attempt2/run_extract_features.py" --config "<study-config>"
+python "attempts/attempt2/run_study.py" --config "<study-config>"
 ```
 
 #### Study 03
@@ -201,9 +201,9 @@ python "attempts/second attempt/run_study.py" --config "<study-config>"
 Commands:
 
 ```bash
-python "attempts/second attempt/studies/study_03_multiscale_fusion/run_extend_feature_cache.py"
-python "attempts/second attempt/run_study.py" --config "attempts/second attempt/studies/study_03_multiscale_fusion/config.yaml"
-python "attempts/second attempt/studies/study_03_multiscale_fusion/analyze_study_03.py"
+python "attempts/attempt2/studies/study_03_multiscale_fusion/run_extend_feature_cache.py"
+python "attempts/attempt2/run_study.py" --config "attempts/attempt2/studies/study_03_multiscale_fusion/config.yaml"
+python "attempts/attempt2/studies/study_03_multiscale_fusion/analyze_study_03.py"
 ```
 
 #### Study 04
@@ -216,10 +216,10 @@ python "attempts/second attempt/studies/study_03_multiscale_fusion/analyze_study
 Commands:
 
 ```bash
-python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/run_extend_feature_cache.py"
-python "attempts/second attempt/run_study.py" --config "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/config.yaml"
-python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/run_depth_only_model_study.py"
-python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratum/analyze_study_04.py"
+python "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/run_extend_feature_cache.py"
+python "attempts/attempt2/run_study.py" --config "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/config.yaml"
+python "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/run_depth_only_model_study.py"
+python "attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/analyze_study_04.py"
 ```
 
 #### Study 06
@@ -234,8 +234,8 @@ python "attempts/second attempt/studies/study_04_depth_only_models_30_per_stratu
 Commands:
 
 ```bash
-python "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py" --dry-run
-python "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py"
+python "attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py" --dry-run
+python "attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py"
 ```
 
 ## 6. Why We Split Attempt 2 Into Multiple Studies
@@ -1356,7 +1356,7 @@ global context.
 
 ## 18. What We Conclude and What Comes Next
 
-The second attempt gives a much clearer answer than we had at the start.
+Attempt 2 gives a much clearer answer than we had at the start.
 
 ### Main scientific conclusion
 

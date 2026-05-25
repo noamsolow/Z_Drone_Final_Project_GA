@@ -2,7 +2,7 @@
 
 ## מה זה הסטאדי הזה
 
-Study 06 הוא המשך ישיר של קו המחקר ב-`attempts/second attempt`.
+Study 06 הוא המשך ישיר של קו המחקר ב-`attempts/attempt2`.
 
 הוא נבנה כדי לענות על שאלה מאוד ממוקדת:
 
@@ -82,7 +82,7 @@ Study 04 השתמש ב:
 
 ## מה בדיוק השתמשנו כאן
 
-הקונפיגורציה המלאה נמצאת ב-[config.yaml](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/config.yaml).
+הקונפיגורציה המלאה נמצאת ב-[config.yaml](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/config.yaml).
 
 ### כל הדאטה
 
@@ -93,7 +93,7 @@ Study 06 משתמש ב:
 - `48` strata של `distance x weather x time`
 - `15,064` תמונות סך הכל
 
-מתוך [artifacts/features/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/features/summary.json):
+מתוך [artifacts/features/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/features/summary.json):
 
 - `num_selected_samples = 15064`
 - `num_strata = 48`
@@ -152,7 +152,7 @@ Study 06 משתמש ב:
 
 קובץ ההרצה הראשי:
 
-- [run_all_images_midpoint_random_forest.py](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py)
+- [run_all_images_midpoint_random_forest.py](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py)
 
 הקוד מחולק לשני שלבים עיקריים:
 
@@ -241,44 +241,44 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 ### artifacts/features
 
-- [selected_samples.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/features/selected_samples.csv)
+- [selected_samples.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/features/selected_samples.csv)
   - רשימת כל התמונות ששייכות לסטאדי
   - כאן זה בפועל כל הדאטה
 
-- [representation_records.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/features/representation_records.csv)
+- [representation_records.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/features/representation_records.csv)
   - הטבלה הארוכה
   - כל תמונה מופיעה פעם אחת לכל `(context, aggregation)`
 
-- [summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/features/summary.json)
+- [summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/features/summary.json)
   - סיכום metadata על ה-cache, גודל הדאטה, reuse, strata וכו'
 
 ### artifacts/fused_features
 
-- [depth_only_feature_table.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv)
+- [depth_only_feature_table.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv)
   - טבלה רחבה
   - שורה אחת לכל תמונה
   - `15` פיצ'רים כעמודות
 
 ### artifacts/reports
 
-- [single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
+- [single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
   - דירוג של כל feature בודד
 
-- [subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
+- [subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
   - טבלת המודלים
 
-- [subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
+- [subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
   - חשיבות הפיצ'רים במודל
 
-- [subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
+- [subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
   - תחזית לכל תמונה, כולל signed ו-absolute errors
 
-- [summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json)
+- [summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json)
   - תקציר של התוצאה הסופית
 
 ## התוצאות המרכזיות
 
-מתוך [artifacts/reports/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json):
+מתוך [artifacts/reports/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json):
 
 - `num_image_rows = 15064`
 - `num_available_features = 15`
@@ -312,7 +312,7 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 הקובץ:
 
-- [single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
+- [single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
 
 ה-top features הם:
 
@@ -347,7 +347,7 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 הקובץ:
 
-- [subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
+- [subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
 
 יש כאן שני מודלים:
 
@@ -382,7 +382,7 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 הקובץ:
 
-- [subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
+- [subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
 
 הפיצ'רים הכי חשובים במודל:
 
@@ -420,7 +420,7 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 הקובץ:
 
-- [subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
+- [subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
 
 כשמסתכלים לפי true distance, מתקבל דפוס מאוד ברור:
 
@@ -476,8 +476,8 @@ Study 06 היה כבד בהרבה מ-Study 04, ולכן במהלך הפיתוח 
 
 קובץ ההשוואה המרכזי:
 
-- [Study 04 README](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_04_depth_only_models_30_per_stratum/README.md)
-- [Study 04 summary](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_04_depth_only_models_30_per_stratum/artifacts/reports/depth_only_study_summary.json)
+- [Study 04 README](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/README.md)
+- [Study 04 summary](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_04_depth_only_models_30_per_stratum/artifacts/reports/depth_only_study_summary.json)
 
 ### Study 04
 
@@ -562,27 +562,27 @@ Study 06 תומך בכמה מסקנות חשובות:
 בדיקת setup בלבד:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py" --dry-run
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py" --dry-run
 ```
 
 הרצה מלאה:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py"
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/run_all_images_midpoint_random_forest.py"
 ```
 
 ## מה כדאי לבדוק מיד אחרי ריצה
 
 אם רוצים לבדוק מהר את השורה התחתונה:
 
-1. [artifacts/reports/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json)
-2. [artifacts/reports/subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
-3. [artifacts/reports/single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
+1. [artifacts/reports/summary.json](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/summary.json)
+2. [artifacts/reports/subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
+3. [artifacts/reports/single_feature_cv_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/single_feature_cv_metrics.csv)
 
 אם רוצים להבין את עומק התוצאה:
 
-4. [artifacts/reports/subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
-5. [artifacts/reports/subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
+4. [artifacts/reports/subset_random_forest_feature_importances.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_feature_importances.csv)
+5. [artifacts/reports/subset_random_forest_predictions.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_predictions.csv)
 
 ## השלב הטבעי הבא
 

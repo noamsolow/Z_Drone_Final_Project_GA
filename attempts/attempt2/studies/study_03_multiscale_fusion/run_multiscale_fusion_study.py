@@ -465,7 +465,7 @@ def run_multiscale_fusion_study(
         raise FileNotFoundError("Expected Study 03 features CSV at {}.".format(features_csv_path))
     if not single_feature_metrics_path.exists():
         raise FileNotFoundError(
-            "Expected single-scale ranking at {}. Run attempts/second attempt/run_study.py "
+            "Expected single-scale ranking at {}. Run attempts/attempt2/run_study.py "
             "with the Study 03 config first.".format(single_feature_metrics_path)
         )
 

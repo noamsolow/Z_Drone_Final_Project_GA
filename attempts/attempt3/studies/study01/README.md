@@ -21,8 +21,8 @@ The comparison is intentionally apples-to-apples:
 The study reuses cached CSVs instead of recomputing depth maps:
 
 - [attempt1 features.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt1/artifacts/features/features.csv)
-- [study06 depth_only_feature_table.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv)
-- [study06 subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/second%20attempt/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
+- [study06 depth_only_feature_table.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/fused_features/depth_only_feature_table.csv)
+- [study06 subset_random_forest_metrics.csv](/C:/Users/depthlev/Desktop/Z_Drone_Final_Project_GA/attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv)
 
 ## What The Code Does
 

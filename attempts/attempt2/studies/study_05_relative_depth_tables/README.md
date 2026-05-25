@@ -49,5 +49,5 @@ The script writes:
 ## Run
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/second attempt/studies/study_05_relative_depth_tables/run_mini_study_05.py"
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_05_relative_depth_tables/run_mini_study_05.py"
 ```

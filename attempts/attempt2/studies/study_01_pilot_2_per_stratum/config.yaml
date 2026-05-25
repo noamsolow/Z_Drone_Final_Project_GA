@@ -1,4 +1,4 @@
-study_name: study_02_expanded_10_per_stratum
+study_name: study_01_pilot_2_per_stratum
 dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
 strict: true
 
@@ -8,9 +8,9 @@ depth_model:
   local_files_only: true
 
 study:
-  sample_count_per_stratum: 10
+  sample_count_per_stratum: 2
   sample_seed: 20260503
-  progress_log_every_samples: 10
+  progress_log_every_samples: 4
   progress_log_every_methods: 1
   inner_bbox_scale: 0.5
   surrounding_bbox_scale: 1.8
@@ -35,4 +35,4 @@ study:
     - object_minus_ring
     - object_minus_ring_normalized
 
-output_root: attempts/second attempt/studies/study_02_expanded_10_per_stratum/artifacts
+output_root: attempts/attempt2/studies/study_01_pilot_2_per_stratum/artifacts
