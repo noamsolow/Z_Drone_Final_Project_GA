@@ -607,6 +607,39 @@ def _build_feature_group_rows(
     return sorted(output_rows, key=lambda row: float(row["importance_value"]), reverse=True)
 
 
+def _build_three_bucket_importance_rows(
+    importance_rows: Sequence[Dict[str, Any]],
+    *,
+    model_name: str,
+    candidate_name: str,
+) -> List[Dict[str, Any]]:
+    rows = [
+        row for row in importance_rows
+        if str(row["model_name"]) == model_name and str(row["candidate_name"]) == candidate_name
+    ]
+    grouped = {
+        "jittered_geometry": 0.0,
+        "relative_depth": 0.0,
+        "metadata": 0.0,
+    }
+
+    for row in rows:
+        term = str(row["term"])
+        importance_value = float(row["importance_value"])
+        if term.startswith("weather=") or term.startswith("time_of_day="):
+            grouped["metadata"] += importance_value
+        elif term.startswith("bbox_"):
+            grouped["jittered_geometry"] += importance_value
+        else:
+            grouped["relative_depth"] += importance_value
+
+    output_rows = [
+        {"feature_group": key, "importance_value": value}
+        for key, value in grouped.items()
+    ]
+    return sorted(output_rows, key=lambda row: float(row["importance_value"]), reverse=True)
+
+
 def _plot_feature_group_importance(
     feature_group_rows: Sequence[Dict[str, Any]],
     *,
@@ -623,6 +656,50 @@ def _plot_feature_group_importance(
     ax.set_ylabel("Total Feature Importance")
     ax.set_title(title)
     ax.grid(axis="y", alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _plot_three_bucket_importance(
+    feature_group_rows: Sequence[Dict[str, Any]],
+    *,
+    title: str,
+    output_path: Path,
+) -> None:
+    label_map = {
+        "jittered_geometry": "Jittered Geometry",
+        "relative_depth": "Relative Depth",
+        "metadata": "Metadata",
+    }
+    color_map = {
+        "jittered_geometry": "#4e79a7",
+        "relative_depth": "#59a14f",
+        "metadata": "#f28e2b",
+    }
+    labels = [label_map.get(str(row["feature_group"]), str(row["feature_group"])) for row in feature_group_rows]
+    values = [float(row["importance_value"]) for row in feature_group_rows]
+    colors = [color_map.get(str(row["feature_group"]), "#4e79a7") for row in feature_group_rows]
+
+    fig, ax = plt.subplots(figsize=(7.6, 4.8))
+    x = np.arange(len(labels))
+    bars = ax.bar(x, values, color=colors)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylabel("Total Feature Importance")
+    ax.set_title(title)
+    ax.grid(axis="y", alpha=0.25)
+
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2.0,
+            value + 0.01,
+            "{:.3f}".format(value),
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+
     fig.tight_layout()
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
@@ -864,6 +941,11 @@ def main() -> None:
         model_name=str(summary03["winner_model_name"]),
         candidate_name=str(summary03["winner_candidate_name"]),
     )
+    winner_three_bucket_rows03 = _build_three_bucket_importance_rows(
+        importance_rows03,
+        model_name=str(summary03["winner_model_name"]),
+        candidate_name=str(summary03["winner_candidate_name"]),
+    )
 
     _write_csv_rows(exact_distance_rows03, ANALYSIS_DIR / "study03_exact_distance_test_metrics.csv")
     _write_csv_rows(exact_distance_rows02, ANALYSIS_DIR / "study02_exact_distance_test_metrics.csv")
@@ -875,6 +957,7 @@ def main() -> None:
     _write_csv_rows(time_rows03, ANALYSIS_DIR / "study03_time_metrics.csv")
     _write_csv_rows(weather_time_rows03, ANALYSIS_DIR / "study03_weather_time_metrics.csv")
     _write_csv_rows(winner_feature_group_rows03, ANALYSIS_DIR / "study03_winner_feature_group_importances.csv")
+    _write_csv_rows(winner_three_bucket_rows03, ANALYSIS_DIR / "study03_winner_three_bucket_importances.csv")
 
     _plot_metric_by_distance(
         exact_distance_rows03,
@@ -962,6 +1045,11 @@ def main() -> None:
         winner_feature_group_rows03,
         title="Study 03 Winner Feature-Group Importances",
         output_path=ANALYSIS_DIR / "study03_winner_feature_group_importances.png",
+    )
+    _plot_three_bucket_importance(
+        winner_three_bucket_rows03,
+        title="Study 03 Winner: Jittered Geometry vs Relative Depth vs Metadata",
+        output_path=ANALYSIS_DIR / "study03_winner_three_bucket_importances.png",
     )
     _plot_study02_vs_study03_overall(
         summary02,
