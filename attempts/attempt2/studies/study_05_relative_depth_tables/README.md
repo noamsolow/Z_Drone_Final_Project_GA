@@ -51,3 +51,27 @@ The script writes:
 ```powershell
 .\.venv\Scripts\python.exe "attempts/attempt2/studies/study_05_relative_depth_tables/run_mini_study_05.py"
 ```
+
+## BBox-only Depth Maps
+
+If you want a few concrete visual examples, there is also a helper script that:
+
+- selects `2` images from `30m`
+- selects `2` images from `100m`
+- selects `2` images from `150m`
+- crops each image to the exact drone bounding box only
+- runs Depth Anything on that bbox-only crop
+- saves both the depth-map image and an RGB-vs-depth panel
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe "attempts/attempt2/studies/study_05_relative_depth_tables/make_bbox_only_depth_maps.py" --local-files-only
+```
+
+Outputs:
+
+- `artifacts/bbox_only_depth_maps/*_depth_map.png`
+- `artifacts/bbox_only_depth_maps/*_panel.png`
+- `artifacts/bbox_only_depth_maps/bbox_only_depth_maps_contact_sheet.png`
+- `artifacts/bbox_only_depth_maps/selected_bbox_only_depth_maps.csv`
