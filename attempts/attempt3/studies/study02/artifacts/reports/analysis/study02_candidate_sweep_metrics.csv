@@ -1,0 +1,21 @@
+model_name,model_label,candidate_name,oof_mae,oof_mean_relative_error,max_depth,min_samples_leaf
+raw_depth_only_rf,Raw Depth Only RF,rf_shallow,30.750444908558187,0.5771949348747127,10,5
+raw_depth_only_rf,Raw Depth Only RF,rf_medium,30.934449790464434,0.5798744917860825,16,3
+raw_depth_only_rf,Raw Depth Only RF,rf_deep,31.485911449466073,0.586876299349984,24,2
+raw_depth_only_rf,Raw Depth Only RF,rf_unbounded,33.764139350038036,0.6143707638631861,,2
+geometry_metadata_rf,Geometry + Metadata RF,rf_shallow,8.408543500546916,0.10618983591140753,10,5
+geometry_metadata_rf,Geometry + Metadata RF,rf_medium,7.9359190956052466,0.09990249164390212,16,3
+geometry_metadata_rf,Geometry + Metadata RF,rf_deep,7.80270399583293,0.09813901202587272,24,2
+geometry_metadata_rf,Geometry + Metadata RF,rf_unbounded,7.81071669450087,0.0982676236371203,,2
+raw_depth_geometry_metadata_rf,Raw Depth + Geometry + Metadata RF,rf_shallow,8.284638020132206,0.10499881946697288,10,5
+raw_depth_geometry_metadata_rf,Raw Depth + Geometry + Metadata RF,rf_medium,7.771109316633513,0.09819709502181483,16,3
+raw_depth_geometry_metadata_rf,Raw Depth + Geometry + Metadata RF,rf_deep,7.636387037001139,0.09638571797255789,24,2
+raw_depth_geometry_metadata_rf,Raw Depth + Geometry + Metadata RF,rf_unbounded,7.633880897905884,0.09632801309104536,,2
+small_rf_depth_only_rf,Small RF Depth Only RF,rf_shallow,21.41819615260242,0.3571698828023977,10,5
+small_rf_depth_only_rf,Small RF Depth Only RF,rf_medium,22.14331492214464,0.3659277531440379,16,3
+small_rf_depth_only_rf,Small RF Depth Only RF,rf_deep,23.351059152111066,0.3805184166921596,24,2
+small_rf_depth_only_rf,Small RF Depth Only RF,rf_unbounded,23.76431510088768,0.3851032338156145,,2
+stacked_rf_depth_geometry_metadata_rf,Stacked RF Depth + Geometry + Metadata RF,rf_shallow,8.203087527645677,0.10372497431118123,10,5
+stacked_rf_depth_geometry_metadata_rf,Stacked RF Depth + Geometry + Metadata RF,rf_medium,7.819566180689539,0.09835578523511705,16,3
+stacked_rf_depth_geometry_metadata_rf,Stacked RF Depth + Geometry + Metadata RF,rf_deep,7.7160561448564655,0.09684959030340441,24,2
+stacked_rf_depth_geometry_metadata_rf,Stacked RF Depth + Geometry + Metadata RF,rf_unbounded,7.7248175018902785,0.09698209827340723,,2
