@@ -195,6 +195,38 @@ def _build_distance_range_rows(test_metrics: Dict[str, Any]) -> List[Dict[str, A
     return output_rows
 
 
+def _build_group_rows(
+    prediction_rows: Sequence[Dict[str, Any]],
+    *,
+    strip_candidate: bool,
+    group_keys: Sequence[str],
+) -> List[Dict[str, Any]]:
+    grouped: Dict[Tuple[str, ...], List[Dict[str, Any]]] = defaultdict(list)
+    for row in prediction_rows:
+        model_name = _strip_candidate_name(str(row["model_name"])) if strip_candidate else str(row["model_name"])
+        key = [model_name]
+        for group_key in group_keys:
+            key.append(str(row[group_key]))
+        grouped[tuple(key)].append(row)
+
+    output_rows: List[Dict[str, Any]] = []
+    for key, group_rows in sorted(grouped.items()):
+        model_name = key[0]
+        absolute_errors = np.asarray([float(row["absolute_error_m"]) for row in group_rows], dtype=np.float64)
+        relative_errors = np.asarray([float(row["relative_error"]) for row in group_rows], dtype=np.float64)
+        signed_errors = np.asarray([float(row["signed_error_m"]) for row in group_rows], dtype=np.float64)
+        metrics = _metric_dict(absolute_errors, relative_errors, signed_errors)
+        out_row: Dict[str, Any] = {
+            "model_name": model_name,
+            "model_label": MODEL_LABELS.get(model_name, model_name),
+        }
+        for index, group_key in enumerate(group_keys, start=1):
+            out_row[group_key] = key[index]
+        out_row.update(metrics)
+        output_rows.append(out_row)
+    return output_rows
+
+
 def _build_candidate_rows(candidate_metrics_rows: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
     output_rows: List[Dict[str, Any]] = []
     for row in candidate_metrics_rows:
@@ -388,6 +420,209 @@ def _plot_winner_feature_importance(
     ax.set_xlabel("Feature Importance")
     ax.set_title("Study 03 Winner Feature Importances")
     ax.grid(axis="x", alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _plot_weather_time_comparison(
+    grouped_rows: Sequence[Dict[str, Any]],
+    *,
+    group_key: str,
+    metric_key: str,
+    ylabel: str,
+    title: str,
+    output_path: Path,
+    model_names: Sequence[str],
+) -> None:
+    labels = sorted({str(row[group_key]) for row in grouped_rows})
+    x = np.arange(len(labels))
+    width = 0.24
+    fig, ax = plt.subplots(figsize=(11, 5.8))
+
+    for index, model_name in enumerate(model_names):
+        model_rows = [row for row in grouped_rows if str(row["model_name"]) == model_name]
+        values = [
+            float(next(row for row in model_rows if str(row[group_key]) == label)[metric_key])
+            for label in labels
+        ]
+        offset = (index - (len(model_names) - 1) / 2.0) * width
+        ax.bar(
+            x + offset,
+            values,
+            width=width,
+            label=MODEL_LABELS.get(model_name, model_name),
+            color=MODEL_COLORS.get(model_name),
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+    ax.grid(axis="y", alpha=0.25)
+    ax.legend(fontsize=8)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _plot_weather_time_heatmap(
+    grouped_rows: Sequence[Dict[str, Any]],
+    *,
+    model_name: str,
+    metric_key: str,
+    title: str,
+    output_path: Path,
+) -> None:
+    model_rows = [row for row in grouped_rows if str(row["model_name"]) == model_name]
+    weathers = sorted({str(row["weather"]) for row in model_rows})
+    times = sorted({str(row["time_of_day"]) for row in model_rows})
+    matrix = np.zeros((len(weathers), len(times)), dtype=np.float64)
+
+    for weather_index, weather in enumerate(weathers):
+        for time_index, time_of_day in enumerate(times):
+            row = next(
+                row for row in model_rows
+                if str(row["weather"]) == weather and str(row["time_of_day"]) == time_of_day
+            )
+            value = float(row[metric_key])
+            if metric_key == "mean_relative_error":
+                value *= 100.0
+            matrix[weather_index, time_index] = value
+
+    fig, ax = plt.subplots(figsize=(6.5, 4.8))
+    image = ax.imshow(matrix, cmap="YlOrRd")
+    ax.set_xticks(np.arange(len(times)))
+    ax.set_xticklabels(times)
+    ax.set_yticks(np.arange(len(weathers)))
+    ax.set_yticklabels(weathers)
+    ax.set_title(title)
+
+    for weather_index in range(len(weathers)):
+        for time_index in range(len(times)):
+            ax.text(
+                time_index,
+                weather_index,
+                "{:.2f}".format(matrix[weather_index, time_index]),
+                ha="center",
+                va="center",
+                color="black",
+                fontsize=9,
+            )
+
+    fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _plot_true_vs_predicted_scatter(
+    prediction_rows: Sequence[Dict[str, Any]],
+    *,
+    model_name: str,
+    title: str,
+    output_path: Path,
+) -> None:
+    model_rows = [row for row in prediction_rows if _strip_candidate_name(str(row["model_name"])) == model_name]
+    true_values = np.asarray([float(row["true_distance_m"]) for row in model_rows], dtype=np.float64)
+    pred_values = np.asarray([float(row["predicted_distance_m"]) for row in model_rows], dtype=np.float64)
+
+    fig, ax = plt.subplots(figsize=(6.5, 6.0))
+    ax.scatter(true_values, pred_values, s=18, alpha=0.35, color=MODEL_COLORS.get(model_name))
+    lower = float(min(true_values.min(), pred_values.min()))
+    upper = float(max(true_values.max(), pred_values.max()))
+    ax.plot([lower, upper], [lower, upper], linestyle="--", color="black", linewidth=1.5)
+    ax.set_xlabel("True Distance (m)")
+    ax.set_ylabel("Predicted Distance (m)")
+    ax.set_title(title)
+    ax.grid(alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _plot_error_histogram(
+    prediction_rows: Sequence[Dict[str, Any]],
+    *,
+    model_name: str,
+    output_path: Path,
+) -> None:
+    model_rows = [row for row in prediction_rows if _strip_candidate_name(str(row["model_name"])) == model_name]
+    signed_errors = np.asarray([float(row["signed_error_m"]) for row in model_rows], dtype=np.float64)
+    absolute_errors = np.asarray([float(row["absolute_error_m"]) for row in model_rows], dtype=np.float64)
+
+    fig, axes = plt.subplots(1, 2, figsize=(12.5, 4.8))
+    axes[0].hist(signed_errors, bins=32, color=MODEL_COLORS.get(model_name), alpha=0.85)
+    axes[0].axvline(0.0, color="black", linestyle="--", linewidth=1.5)
+    axes[0].set_title("Winner Signed Error Distribution")
+    axes[0].set_xlabel("Signed Error (m)")
+    axes[0].set_ylabel("Count")
+    axes[0].grid(axis="y", alpha=0.25)
+
+    axes[1].hist(absolute_errors, bins=32, color=MODEL_COLORS.get(model_name), alpha=0.85)
+    axes[1].set_title("Winner Absolute Error Distribution")
+    axes[1].set_xlabel("Absolute Error (m)")
+    axes[1].set_ylabel("Count")
+    axes[1].grid(axis="y", alpha=0.25)
+
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+
+
+def _build_feature_group_rows(
+    importance_rows: Sequence[Dict[str, Any]],
+    *,
+    model_name: str,
+    candidate_name: str,
+) -> List[Dict[str, Any]]:
+    rows = [
+        row for row in importance_rows
+        if str(row["model_name"]) == model_name and str(row["candidate_name"]) == candidate_name
+    ]
+    grouped: Dict[str, float] = defaultdict(float)
+    for row in rows:
+        term = str(row["term"])
+        importance_value = float(row["importance_value"])
+        if term.startswith("weather=") or term.startswith("time_of_day="):
+            group_name = "metadata"
+        elif "__jitter_std" in term and term.startswith("bbox_"):
+            group_name = "geometry_jitter_std"
+        elif "__jitter_median" in term and term.startswith("bbox_"):
+            group_name = "geometry_jitter_median"
+        elif "__jitter_std" in term:
+            group_name = "depth_jitter_std"
+        elif "__jitter_median" in term:
+            group_name = "depth_jitter_median"
+        elif term == "depth_lower_model_prediction":
+            group_name = "stacked_depth_signal"
+        else:
+            group_name = "other"
+        grouped[group_name] += importance_value
+
+    output_rows = [
+        {"feature_group": key, "importance_value": value}
+        for key, value in grouped.items()
+    ]
+    return sorted(output_rows, key=lambda row: float(row["importance_value"]), reverse=True)
+
+
+def _plot_feature_group_importance(
+    feature_group_rows: Sequence[Dict[str, Any]],
+    *,
+    title: str,
+    output_path: Path,
+) -> None:
+    labels = [str(row["feature_group"]) for row in feature_group_rows]
+    values = [float(row["importance_value"]) for row in feature_group_rows]
+    fig, ax = plt.subplots(figsize=(8.5, 4.8))
+    x = np.arange(len(labels))
+    ax.bar(x, values, color="#4e79a7")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=18, ha="right")
+    ax.set_ylabel("Total Feature Importance")
+    ax.set_title(title)
+    ax.grid(axis="y", alpha=0.25)
     fig.tight_layout()
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
@@ -609,6 +844,26 @@ def main() -> None:
     overall_rows03 = _build_overall_rows(test_metrics03, cv_metrics03)
     overall_rows02 = _build_overall_rows(test_metrics02, cv_metrics02)
     distance_range_rows03 = _build_distance_range_rows(test_metrics03)
+    weather_rows03 = _build_group_rows(
+        test_predictions03,
+        strip_candidate=True,
+        group_keys=["weather"],
+    )
+    time_rows03 = _build_group_rows(
+        test_predictions03,
+        strip_candidate=True,
+        group_keys=["time_of_day"],
+    )
+    weather_time_rows03 = _build_group_rows(
+        test_predictions03,
+        strip_candidate=True,
+        group_keys=["weather", "time_of_day"],
+    )
+    winner_feature_group_rows03 = _build_feature_group_rows(
+        importance_rows03,
+        model_name=str(summary03["winner_model_name"]),
+        candidate_name=str(summary03["winner_candidate_name"]),
+    )
 
     _write_csv_rows(exact_distance_rows03, ANALYSIS_DIR / "study03_exact_distance_test_metrics.csv")
     _write_csv_rows(exact_distance_rows02, ANALYSIS_DIR / "study02_exact_distance_test_metrics.csv")
@@ -616,6 +871,10 @@ def main() -> None:
     _write_csv_rows(overall_rows02, ANALYSIS_DIR / "study02_overall_model_metrics.csv")
     _write_csv_rows(distance_range_rows03, ANALYSIS_DIR / "study03_distance_range_metrics.csv")
     _write_csv_rows(candidate_rows03, ANALYSIS_DIR / "study03_candidate_sweep_metrics.csv")
+    _write_csv_rows(weather_rows03, ANALYSIS_DIR / "study03_weather_metrics.csv")
+    _write_csv_rows(time_rows03, ANALYSIS_DIR / "study03_time_metrics.csv")
+    _write_csv_rows(weather_time_rows03, ANALYSIS_DIR / "study03_weather_time_metrics.csv")
+    _write_csv_rows(winner_feature_group_rows03, ANALYSIS_DIR / "study03_winner_feature_group_importances.csv")
 
     _plot_metric_by_distance(
         exact_distance_rows03,
@@ -655,6 +914,54 @@ def main() -> None:
         model_name=str(summary03["winner_model_name"]),
         candidate_name=str(summary03["winner_candidate_name"]),
         output_path=ANALYSIS_DIR / "study03_winner_feature_importances.png",
+    )
+    _plot_weather_time_comparison(
+        weather_rows03,
+        group_key="weather",
+        metric_key="mae",
+        ylabel="MAE (m)",
+        title="Study 03: Weather Comparison",
+        output_path=ANALYSIS_DIR / "study03_weather_comparison.png",
+        model_names=FOCUS_MODELS,
+    )
+    _plot_weather_time_comparison(
+        time_rows03,
+        group_key="time_of_day",
+        metric_key="mean_relative_error",
+        ylabel="Mean Relative Error (%)",
+        title="Study 03: Time-of-Day Relative Error Comparison",
+        output_path=ANALYSIS_DIR / "study03_time_relative_error_comparison.png",
+        model_names=FOCUS_MODELS,
+    )
+    _plot_weather_time_heatmap(
+        weather_time_rows03,
+        model_name=str(summary03["winner_model_name"]),
+        metric_key="mae",
+        title="Study 03 Winner MAE by Weather and Time",
+        output_path=ANALYSIS_DIR / "study03_winner_weather_time_heatmap_mae.png",
+    )
+    _plot_weather_time_heatmap(
+        weather_time_rows03,
+        model_name=str(summary03["winner_model_name"]),
+        metric_key="mean_relative_error",
+        title="Study 03 Winner Relative Error (%) by Weather and Time",
+        output_path=ANALYSIS_DIR / "study03_winner_weather_time_heatmap_relative_error.png",
+    )
+    _plot_true_vs_predicted_scatter(
+        test_predictions03,
+        model_name=str(summary03["winner_model_name"]),
+        title="Study 03 Winner: True vs Predicted Distance",
+        output_path=ANALYSIS_DIR / "study03_winner_true_vs_predicted.png",
+    )
+    _plot_error_histogram(
+        test_predictions03,
+        model_name=str(summary03["winner_model_name"]),
+        output_path=ANALYSIS_DIR / "study03_winner_error_histograms.png",
+    )
+    _plot_feature_group_importance(
+        winner_feature_group_rows03,
+        title="Study 03 Winner Feature-Group Importances",
+        output_path=ANALYSIS_DIR / "study03_winner_feature_group_importances.png",
     )
     _plot_study02_vs_study03_overall(
         summary02,
