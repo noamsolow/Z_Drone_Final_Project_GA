@@ -1,0 +1,21 @@
+model_name,model_label,candidate_name,oof_mae,oof_mean_relative_error,max_depth,learning_rate
+raw_depth_only_xgb,Raw Depth Only XGB,xgb_shallow,27.40821396123987,0.543874529371422,3,0.05
+raw_depth_only_xgb,Raw Depth Only XGB,xgb_medium,27.429950768446332,0.5440763638933926,4,0.05
+raw_depth_only_xgb,Raw Depth Only XGB,xgb_deep,27.463362592937276,0.5445495323861975,6,0.05
+raw_depth_only_xgb,Raw Depth Only XGB,xgb_regularized,27.44180642809953,0.5442196837281263,5,0.03
+geometry_metadata_xgb,Geometry + Metadata XGB,xgb_shallow,9.223715561511032,0.12447934215236328,3,0.05
+geometry_metadata_xgb,Geometry + Metadata XGB,xgb_medium,8.84392712671881,0.11936794222066065,4,0.05
+geometry_metadata_xgb,Geometry + Metadata XGB,xgb_deep,8.19292953721213,0.11125579321432151,6,0.05
+geometry_metadata_xgb,Geometry + Metadata XGB,xgb_regularized,8.580525933467236,0.11579273950894672,5,0.03
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,xgb_shallow,8.69627155536266,0.1155531704200703,3,0.05
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,xgb_medium,8.330460678317031,0.1100830397565105,4,0.05
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,xgb_deep,7.753606902402254,0.1027503452005498,6,0.05
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,xgb_regularized,8.10971546914197,0.10706906710821024,5,0.03
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,xgb_shallow,21.485049885312158,0.3874450351308976,3,0.05
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,xgb_medium,21.504219058155083,0.38763329528190416,4,0.05
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,xgb_deep,21.530838898888458,0.388023891208887,6,0.05
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,xgb_regularized,21.515343324499778,0.38778053209501334,5,0.03
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,xgb_shallow,8.886083725913172,0.12010650882051044,3,0.05
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,xgb_medium,8.550707694386288,0.11522457937599156,4,0.05
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,xgb_deep,7.988070573184089,0.10792609832434089,6,0.05
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,xgb_regularized,8.323267338891135,0.11212042134291374,5,0.03

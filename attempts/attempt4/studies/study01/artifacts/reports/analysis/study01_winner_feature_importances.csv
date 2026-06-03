@@ -1,0 +1,14 @@
+term,importance_value
+bbox_width_norm,0.2888461289476275
+bbox_width_px,0.2169094455237159
+bbox_area_ratio,0.1864236475620715
+bbox_height_norm,0.10740248904119189
+bbox_height_px,0.09467948660092604
+bbox_only__inner50_median__object_depth,0.04297426214836796
+bbox_center_x_norm,0.022893839165053585
+bbox_aspect_ratio,0.016990576307355114
+bbox_center_y_norm,0.014160052346960038
+weather=clear_sky,0.002316532774179487
+weather=light_rain,0.0022895429845700126
+time_of_day=8PM,0.0020666551398600143
+time_of_day=10AM,0.002047341458120767

@@ -1,0 +1,16 @@
+model_name,model_label,distance_range,mae,mean_relative_error,mean_signed_error,count
+raw_depth_only_xgb,Raw Depth Only XGB,near,28.727387034199225,0.9229794004825479,26.667755335348623,3780
+raw_depth_only_xgb,Raw Depth Only XGB,mid,12.009227779246768,0.14270665414433426,-3.7886770448254654,3016
+raw_depth_only_xgb,Raw Depth Only XGB,far,42.853421738228484,0.3219072222966497,-42.853421738228484,2244
+geometry_metadata_xgb,Geometry + Metadata XGB,near,5.154883626403001,0.1231203525533121,2.6313809273734927,3780
+geometry_metadata_xgb,Geometry + Metadata XGB,mid,9.350599167517705,0.11065139118929741,0.3030201585602697,3016
+geometry_metadata_xgb,Geometry + Metadata XGB,far,11.738553402470608,0.08906198158038485,-5.529985509454248,2244
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,near,4.431126742892795,0.10559052868579011,1.9816759987482948,3780
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,mid,8.920812649815405,0.1052985283374425,0.9802219203675774,3016
+raw_depth_geometry_metadata_xgb,Raw Depth + Geometry + Metadata XGB,far,11.687015162857247,0.08900987569353716,-5.159657915220754,2244
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,near,20.205986738457252,0.6033632590985172,16.83044641585577,3780
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,mid,15.524660959167885,0.1863915724865457,0.20494609928889995,3016
+small_xgb_depth_only_xgb,Small RF Depth Only XGB,far,29.408956894900072,0.21939357845650626,-28.803328757192574,2244
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,near,4.85085696265811,0.11732651957927347,2.344167834488803,3780
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,mid,9.128592326723297,0.10772520208668947,0.6956784984477319,3016
+stacked_xgb_depth_geometry_metadata_xgb,Stacked RF Depth + Geometry + Metadata XGB,far,11.385124162344159,0.0864561007133909,-5.372206108242858,2244
