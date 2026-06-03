@@ -8,3 +8,14 @@ output/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+
+# Ignore external Nenrus drone distance dataset
+nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/
+
+# Ignore large exported model weights
+attempts/attempt5/studies/study01/artifacts/models/**/*.joblib
+
+# Ignore large generated attempt4 study artifacts
+attempts/attempt4/studies/**/artifacts/reports/cv_predictions.csv
+attempts/attempt4/studies/**/artifacts/reports/test_predictions.csv
+attempts/attempt4/studies/**/artifacts/features/noisy_expanded_feature_table.csv

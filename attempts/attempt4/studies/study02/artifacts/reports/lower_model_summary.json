@@ -1,0 +1,33 @@
+{
+  "selected_lower_model_name": "study02_jittered_small_xgb",
+  "selected_lower_feature_names": [
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_only__inner50_median__object_depth"
+  ],
+  "num_selected_lower_features": 12,
+  "xgboost_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "min_child_weight": 2.0,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.0,
+    "random_state": 20260518,
+    "n_jobs": 1,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "raw_depth_feature_name": "bbox_only__inner50_median__object_depth"
+}

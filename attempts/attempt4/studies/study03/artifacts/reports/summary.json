@@ -1,0 +1,24 @@
+{
+  "study_name": "study03_rf_xgb_blend",
+  "rf_winner_model_key": "raw_depth_geometry_metadata_rf__rf_unbounded",
+  "xgb_winner_model_key": "raw_depth_geometry_metadata_xgb__xgb_deep",
+  "num_dev_rows": 51216,
+  "num_test_rows": 9040,
+  "weight_grid_step": 0.01,
+  "best_blend_search_row": {
+    "rf_weight": 0.44,
+    "xgb_weight": 0.56,
+    "oof_mae": 7.676970811784171,
+    "oof_mean_relative_error": 0.10054452105160067,
+    "oof_rmse": 10.608945769489123,
+    "oof_r2": 0.922520108052314
+  },
+  "winner_model_name": "tuned_weight_blend",
+  "winner_cv_oof_mae": 7.676970811784171,
+  "winner_cv_oof_mean_relative_error": 0.10054452105160067,
+  "winner_test_mae": 7.634683601462127,
+  "winner_test_mean_relative_error": 0.09901584531220672,
+  "cv_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study03\\artifacts\\reports\\cv_metrics.json",
+  "test_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study03\\artifacts\\reports\\test_metrics.json",
+  "blend_search_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study03\\artifacts\\reports\\blend_search.csv"
+}

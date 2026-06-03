@@ -1,0 +1,27 @@
+{
+  "selected_lower_model_name": "study01_jittered_small_rf",
+  "selected_lower_feature_names": [
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_only__inner50_median__object_depth"
+  ],
+  "num_selected_lower_features": 12,
+  "random_forest_params": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 20260518,
+    "n_jobs": 1
+  },
+  "raw_depth_feature_name": "bbox_only__inner50_median__object_depth"
+}

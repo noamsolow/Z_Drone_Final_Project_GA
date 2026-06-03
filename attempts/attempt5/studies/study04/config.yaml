@@ -1,0 +1,21 @@
+study_name: study04_nenrus_prediction_calibration
+
+sources:
+  predictions_csv: attempts/attempt5/studies/study02/artifacts/reports/predictions.csv
+  nenrus_feature_table_csv: attempts/attempt5/studies/study02/artifacts/features/nenrus_feature_table.csv
+  model_schema_json: attempts/attempt5/studies/study01/artifacts/reports/model_schema.json
+
+calibration:
+  selected_model: per_drone_quadratic
+  calibration_fractions:
+    - 0.10
+    - 0.20
+    - 0.30
+    - 0.50
+  num_random_seeds: 100
+  split_group_keys:
+    - drone_type
+    - true_distance_m
+  clip_predictions_min_m: 0.0
+
+output_root: attempts/attempt5/studies/study04/artifacts

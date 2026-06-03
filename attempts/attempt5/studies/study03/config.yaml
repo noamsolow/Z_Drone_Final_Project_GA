@@ -1,0 +1,15 @@
+study_name: study03_depth_weighted_external_variants
+
+sources:
+  original_feature_table_csv: attempts/attempt4/studies/study01/artifacts/features/noisy_expanded_feature_table.csv
+  nenrus_feature_table_csv: attempts/attempt5/studies/study02/artifacts/features/nenrus_feature_table.csv
+  baseline_predictions_csv: attempts/attempt5/studies/study02/artifacts/reports/predictions.csv
+  model_schema_json: attempts/attempt5/studies/study01/artifacts/reports/model_schema.json
+
+model:
+  raw_depth_feature_name: bbox_only__inner50_median__object_depth
+  blend:
+    rf_weight: 0.44
+    xgb_weight: 0.56
+
+output_root: attempts/attempt5/studies/study03/artifacts

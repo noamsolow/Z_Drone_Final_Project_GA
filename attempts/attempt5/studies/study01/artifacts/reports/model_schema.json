@@ -1,0 +1,75 @@
+{
+  "model_name": "raw_depth_geometry_metadata_ensemble",
+  "continuous_feature_names": [
+    "bbox_only__inner50_median__object_depth",
+    "bbox_width_px",
+    "bbox_height_px",
+    "bbox_width_norm",
+    "bbox_height_norm",
+    "bbox_area_ratio",
+    "bbox_aspect_ratio",
+    "bbox_center_x_norm",
+    "bbox_center_y_norm"
+  ],
+  "categorical_feature_names": [
+    "weather",
+    "time_of_day"
+  ],
+  "categorical_levels": {
+    "weather": [
+      "clear_sky",
+      "light_rain"
+    ],
+    "time_of_day": [
+      "10AM",
+      "8PM"
+    ]
+  },
+  "tabular_feature_names": [
+    "bbox_only__inner50_median__object_depth",
+    "bbox_width_px",
+    "bbox_height_px",
+    "bbox_width_norm",
+    "bbox_height_norm",
+    "bbox_area_ratio",
+    "bbox_aspect_ratio",
+    "bbox_center_x_norm",
+    "bbox_center_y_norm",
+    "weather=clear_sky",
+    "weather=light_rain",
+    "time_of_day=10AM",
+    "time_of_day=8PM"
+  ],
+  "rf_candidate_name": "rf_unbounded",
+  "xgb_candidate_name": "xgb_deep",
+  "rf_params": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 20260520,
+    "n_jobs": 1
+  },
+  "xgb_params": {
+    "n_estimators": 350,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "min_child_weight": 2.0,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.0,
+    "random_state": 20260520,
+    "n_jobs": 1,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "tuned_blend_weights": {
+    "rf_weight": 0.44,
+    "xgb_weight": 0.56
+  },
+  "equal_blend_weights": {
+    "rf_weight": 0.5,
+    "xgb_weight": 0.5
+  }
+}

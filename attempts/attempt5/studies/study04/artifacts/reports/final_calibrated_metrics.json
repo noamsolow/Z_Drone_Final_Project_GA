@@ -1,0 +1,19 @@
+{
+  "count": 489,
+  "mae": 3.0250579165335747,
+  "median_absolute_error": 2.0153301338880567,
+  "mean_relative_error": 0.11647089074999403,
+  "median_relative_error": 0.07850520906780403,
+  "rmse": 4.110374481410449,
+  "r2": 0.9555131687472617,
+  "mean_signed_error": -3.419032836898805e-14,
+  "median_signed_error": -0.1714474277768332,
+  "p90_absolute_error": 7.067841971460293,
+  "p95_absolute_error": 9.118098275984043,
+  "within_2m_rate": 0.49284253578732107,
+  "within_5m_rate": 0.7975460122699386,
+  "within_10m_rate": 0.9713701431492843,
+  "within_20m_rate": 1.0,
+  "overprediction_rate": 0.4785276073619632,
+  "underprediction_rate": 0.5214723926380368
+}

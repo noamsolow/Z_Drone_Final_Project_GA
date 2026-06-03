@@ -586,16 +586,15 @@ def _build_feature_group_rows(
         importance_value = float(row["importance_value"])
         if term.startswith("weather=") or term.startswith("time_of_day="):
             group_name = "metadata"
+        elif "object_depth" in term or term == "depth_lower_model_prediction":
+            if "__jitter_std" in term:
+                group_name = "depth_jitter_std"
+            else:
+                group_name = "depth_jitter_median"
         elif "__jitter_std" in term and term.startswith("bbox_"):
             group_name = "geometry_jitter_std"
         elif "__jitter_median" in term and term.startswith("bbox_"):
             group_name = "geometry_jitter_median"
-        elif "__jitter_std" in term:
-            group_name = "depth_jitter_std"
-        elif "__jitter_median" in term:
-            group_name = "depth_jitter_median"
-        elif term == "depth_lower_model_prediction":
-            group_name = "stacked_depth_signal"
         else:
             group_name = "other"
         grouped[group_name] += importance_value
@@ -628,10 +627,12 @@ def _build_three_bucket_importance_rows(
         importance_value = float(row["importance_value"])
         if term.startswith("weather=") or term.startswith("time_of_day="):
             grouped["metadata"] += importance_value
+        elif "object_depth" in term or term == "depth_lower_model_prediction":
+            grouped["relative_depth"] += importance_value
         elif term.startswith("bbox_"):
             grouped["jittered_geometry"] += importance_value
         else:
-            grouped["relative_depth"] += importance_value
+            grouped["jittered_geometry"] += importance_value
 
     output_rows = [
         {"feature_group": key, "importance_value": value}

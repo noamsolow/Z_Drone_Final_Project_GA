@@ -1,0 +1,16 @@
+{
+  "geometry_rows_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_geometry_domain_rows.csv",
+  "bbox_width_distribution_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_width_norm_distribution_by_dataset_distance.csv",
+  "bbox_area_distribution_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_area_ratio_distribution_by_dataset_distance.csv",
+  "bbox_width_real_vs_original_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_width_norm_real_vs_original_shared_distances.csv",
+  "bbox_area_real_vs_original_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_area_ratio_real_vs_original_shared_distances.csv",
+  "simple_calibration_summary_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\simple_calibration_summary.csv",
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\bbox_domain_and_calibration_analysis.md",
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\plots\\bbox_width_norm_original_vs_real_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\plots\\bbox_area_ratio_original_vs_real_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\plots\\bbox_width_norm_real_div_original_shared_distances.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\plots\\bbox_area_ratio_real_div_original_shared_distances.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\plots\\simple_calibration_test_performance.png"
+  ]
+}

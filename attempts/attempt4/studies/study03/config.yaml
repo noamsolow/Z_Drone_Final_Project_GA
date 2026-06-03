@@ -1,0 +1,15 @@
+study_name: study03_rf_xgb_blend
+
+sources:
+  rf_summary_json: attempts/attempt4/studies/study01/artifacts/reports/summary.json
+  rf_cv_predictions_csv: attempts/attempt4/studies/study01/artifacts/reports/cv_predictions.csv
+  rf_test_predictions_csv: attempts/attempt4/studies/study01/artifacts/reports/test_predictions.csv
+  xgb_summary_json: attempts/attempt4/studies/study02/artifacts/reports/summary.json
+  xgb_cv_predictions_csv: attempts/attempt4/studies/study02/artifacts/reports/cv_predictions.csv
+  xgb_test_predictions_csv: attempts/attempt4/studies/study02/artifacts/reports/test_predictions.csv
+
+blend:
+  weight_grid_step: 0.01
+  clip_min_distance_m: 0.0
+
+output_root: attempts/attempt4/studies/study03/artifacts

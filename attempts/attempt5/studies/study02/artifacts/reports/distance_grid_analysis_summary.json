@@ -1,0 +1,22 @@
+{
+  "training_distances_m": [
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    115.0,
+    125.0,
+    150.0
+  ],
+  "by_multiple_of_10_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_by_multiple_of_10.csv",
+  "by_exact_training_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_by_exact_training_distance.csv",
+  "by_nearest_training_gap_bin_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_by_nearest_training_gap_bin.csv",
+  "by_below_min_training_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_by_below_min_training_distance.csv",
+  "by_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_by_distance.csv",
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study02\\artifacts\\reports\\distance_grid_analysis.md"
+}

@@ -1,4 +1,5 @@
 feature_group,importance_value
-geometry_jitter_median,0.5810457892301747
+geometry_jitter_median,0.5650388240847242
 geometry_jitter_std,0.40942825618234646
+depth_jitter_median,0.01600696514545043
 metadata,0.009525954587478756

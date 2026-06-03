@@ -1,0 +1,34 @@
+{
+  "study_name": "study03_depth_weighted_external_variants",
+  "num_original_rows": 60256,
+  "num_nenrus_rows": 489,
+  "best_ensemble_variant": {
+    "variant_name": "depth_plus_normalized_geometry",
+    "model_family": "ensemble",
+    "num_features": 11,
+    "feature_names": "raw_depth | bbox_width_norm | bbox_height_norm | bbox_area_ratio | bbox_aspect_ratio | bbox_center_x_norm | bbox_center_y_norm | weather=clear_sky | weather=light_rain | time_of_day=10AM | time_of_day=8PM",
+    "count": 489,
+    "mae": 21.610683705570995,
+    "median_absolute_error": 17.074074299936456,
+    "mean_relative_error": 0.8575214070670846,
+    "median_relative_error": 0.5828021108669704,
+    "rmse": 25.664950320130117,
+    "r2": -0.734401126885303,
+    "mean_signed_error": 21.610683705570995,
+    "median_signed_error": 17.074074299936456,
+    "p90_absolute_error": 42.19254950814116,
+    "p95_absolute_error": 49.63853673683337,
+    "within_5m_rate": 0.02044989775051125,
+    "within_10m_rate": 0.2167689161554192,
+    "within_20m_rate": 0.5644171779141104,
+    "overprediction_rate": 1.0,
+    "underprediction_rate": 0.0
+  },
+  "model_metrics_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study03\\artifacts\\reports\\model_metrics.csv",
+  "predictions_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study03\\artifacts\\reports\\predictions.csv",
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study03\\artifacts\\reports\\analysis.md",
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study03\\artifacts\\plots\\depth_weighted_variant_comparison.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study03\\artifacts\\plots\\depth_weighted_selected_variants_by_distance.png"
+  ]
+}

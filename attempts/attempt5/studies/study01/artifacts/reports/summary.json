@@ -1,0 +1,43 @@
+{
+  "study_name": "study01_export_rf_xgb_ensemble",
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study01\\artifacts\\features\\noisy_expanded_feature_table.csv",
+  "num_rows": 60256,
+  "num_dev_rows": 51216,
+  "num_test_rows": 9040,
+  "model_name": "raw_depth_geometry_metadata_ensemble",
+  "rf_candidate_name": "rf_unbounded",
+  "xgb_candidate_name": "xgb_deep",
+  "tuned_blend_weights": {
+    "rf_weight": 0.44,
+    "xgb_weight": 0.56
+  },
+  "equal_blend_weights": {
+    "rf_weight": 0.5,
+    "xgb_weight": 0.5
+  },
+  "num_tabular_features": 13,
+  "model_schema_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\reports\\model_schema.json",
+  "exported_scopes": {
+    "dev_holdout": {
+      "train_rows": 51216,
+      "test_rows": 9040,
+      "tuned_test_mae": 7.634683601462127,
+      "tuned_test_mean_relative_error": 0.09901584531220672,
+      "equal_test_mae": 7.632477833812474,
+      "equal_test_mean_relative_error": 0.09884744302837087,
+      "paths": {
+        "rf_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\dev_holdout\\rf_model.joblib",
+        "xgb_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\dev_holdout\\xgb_model.joblib",
+        "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\dev_holdout\\ensemble.joblib"
+      }
+    },
+    "full_dataset": {
+      "train_rows": 60256,
+      "paths": {
+        "rf_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\full_dataset\\rf_model.joblib",
+        "xgb_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\full_dataset\\xgb_model.joblib",
+        "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt5\\studies\\study01\\artifacts\\models\\full_dataset\\ensemble.joblib"
+      }
+    }
+  }
+}

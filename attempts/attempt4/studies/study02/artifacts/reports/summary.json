@@ -1,0 +1,41 @@
+{
+  "study_name": "study02_noisy_bbox_expanded_rows_xgboost",
+  "num_rows": 60256,
+  "num_dev_rows": 51216,
+  "num_test_rows": 9040,
+  "num_unique_source_images": 15064,
+  "num_jitter_rows_per_source": 4,
+  "selected_lower_model_name": "study02_jittered_small_xgb",
+  "selected_lower_feature_names": [
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_only__inner50_median__object_depth"
+  ],
+  "num_selected_lower_features": 12,
+  "winner_model_name": "raw_depth_geometry_metadata_xgb",
+  "winner_candidate_name": "xgb_deep",
+  "winner_cv_oof_mae": 7.753606902402254,
+  "winner_cv_oof_mean_relative_error": 0.1027503452005498,
+  "winner_test_mae": 7.730142927591779,
+  "winner_test_mean_relative_error": 0.10137729214096355,
+  "selected_upper_candidates_by_model": {
+    "raw_depth_only_xgb": "xgb_shallow",
+    "geometry_metadata_xgb": "xgb_deep",
+    "raw_depth_geometry_metadata_xgb": "xgb_deep",
+    "small_xgb_depth_only_xgb": "xgb_shallow",
+    "stacked_xgb_depth_geometry_metadata_xgb": "xgb_deep"
+  },
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study02\\artifacts\\features\\noisy_expanded_feature_table.csv",
+  "cv_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study02\\artifacts\\reports\\cv_metrics.json",
+  "test_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study02\\artifacts\\reports\\test_metrics.json",
+  "upper_xgb_candidate_metrics_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study02\\artifacts\\reports\\upper_xgb_candidate_metrics.csv"
+}

@@ -1,0 +1,158 @@
+study_name: study02_noisy_bbox_expanded_rows_xgboost
+
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+feature_table_seed_csv: attempts/attempt4/studies/study01/artifacts/features/noisy_expanded_feature_table.csv
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+study:
+  context_windows:
+    - name: bbox_expand_4x
+      scale: 4.0
+    - name: bbox_expand_2x
+      scale: 2.0
+    - name: bbox_expand_1_5x
+      scale: 1.5
+    - name: bbox_only
+      scale: 1.0
+  aggregation_methods:
+    - bbox_midpoint
+    - bbox_mean
+    - inner50_median
+  raw_depth_feature_name: bbox_only__inner50_median__object_depth
+  jitter_boxes:
+    - name: original
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.0
+    - name: scale_down
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 0.92
+    - name: scale_up
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.08
+    - name: scale_up_more
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.16
+  progress_log_every_samples: 10
+
+split:
+  seed: 20260520
+  holdout_fraction: 0.15
+  num_folds: 5
+
+lower_model:
+  score_feature_name: depth_lower_model_prediction
+  inner_num_folds: 5
+  inner_seed: 20260520
+  xgboost:
+    n_estimators: 300
+    learning_rate: 0.05
+    max_depth: 4
+    min_child_weight: 2.0
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_lambda: 1.0
+    reg_alpha: 0.0
+    random_state: 20260518
+    n_jobs: 1
+    tree_method: hist
+    verbosity: 0
+
+upper_xgboost:
+  candidate_configs:
+    - name: xgb_shallow
+      n_estimators: 250
+      learning_rate: 0.05
+      max_depth: 3
+      min_child_weight: 4.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_medium
+      n_estimators: 300
+      learning_rate: 0.05
+      max_depth: 4
+      min_child_weight: 2.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_deep
+      n_estimators: 350
+      learning_rate: 0.05
+      max_depth: 6
+      min_child_weight: 2.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_regularized
+      n_estimators: 450
+      learning_rate: 0.03
+      max_depth: 5
+      min_child_weight: 3.0
+      subsample: 0.85
+      colsample_bytree: 0.85
+      reg_lambda: 2.0
+      reg_alpha: 0.1
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+  model_candidate_names:
+    raw_depth_only_xgb:
+      - xgb_shallow
+      - xgb_medium
+      - xgb_deep
+      - xgb_regularized
+    geometry_metadata_xgb:
+      - xgb_shallow
+      - xgb_medium
+      - xgb_deep
+      - xgb_regularized
+    raw_depth_geometry_metadata_xgb:
+      - xgb_shallow
+      - xgb_medium
+      - xgb_deep
+      - xgb_regularized
+    small_xgb_depth_only_xgb:
+      - xgb_shallow
+      - xgb_medium
+      - xgb_deep
+      - xgb_regularized
+    stacked_xgb_depth_geometry_metadata_xgb:
+      - xgb_shallow
+      - xgb_medium
+      - xgb_deep
+      - xgb_regularized
+
+modeling:
+  model_names:
+    - raw_depth_only_xgb
+    - geometry_metadata_xgb
+    - raw_depth_geometry_metadata_xgb
+    - small_xgb_depth_only_xgb
+    - stacked_xgb_depth_geometry_metadata_xgb
+
+output_root: attempts/attempt4/studies/study02/artifacts

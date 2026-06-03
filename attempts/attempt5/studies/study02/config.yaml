@@ -1,0 +1,31 @@
+study_name: study02_external_nenrus_evaluation
+
+dataset:
+  prepared_root: nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/prepared_by_drone_type
+  manifest_csv: nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/prepared_by_drone_type/manifest.csv
+  missing_weather_value: unknown
+  missing_time_of_day_value: unknown
+
+model:
+  ensemble_joblib: attempts/attempt5/studies/study01/artifacts/models/full_dataset/ensemble.joblib
+  blend_name: tuned_weight_blend
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+features:
+  reuse_feature_table: true
+  raw_depth_feature_name: bbox_only__inner50_median__object_depth
+  context_window:
+    name: bbox_only
+    scale: 1.0
+  aggregation_method: inner50_median
+  progress_log_every: 20
+
+plots:
+  enabled: true
+  dpi: 160
+
+output_root: attempts/attempt5/studies/study02/artifacts

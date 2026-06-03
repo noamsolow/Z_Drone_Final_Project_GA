@@ -335,7 +335,7 @@ def _fit_random_forest_estimator(params: Dict[str, Any]):
         min_samples_leaf=int(params.get("min_samples_leaf", 2)),
         max_features=params.get("max_features", "sqrt"),
         random_state=int(params.get("random_state", 0)),
-        n_jobs=-1,
+        n_jobs=int(params.get("n_jobs", -1)),
     )
 
 
