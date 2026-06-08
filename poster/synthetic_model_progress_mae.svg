@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+<rect x="0" y="0" width="1280" height="760" rx="0" fill="#ffffff"/>
+<text x="250" y="58" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Synthetic Model Progress</text>
+<text x="250" y="88" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Test MAE [m]   lower is better</text>
+<line x1="250.0" y1="112" x2="250.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="250.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">0</text>
+<line x1="438.0" y1="112" x2="438.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="438.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">10</text>
+<line x1="626.0" y1="112" x2="626.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="626.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">20</text>
+<line x1="814.0" y1="112" x2="814.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="814.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">30</text>
+<line x1="1002.0" y1="112" x2="1002.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="1002.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">40</text>
+<line x1="1190.0" y1="112" x2="1190.0" y2="674" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 6"/>
+<text x="1190.0" y="700" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">50</text>
+<line x1="250" y1="674" x2="1190" y2="674" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="228" y="166.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="250" y="140.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="140.0" width="897.6999999999999" height="38" rx="8" fill="#d1d5db"/>
+<text x="1161.6999999999998" y="166.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">47.75</text>
+<text x="228" y="244.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="250" y="218.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="218.0" width="603.668" height="38" rx="8" fill="#cbd5e1"/>
+<text x="867.668" y="244.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">32.11</text>
+<text x="228" y="322.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="250" y="296.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="296.0" width="272.59999999999997" height="38" rx="8" fill="#94a3b8"/>
+<text x="536.5999999999999" y="322.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">14.50</text>
+<text x="228" y="400.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="250" y="374.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="374.0" width="235.94" height="38" rx="8" fill="#64748b"/>
+<text x="499.94" y="400.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">12.55</text>
+<text x="228" y="478.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="250" y="452.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="452.0" width="140.248" height="38" rx="8" fill="#475569"/>
+<text x="404.248" y="478.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">7.46</text>
+<text x="228" y="556.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="250" y="530.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="530.0" width="119.59432000000001" height="38" rx="8" fill="#0f766e"/>
+<text x="383.59432000000004" y="556.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">6.36</text>
+<text x="228" y="634.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="250" y="608.0" width="940" height="38" rx="8" fill="#f8fafc"/>
+<rect x="250" y="608.0" width="112.283" height="38" rx="8" fill="#059669"/>
+<text x="376.283" y="634.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">5.97</text>
+</svg>
