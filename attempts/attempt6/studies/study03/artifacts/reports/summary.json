@@ -1,0 +1,22 @@
+{
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\reports\\analysis.md",
+  "baseline_cv_oof_mae": 7.790667911669,
+  "baseline_raw_depth_feature_name": "bbox_only__inner50_median__object_depth",
+  "baseline_test_mae": 7.712389563594,
+  "baseline_variant_name": "inner50_median",
+  "comparison_cv_oof_mae": 7.971709570696,
+  "comparison_metrics_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\reports\\comparison_metrics.csv",
+  "comparison_raw_depth_feature_name": "bbox_only__bbox_midpoint__object_depth",
+  "comparison_test_mae": 7.948575424682,
+  "comparison_variant_name": "bbox_midpoint",
+  "cv_oof_delta_midpoint_minus_inner50": 0.181041659027,
+  "model_names": [
+    "raw_depth_geometry_metadata_rf"
+  ],
+  "source_attempt4_config_path": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt4\\studies\\study01\\config.yaml",
+  "study_name": "study03_raw_depth_aggregation_ablation",
+  "test_mae_delta_midpoint_minus_inner50": 0.236185861088,
+  "winner_raw_depth_feature_name": "bbox_only__inner50_median__object_depth",
+  "winner_selected_candidate_name": "rf_unbounded",
+  "winner_variant_name": "inner50_median"
+}

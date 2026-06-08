@@ -1,0 +1,7 @@
+distance_range,variant_name,raw_depth_feature_name,mae,mean_relative_error,rmse,r2,mae_delta_vs_baseline
+far,inner50_median,bbox_only__inner50_median__object_depth,11.768010606926,0.089410959696,14.578705911339,0.025032408593,0.0
+far,bbox_midpoint,bbox_only__bbox_midpoint__object_depth,11.686871628926,0.088733470101,14.51844578084,0.033075680958,-0.081138978
+mid,inner50_median,bbox_only__inner50_median__object_depth,9.052474501057,0.10659227595,11.881277384783,-0.129318018353,0.0
+mid,bbox_midpoint,bbox_only__bbox_midpoint__object_depth,9.281044647008,0.109416151169,12.032259414516,-0.158202132946,0.228570145952
+near,inner50_median,bbox_only__inner50_median__object_depth,4.235535121102,0.09862224987,6.591786839482,0.783527120446,0.0
+near,bbox_midpoint,bbox_only__bbox_midpoint__object_depth,4.666177578953,0.110813317665,7.131277794652,0.746643592,0.430642457851

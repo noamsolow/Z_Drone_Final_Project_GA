@@ -1,0 +1,3 @@
+variant_name,raw_depth_feature_name,generated_config_path,variant_output_root
+inner50_median,bbox_only__inner50_median__object_depth,C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt6\studies\study03\artifacts\generated_configs\inner50_median.yaml,C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt6\studies\study03\artifacts\runs\inner50_median
+bbox_midpoint,bbox_only__bbox_midpoint__object_depth,C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt6\studies\study03\artifacts\generated_configs\bbox_midpoint.yaml,C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt6\studies\study03\artifacts\runs\bbox_midpoint

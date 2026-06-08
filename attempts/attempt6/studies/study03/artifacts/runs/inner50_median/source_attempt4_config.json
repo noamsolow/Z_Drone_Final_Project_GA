@@ -1,0 +1,163 @@
+{
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "depth_model": {
+    "device": null,
+    "local_files_only": true,
+    "model_name": "depth-anything/Depth-Anything-V2-Small-hf"
+  },
+  "lower_model": {
+    "inner_num_folds": 5,
+    "inner_seed": 20260520,
+    "random_forest": {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 300,
+      "n_jobs": 1,
+      "random_state": 20260518
+    },
+    "score_feature_name": "depth_lower_model_prediction"
+  },
+  "modeling": {
+    "model_names": [
+      "raw_depth_only_rf",
+      "geometry_metadata_rf",
+      "raw_depth_geometry_metadata_rf",
+      "small_rf_depth_only_rf",
+      "stacked_rf_depth_geometry_metadata_rf"
+    ]
+  },
+  "output_root": "attempts/attempt4/studies/study01/artifacts",
+  "split": {
+    "holdout_fraction": 0.15,
+    "num_folds": 5,
+    "seed": 20260520
+  },
+  "strict": true,
+  "study": {
+    "aggregation_methods": [
+      "bbox_midpoint",
+      "bbox_mean",
+      "inner50_median"
+    ],
+    "context_windows": [
+      {
+        "name": "bbox_expand_4x",
+        "scale": 4.0
+      },
+      {
+        "name": "bbox_expand_2x",
+        "scale": 2.0
+      },
+      {
+        "name": "bbox_expand_1_5x",
+        "scale": 1.5
+      },
+      {
+        "name": "bbox_only",
+        "scale": 1.0
+      }
+    ],
+    "jitter_boxes": [
+      {
+        "dx_frac": 0.0,
+        "dy_frac": 0.0,
+        "name": "original",
+        "scale": 1.0
+      },
+      {
+        "dx_frac": 0.0,
+        "dy_frac": 0.0,
+        "name": "scale_down",
+        "scale": 0.92
+      },
+      {
+        "dx_frac": 0.0,
+        "dy_frac": 0.0,
+        "name": "scale_up",
+        "scale": 1.08
+      },
+      {
+        "dx_frac": 0.0,
+        "dy_frac": 0.0,
+        "name": "scale_up_more",
+        "scale": 1.16
+      }
+    ],
+    "progress_log_every_samples": 10,
+    "raw_depth_feature_name": "bbox_only__inner50_median__object_depth"
+  },
+  "study_name": "study01_noisy_bbox_expanded_rows_random_forest",
+  "upper_random_forest": {
+    "candidate_configs": [
+      {
+        "max_depth": 10,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "name": "rf_shallow",
+        "random_state": 20260520
+      },
+      {
+        "max_depth": 16,
+        "max_features": "sqrt",
+        "min_samples_leaf": 3,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "name": "rf_medium",
+        "random_state": 20260520
+      },
+      {
+        "max_depth": 24,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "name": "rf_deep",
+        "random_state": 20260520
+      },
+      {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "name": "rf_unbounded",
+        "random_state": 20260520
+      }
+    ],
+    "model_candidate_names": {
+      "geometry_metadata_rf": [
+        "rf_shallow",
+        "rf_medium",
+        "rf_deep",
+        "rf_unbounded"
+      ],
+      "raw_depth_geometry_metadata_rf": [
+        "rf_shallow",
+        "rf_medium",
+        "rf_deep",
+        "rf_unbounded"
+      ],
+      "raw_depth_only_rf": [
+        "rf_shallow",
+        "rf_medium",
+        "rf_deep",
+        "rf_unbounded"
+      ],
+      "small_rf_depth_only_rf": [
+        "rf_shallow",
+        "rf_medium",
+        "rf_deep",
+        "rf_unbounded"
+      ],
+      "stacked_rf_depth_geometry_metadata_rf": [
+        "rf_shallow",
+        "rf_medium",
+        "rf_deep",
+        "rf_unbounded"
+      ]
+    }
+  }
+}

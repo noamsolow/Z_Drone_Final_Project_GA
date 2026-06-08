@@ -1,0 +1,37 @@
+{
+  "study_name": "study01_noisy_bbox_expanded_rows_random_forest__inner50_median",
+  "num_rows": 60256,
+  "num_dev_rows": 51216,
+  "num_test_rows": 9040,
+  "num_unique_source_images": 15064,
+  "num_jitter_rows_per_source": 4,
+  "selected_lower_model_name": "study01_jittered_small_rf",
+  "selected_lower_feature_names": [
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_only__inner50_median__object_depth"
+  ],
+  "num_selected_lower_features": 12,
+  "winner_model_name": "raw_depth_geometry_metadata_rf",
+  "winner_candidate_name": "rf_unbounded",
+  "winner_cv_oof_mae": 7.790667911668974,
+  "winner_cv_oof_mean_relative_error": 0.10103324866921826,
+  "winner_test_mae": 7.7123895635944715,
+  "winner_test_mean_relative_error": 0.0989947568952183,
+  "selected_upper_candidates_by_model": {
+    "raw_depth_geometry_metadata_rf": "rf_unbounded"
+  },
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\runs\\inner50_median\\features\\noisy_expanded_feature_table.csv",
+  "cv_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\runs\\inner50_median\\reports\\cv_metrics.json",
+  "test_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\runs\\inner50_median\\reports\\test_metrics.json",
+  "upper_rf_candidate_metrics_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study03\\artifacts\\runs\\inner50_median\\reports\\upper_rf_candidate_metrics.csv"
+}

@@ -1,0 +1,23 @@
+study_name: study03_raw_depth_aggregation_ablation
+
+source_attempt4:
+  config_path: attempts/attempt4/studies/study01/config.yaml
+  feature_table_csv: attempts/attempt4/studies/study01/artifacts/features/noisy_expanded_feature_table.csv
+  feature_summary_json: attempts/attempt4/studies/study01/artifacts/features/summary.json
+  selected_samples_csv: attempts/attempt4/studies/study01/artifacts/features/selected_samples.csv
+  test_split_json: attempts/attempt4/studies/study01/artifacts/splits/test_split.json
+  cv_folds_json: attempts/attempt4/studies/study01/artifacts/splits/cv_folds.json
+
+variants:
+  - name: inner50_median
+    label: Baseline inner50 median
+    raw_depth_feature_name: bbox_only__inner50_median__object_depth
+  - name: bbox_midpoint
+    label: Comparison bbox midpoint
+    raw_depth_feature_name: bbox_only__bbox_midpoint__object_depth
+
+modeling:
+  model_names:
+    - raw_depth_geometry_metadata_rf
+
+output_root: attempts/attempt6/studies/study03/artifacts
