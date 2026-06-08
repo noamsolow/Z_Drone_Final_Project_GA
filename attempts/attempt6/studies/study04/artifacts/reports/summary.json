@@ -1,0 +1,14 @@
+{
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\reports\\analysis.md",
+  "milestone_overview_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\reports\\milestone_overview.csv",
+  "num_milestone_models": 8,
+  "num_synthetic_distance_models": 7,
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\plots\\overall_progress_mae.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\plots\\overall_progress_mean_relative_error.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\plots\\synthetic_distance_mae.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\plots\\synthetic_distance_mean_relative_error.png"
+  ],
+  "study_name": "study04_milestone_progress_graphs",
+  "synthetic_distance_curves_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt6\\studies\\study04\\artifacts\\reports\\synthetic_distance_curves.csv"
+}

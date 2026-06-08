@@ -1,0 +1,40 @@
+{
+  "study_name": "study03_external_nenrus_evaluation_aggregated_jitter",
+  "dataset_manifest_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f\\prepared_by_drone_type\\manifest.csv",
+  "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study02\\artifacts\\models\\full_dataset\\ensemble.joblib",
+  "num_rows": 489,
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\features\\nenrus_feature_table.csv",
+  "overall": {
+    "count": 489,
+    "mae": 23.996743541822127,
+    "median_absolute_error": 19.34875811156546,
+    "mean_relative_error": 0.9406540230926566,
+    "median_relative_error": 0.678492942359561,
+    "rmse": 28.290596323063884,
+    "r2": -1.1074287224717296,
+    "mean_signed_error": 23.996743541822127,
+    "median_signed_error": 19.34875811156546,
+    "p90_absolute_error": 45.71554153120817,
+    "p95_absolute_error": 54.01834855207698,
+    "max_absolute_error": 69.50858657867533,
+    "within_2m_rate": 0.00408997955010225,
+    "within_5m_rate": 0.022494887525562373,
+    "within_10m_rate": 0.15950920245398773,
+    "within_20m_rate": 0.5112474437627812,
+    "overprediction_rate": 1.0,
+    "underprediction_rate": 0.0,
+    "mean_true_distance_m": 34.644171779141104,
+    "mean_predicted_distance_m": 58.640915320963224
+  },
+  "old_attempt5_external_mae": 26.107786461636422,
+  "delta_vs_old_attempt5_external_mae": -2.1110429198142953,
+  "predictions_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\reports\\predictions.csv",
+  "overall_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\reports\\overall_metrics.json",
+  "by_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\reports\\by_distance.csv",
+  "by_drone_type_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\reports\\by_drone_type.csv",
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\reports\\analysis.md",
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\plots\\predicted_vs_true.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study03\\artifacts\\plots\\mae_by_distance.png"
+  ]
+}

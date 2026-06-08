@@ -1,0 +1,133 @@
+{
+  "selected_model": "per_drone_quadratic",
+  "clip_predictions_min_m": 0.0,
+  "function": {
+    "type": "per_drone_polynomial",
+    "degree": 2,
+    "fallback": {
+      "type": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        -8.91579623264154,
+        0.9395527347458834,
+        -0.0027133078053315943
+      ]
+    },
+    "by_drone_type": {
+      "Kongsberg": {
+        "type": "polynomial",
+        "degree": 2,
+        "coefficients": [
+          -7.49637448193083,
+          0.6938672528033761,
+          -0.0016800681643320955
+        ],
+        "calibration_count": 203
+      },
+      "Vestfold": {
+        "type": "polynomial",
+        "degree": 2,
+        "coefficients": [
+          -13.570208004156516,
+          1.2095761228977808,
+          -0.0038055144308614206
+        ],
+        "calibration_count": 286
+      }
+    }
+  },
+  "all_functions": {
+    "raw_uncalibrated": {
+      "type": "identity"
+    },
+    "global_affine": {
+      "type": "polynomial",
+      "degree": 1,
+      "coefficients": [
+        -0.27600529512683314,
+        0.5954916781761845
+      ]
+    },
+    "global_quadratic": {
+      "type": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        -8.91579623264154,
+        0.9395527347458834,
+        -0.0027133078053315943
+      ]
+    },
+    "global_scale_only": {
+      "type": "scale_only",
+      "scale": 0.5916849486585086
+    },
+    "per_drone_affine": {
+      "type": "per_drone_polynomial",
+      "degree": 1,
+      "fallback": {
+        "type": "polynomial",
+        "degree": 1,
+        "coefficients": [
+          -0.27600529512683314,
+          0.5954916781761845
+        ]
+      },
+      "by_drone_type": {
+        "Kongsberg": {
+          "type": "polynomial",
+          "degree": 1,
+          "coefficients": [
+            -2.5428996872079876,
+            0.4867682973762817
+          ],
+          "calibration_count": 203
+        },
+        "Vestfold": {
+          "type": "polynomial",
+          "degree": 1,
+          "coefficients": [
+            -0.825579935675128,
+            0.7168765507455187
+          ],
+          "calibration_count": 286
+        }
+      }
+    },
+    "per_drone_quadratic": {
+      "type": "per_drone_polynomial",
+      "degree": 2,
+      "fallback": {
+        "type": "polynomial",
+        "degree": 2,
+        "coefficients": [
+          -8.91579623264154,
+          0.9395527347458834,
+          -0.0027133078053315943
+        ]
+      },
+      "by_drone_type": {
+        "Kongsberg": {
+          "type": "polynomial",
+          "degree": 2,
+          "coefficients": [
+            -7.49637448193083,
+            0.6938672528033761,
+            -0.0016800681643320955
+          ],
+          "calibration_count": 203
+        },
+        "Vestfold": {
+          "type": "polynomial",
+          "degree": 2,
+          "coefficients": [
+            -13.570208004156516,
+            1.2095761228977808,
+            -0.0038055144308614206
+          ],
+          "calibration_count": 286
+        }
+      }
+    }
+  },
+  "usage": "Apply this after the raw ensemble prediction. If per-drone, select function by drone_type."
+}

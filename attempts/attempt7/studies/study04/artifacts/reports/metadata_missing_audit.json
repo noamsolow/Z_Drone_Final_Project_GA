@@ -1,0 +1,10 @@
+{
+  "num_rows": 489,
+  "categorical_columns": [],
+  "trained_levels": {},
+  "observed_values": {},
+  "known_value_rows": {},
+  "unknown_value_rows": {},
+  "metadata_one_hot_active_rate": {},
+  "interpretation": "Nenrus rows use unknown weather/time values, so trained one-hot metadata indicators are zero rather than null."
+}

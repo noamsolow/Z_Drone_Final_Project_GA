@@ -1,0 +1,55 @@
+study_name: study03_external_nenrus_evaluation_aggregated_jitter
+
+dataset:
+  prepared_root: nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/prepared_by_drone_type
+  manifest_csv: nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/prepared_by_drone_type/manifest.csv
+  missing_weather_value: unknown
+  missing_time_of_day_value: unknown
+
+model:
+  ensemble_joblib: attempts/attempt7/studies/study02/artifacts/models/full_dataset/ensemble.joblib
+  old_attempt5_summary_json: attempts/attempt5/studies/study02/artifacts/reports/summary.json
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+features:
+  reuse_feature_table: true
+  progress_log_every: 20
+  jitter_boxes:
+    - name: original
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_left
+      dx_frac: -0.08
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_right
+      dx_frac: 0.08
+      dy_frac: 0.0
+      scale: 1.0
+    - name: shift_up
+      dx_frac: 0.0
+      dy_frac: -0.08
+      scale: 1.0
+    - name: shift_down
+      dx_frac: 0.0
+      dy_frac: 0.08
+      scale: 1.0
+    - name: scale_down
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 0.92
+    - name: scale_up
+      dx_frac: 0.0
+      dy_frac: 0.0
+      scale: 1.08
+
+plots:
+  enabled: true
+  dpi: 160
+
+output_root: attempts/attempt7/studies/study03/artifacts

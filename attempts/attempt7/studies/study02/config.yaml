@@ -1,0 +1,11 @@
+study_name: study02_export_aggregated_jitter_ensemble
+
+sources:
+  feature_table_csv: attempts/attempt3/studies/study03/artifacts/features/noisy_aggregated_feature_table.csv
+  attempt7_summary_json: attempts/attempt7/studies/study01/artifacts/reports/summary.json
+
+export:
+  scopes:
+    - full_dataset
+
+output_root: attempts/attempt7/studies/study02/artifacts

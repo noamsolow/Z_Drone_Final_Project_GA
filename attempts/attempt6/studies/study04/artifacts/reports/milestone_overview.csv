@@ -1,0 +1,9 @@
+stage_index,short_label,full_label,dataset_scope,comparison_scope,mae,mean_relative_error,source
+1,Scale only,Attempt 1 scale_only,synthetic,synthetic full-model baseline,47.74601066154458,0.7511225617955533,attempts/attempt1/artifacts/reports/test_metrics.json
+2,Depth linear,Attempt 1 depth_only_linear,synthetic,synthetic full-model baseline,32.111035175478015,0.655736410423863,attempts/attempt1/artifacts/reports/test_metrics.json
+3,Linear + BB,Attempt 1 depth_geometry_metadata_linear,synthetic,synthetic full-model baseline,14.50476668725308,0.27793528149447283,attempts/attempt1/artifacts/reports/test_metrics.json
+4,Improved linear,Attempt 3 Study01 stacked_rf_depth_geometry_metadata_linear,synthetic,synthetic full-model progress,12.550933180117003,0.1968225342330095,attempts/attempt3/studies/study01/artifacts/reports/summary.json
+5,RF,Attempt 4 Study03 rf_winner_baseline,synthetic,harder detector-like benchmark,7.7123895635944715,0.0989947568952183,attempts/attempt4/studies/study03/artifacts/reports/test_metrics.json
+6,Noisy-bbox RF,Attempt 3 Study03 raw_depth_geometry_metadata_rf,synthetic,synthetic full-model progress,5.210499766037984,0.07434651658151488,attempts/attempt3/studies/study03/artifacts/reports/summary.json
+7,RF+XGB ensemble,Attempt 4 Study03 equal_weight_blend,synthetic,harder detector-like benchmark,7.632477833812474,0.09884744302837088,attempts/attempt4/studies/study03/artifacts/reports/test_metrics.json
+8,Calibrated ensemble,Attempt 5 Study04 per_drone_quadratic honest 20% split evaluation,real Nenrus,real calibrated benchmark,3.073500560529563,0.11779480574883959,attempts/attempt5/studies/study04/artifacts/reports/split_eval_summary.csv

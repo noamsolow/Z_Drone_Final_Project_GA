@@ -1,0 +1,23 @@
+{
+  "blend_weights": {
+    "rf_weight": 0.18,
+    "xgb_weight": 0.8200000000000001
+  },
+  "exported_scopes": {
+    "full_dataset": {
+      "paths": {
+        "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study02\\artifacts\\models\\full_dataset\\ensemble.joblib",
+        "rf_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study02\\artifacts\\models\\full_dataset\\rf_model.joblib",
+        "xgb_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study02\\artifacts\\models\\full_dataset\\xgb_model.joblib"
+      },
+      "train_rows": 15064
+    }
+  },
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt3\\studies\\study03\\artifacts\\features\\noisy_aggregated_feature_table.csv",
+  "model_schema_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt7\\studies\\study02\\artifacts\\reports\\model_schema.json",
+  "num_features": 21,
+  "num_rows": 15064,
+  "rf_candidate_name": "rf_deep",
+  "study_name": "study02_export_aggregated_jitter_ensemble",
+  "xgb_candidate_name": "xgb_deep"
+}
