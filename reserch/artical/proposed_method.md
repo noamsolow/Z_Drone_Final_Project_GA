@@ -15,40 +15,11 @@ AirDepth consists of four main stages:
 3. **Feature construction and regression**: combine relative depth, bounding-box geometry, and metadata into a tabular feature vector.
 4. **Metric localization**: estimate the drone’s metric $Z$-distance, and optionally back-project it to a camera-relative 3D point.
 
-```text
-RGB Image It
-   |
-   v
-Drone Detector / Annotation
-   |
-   v
-Bounding Box bt = (ut, vt, wt, ht)
-   |
-   +----------------------+
-   |                      |
-   v                      v
-BBox Geometry         Monocular Depth Model
-Features             Relative Depth Map Rt
-   |                      |
-   +----------+-----------+
-              v
-      Feature Vector phi_t
-              |
-              v
-   RF + XGBoost Distance Regressor
-              |
-              v
-       Estimated Depth z_hat_t
-              |
-              v
- Optional Camera Back-Projection
-       p_hat_t = (x_hat_t, y_hat_t, z_hat_t)
-
-```
+![alt text](image.png)
 
 The final model was chosen through several experimental attempts. The early baseline showed that a single relative-depth value alone is weak, but combining it with bounding-box geometry and metadata improves distance estimation. Later studies tested multiple depth crops, different depth aggregations, learned depth-only random forests, noisy bounding boxes, Random Forest, XGBoost, and model blending. The strongest synthetic result came from an RF/XGBoost ensemble trained on noisy bounding-box rows, reaching approximately **7.63 m MAE** on the synthetic held-out test set.
 
-External real-drone evaluation showed an important limitation: the uncalibrated model over-relied on bounding-box geometry and overpredicted real drone distances. A calibration layer reduced real-dataset MAE to about **3.03 m**, but this requires labeled real calibration data. Therefore, AirDepth should be understood as a monocular distance-estimation framework whose strongest in-domain model is the RF/XGBoost ensemble, while real-world deployment requires either calibration or stronger domain-generalization training.
+External real-drone evaluation showed an important limitation: the uncalibrated model over-relied on bounding-box geometry and overpredicted real drone distances. A calibration layer reduced real-dataset MAE to about **3.22 m**, but this requires labeled real calibration data. Therefore, AirDepth should be understood as a monocular distance-estimation framework whose strongest in-domain model is the RF/XGBoost ensemble, while real-world deployment requires either calibration or stronger domain-generalization training.
 
 ---
 
