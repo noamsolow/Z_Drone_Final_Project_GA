@@ -1,0 +1,14 @@
+{
+  "blend_weights": {
+    "rf_weight": 0.17,
+    "xgb_weight": 0.83
+  },
+  "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\ensemble.joblib",
+  "feature_count": 21,
+  "model_schema_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\model_schema.json",
+  "rf_candidate_name": "rf_deep",
+  "rf_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\rf_model.joblib",
+  "train_rows": 15064,
+  "xgb_candidate_name": "xgb_deep",
+  "xgb_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\xgb_model.joblib"
+}

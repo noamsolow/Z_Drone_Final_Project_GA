@@ -1,0 +1,34 @@
+study_name: study01_real_nenrus_uncalibrated_attempt8_ensemble
+
+sources:
+  study_all_config_yaml: attempts/attempt8-comprehensive run/studies/study_all/config.yaml
+  study_all_summary_json: attempts/attempt8-comprehensive run/studies/study_all/artifacts/reports/summary.json
+  study_all_aggregated_feature_table_csv: attempts/attempt8-comprehensive run/studies/study_all/artifacts/features/aggregated_common_feature_table.csv
+  aggregated_feature_selection_csv: attempts/attempt3/studies/study03/artifacts/reports/upper_rf_selected_models.csv
+  jitter_feature_config_yaml: attempts/attempt3/studies/study03/config.yaml
+
+dataset:
+  name: Nenrus prepared real-drone dataset
+  manifest_csv: nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f/prepared_by_drone_type/manifest.csv
+  missing_weather_value: unknown
+  missing_time_of_day_value: unknown
+
+depth_model:
+  model_name: depth-anything/Depth-Anything-V2-Small-hf
+  device: null
+  local_files_only: true
+
+features:
+  reuse_feature_table: true
+  progress_log_every: 20
+
+model:
+  export_scope: full_study_all_dataset
+  source_model_name: raw_depth_geometry_metadata_rf
+  clip_min_distance_m: 0.0
+
+plots:
+  enabled: true
+  dpi: 160
+
+output_root: attempts/attempt8-comprehensive run/studies/study01/artifacts
