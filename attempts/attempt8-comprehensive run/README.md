@@ -1,6 +1,13 @@
-# Attempt 8: Comprehensive Unified Synthetic Rerun
+# Attempt 8: Unified Synthetic Rerun + Real-Data Evaluation
 
-This folder contains the unified rerun for the poster's synthetic model family.
+This folder contains the unified rerun for the poster's synthetic model family
+and the follow-up real-data evaluation of the selected Attempt8 ensemble.
+
+## Studies
+
+- `studies/study_all`: full unified synthetic benchmark across all tested model families.
+- `studies/study01`: raw, uncalibrated Attempt8 ensemble evaluation on the prepared real-drone Nenrus dataset.
+- `studies/study02`: per-drone calibration of the Study01 real-data predictions, with a direct comparison to Attempt5 Study04.
 
 The goal is to rerun the main synthetic models under one shared benchmark and
 one shared split, while preserving each model's method definition as closely as
@@ -49,9 +56,9 @@ This keeps all reported synthetic models on one unified image universe.
 
 ## Outputs
 
-When the run finishes, artifacts are written under:
+For `study_all`, artifacts are written under:
 
-- `attempts/attempt8-comprehensive run/artifacts/`
+- `attempts/attempt8-comprehensive run/studies/study_all/artifacts/`
 
 Key outputs:
 
@@ -100,19 +107,31 @@ Console progress is printed during:
 Main one-command wrapper:
 
 ```powershell
-.\attempts\attempt8-comprehensive run\run_attempt8.ps1
+.\attempts\attempt8-comprehensive run\studies\study_all\run_attempt8.ps1
 ```
 
 If your virtual environment is elsewhere:
 
 ```powershell
-.\attempts\attempt8-comprehensive run\run_attempt8.ps1 -PythonExe "C:\path\to\python.exe"
+.\attempts\attempt8-comprehensive run\studies\study_all\run_attempt8.ps1 -PythonExe "C:\path\to\python.exe"
 ```
 
 Direct Python invocation:
 
 ```powershell
-.\.venv\Scripts\python.exe "attempts/attempt8-comprehensive run/run_attempt8.py" --config "attempts/attempt8-comprehensive run/config.yaml"
+.\.venv\Scripts\python.exe "attempts/attempt8-comprehensive run/studies/study_all/run_attempt8.py" --config "attempts/attempt8-comprehensive run/studies/study_all/config.yaml"
+```
+
+Real-data raw evaluation:
+
+```powershell
+.\.venv\Scripts\python.exe "attempts/attempt8-comprehensive run/studies/study01/run_study01_real_uncalibrated.py"
+```
+
+Real-data per-drone calibration:
+
+```powershell
+.\.venv\Scripts\python.exe "attempts/attempt8-comprehensive run/studies/study02/run_real_calibration.py"
 ```
 
 ## Prerequisites

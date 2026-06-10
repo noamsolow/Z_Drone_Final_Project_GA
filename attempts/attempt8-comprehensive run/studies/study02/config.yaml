@@ -1,0 +1,26 @@
+study_name: study02_nenrus_per_drone_calibration
+
+sources:
+  predictions_csv: attempts/attempt8-comprehensive run/studies/study01/artifacts/reports/predictions.csv
+  nenrus_feature_table_csv: attempts/attempt8-comprehensive run/studies/study01/artifacts/features/nenrus_attempt8_jitter_feature_table.csv
+  model_schema_json: attempts/attempt8-comprehensive run/studies/study01/artifacts/reports/model_schema.json
+
+comparison:
+  attempt5_summary_json: attempts/attempt5/studies/study04/artifacts/reports/summary.json
+  attempt5_split_eval_summary_csv: attempts/attempt5/studies/study04/artifacts/reports/split_eval_summary.csv
+  attempt5_before_after_by_drone_type_csv: attempts/attempt5/studies/study04/artifacts/reports/before_after_by_drone_type.csv
+
+calibration:
+  selected_model: per_drone_quadratic
+  calibration_fractions:
+    - 0.10
+    - 0.20
+    - 0.30
+    - 0.50
+  num_random_seeds: 100
+  split_group_keys:
+    - drone_type
+    - true_distance_m
+  clip_predictions_min_m: 0.0
+
+output_root: attempts/attempt8-comprehensive run/studies/study02/artifacts

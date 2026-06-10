@@ -1,0 +1,54 @@
+{
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\analysis.md",
+  "by_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\by_distance.csv",
+  "by_drone_type_and_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\by_drone_type_and_distance.csv",
+  "by_drone_type_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\by_drone_type.csv",
+  "config_path": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\config.yaml",
+  "dataset_manifest_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\nenrus-Dataset-of-Drone-Distance-Estimation-a5aac8f\\prepared_by_drone_type\\manifest.csv",
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\features\\nenrus_attempt8_jitter_feature_table.csv",
+  "model_export": {
+    "blend_weights": {
+      "rf_weight": 0.17,
+      "xgb_weight": 0.83
+    },
+    "ensemble_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\ensemble.joblib",
+    "feature_count": 21,
+    "model_schema_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\model_schema.json",
+    "rf_candidate_name": "rf_deep",
+    "rf_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\rf_model.joblib",
+    "train_rows": 15064,
+    "xgb_candidate_name": "xgb_deep",
+    "xgb_model_joblib": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\models\\full_study_all_dataset\\xgb_model.joblib"
+  },
+  "num_rows": 489,
+  "overall": {
+    "count": 489,
+    "mae": 23.79586425831216,
+    "max_absolute_error": 68.64831758205294,
+    "mean_predicted_distance_m": 58.43947348397092,
+    "mean_relative_error": 0.9336871023481313,
+    "mean_signed_error": 23.795301704829818,
+    "mean_true_distance_m": 34.644171779141104,
+    "median_absolute_error": 18.9686845493135,
+    "median_relative_error": 0.6693297021546742,
+    "median_signed_error": 18.9686845493135,
+    "overprediction_rate": 0.9979550102249489,
+    "p90_absolute_error": 46.79797390995086,
+    "p95_absolute_error": 53.98617563894615,
+    "r2": -1.10107228511774,
+    "rmse": 28.247898981681956,
+    "underprediction_rate": 0.002044989775051125,
+    "within_10m_rate": 0.15950920245398773,
+    "within_20m_rate": 0.5214723926380368,
+    "within_2m_rate": 0.0081799591002045,
+    "within_5m_rate": 0.028629856850715747
+  },
+  "overall_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\overall_metrics.json",
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\plots\\predicted_vs_true_by_drone_type.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\plots\\mae_by_drone_type.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\plots\\mae_by_distance.png"
+  ],
+  "predictions_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\predictions.csv",
+  "study_name": "study01_real_nenrus_uncalibrated_attempt8_ensemble"
+}

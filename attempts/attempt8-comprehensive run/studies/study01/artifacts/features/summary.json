@@ -1,0 +1,19 @@
+{
+  "aggregation_methods": [
+    "bbox_midpoint",
+    "bbox_mean",
+    "inner50_median"
+  ],
+  "contexts": [
+    "bbox_expand_4x",
+    "bbox_expand_2x",
+    "bbox_expand_1_5x",
+    "bbox_only"
+  ],
+  "feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\features\\nenrus_attempt8_jitter_feature_table.csv",
+  "missing_time_of_day_value": "unknown",
+  "missing_weather_value": "unknown",
+  "model_feature_count": 21,
+  "num_jitter_boxes": 7,
+  "num_rows": 489
+}

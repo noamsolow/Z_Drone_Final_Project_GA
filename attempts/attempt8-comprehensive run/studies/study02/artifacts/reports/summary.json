@@ -1,0 +1,194 @@
+{
+  "study_name": "study02_nenrus_per_drone_calibration",
+  "num_rows": 489,
+  "selected_model": "per_drone_quadratic",
+  "split_eval_summary_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\split_eval_summary.csv",
+  "final_calibration_functions_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\final_calibration_functions.json",
+  "raw_uncalibrated_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\raw_uncalibrated_metrics.json",
+  "final_calibrated_predictions_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\final_calibrated_predictions.csv",
+  "final_calibrated_metrics_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\final_calibrated_metrics.json",
+  "before_after_by_drone_type_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\before_after_by_drone_type.csv",
+  "before_after_by_distance_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\before_after_by_distance.csv",
+  "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\analysis.md",
+  "plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\calibration_split_performance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\final_calibrated_predicted_vs_true.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\final_calibrated_mae_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\raw_vs_calibrated_predicted_vs_true.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\mae_before_after_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\mae_before_after_by_drone_type.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\error_distribution_before_after.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\absolute_error_cdf_before_after.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\tolerance_rates_before_after.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\calibration_mapping_curve.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\residuals_after_calibration.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\mean_prediction_tracks_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\relative_error_before_after_by_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\metadata_missing_one_hot_audit.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\mae_vs_rmse_calibration_summary.png"
+  ],
+  "raw_uncalibrated_metrics": {
+    "count": 489,
+    "mae": 23.79586425831216,
+    "median_absolute_error": 18.9686845493135,
+    "mean_relative_error": 0.9336871023481313,
+    "median_relative_error": 0.6693297021546742,
+    "rmse": 28.247898981681956,
+    "r2": -1.10107228511774,
+    "mean_signed_error": 23.795301704829818,
+    "median_signed_error": 18.9686845493135,
+    "p90_absolute_error": 46.79797390995086,
+    "p95_absolute_error": 53.98617563894615,
+    "within_2m_rate": 0.0081799591002045,
+    "within_5m_rate": 0.028629856850715747,
+    "within_10m_rate": 0.15950920245398773,
+    "within_20m_rate": 0.5214723926380368,
+    "overprediction_rate": 0.9979550102249489,
+    "underprediction_rate": 0.002044989775051125
+  },
+  "final_metrics_full_data_fit": {
+    "count": 489,
+    "mae": 3.2241648788247286,
+    "median_absolute_error": 2.271017689799365,
+    "mean_relative_error": 0.1228185017382741,
+    "median_relative_error": 0.08501165583863061,
+    "rmse": 4.273982129035231,
+    "r2": 0.9519012162227538,
+    "mean_signed_error": -1.6872847132200987e-13,
+    "median_signed_error": -0.1361585625886157,
+    "p90_absolute_error": 6.808263498314588,
+    "p95_absolute_error": 8.976818526124852,
+    "within_2m_rate": 0.46421267893660534,
+    "within_5m_rate": 0.787321063394683,
+    "within_10m_rate": 0.967280163599182,
+    "within_20m_rate": 1.0,
+    "overprediction_rate": 0.4867075664621677,
+    "underprediction_rate": 0.5132924335378323
+  },
+  "metadata_audit": {
+    "num_rows": 489,
+    "categorical_columns": [],
+    "trained_levels": {},
+    "observed_values": {},
+    "known_value_rows": {},
+    "unknown_value_rows": {},
+    "metadata_one_hot_active_rate": {},
+    "interpretation": "Nenrus rows use unknown weather/time values, so trained one-hot metadata indicators are zero rather than null."
+  },
+  "attempt5_comparison": {
+    "reference_attempt": "attempt5_study04",
+    "reference_fraction": 0.2,
+    "overall_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\comparison_vs_attempt5.csv",
+    "by_drone_type_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\comparison_by_drone_type_vs_attempt5.csv",
+    "model_20pct_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\comparison_calibration_models_20pct_vs_attempt5.csv",
+    "analysis_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\reports\\comparison_vs_attempt5.md",
+    "plots": [
+      "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\comparison_overall_mae_vs_attempt5.png",
+      "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\comparison_by_drone_type_vs_attempt5.png",
+      "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\comparison_selected_calibration_fraction_track_vs_attempt5.png",
+      "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\comparison_calibration_models_20pct_vs_attempt5.png"
+    ],
+    "overall_rows": [
+      {
+        "stage": "raw_uncalibrated_full_dataset",
+        "attempt5_mae": 26.107786461636422,
+        "attempt8_mae": 23.79586425831216,
+        "attempt8_minus_attempt5_mae": -2.3119222033242615,
+        "attempt8_percent_change_vs_attempt5": -8.855297658886059
+      },
+      {
+        "stage": "honest_split_20pct_calibration_test_mean",
+        "attempt5_mae": 3.073500560529563,
+        "attempt8_mae": 3.2781178199310608,
+        "attempt8_minus_attempt5_mae": 0.2046172594014979,
+        "attempt8_percent_change_vs_attempt5": 6.657466148834618
+      },
+      {
+        "stage": "final_full_data_per_drone_quadratic_fit",
+        "attempt5_mae": 3.0250579165335747,
+        "attempt8_mae": 3.2241648788247286,
+        "attempt8_minus_attempt5_mae": 0.19910696229115388,
+        "attempt8_percent_change_vs_attempt5": 6.581922322971962
+      }
+    ],
+    "by_drone_type_rows": [
+      {
+        "drone_type": "Kongsberg",
+        "count": 203,
+        "attempt5_raw_mae": 36.153620863639354,
+        "attempt8_raw_mae": 33.86326543208363,
+        "attempt8_minus_attempt5_raw_mae": -2.2903554315557244,
+        "attempt5_calibrated_mae": 2.7565888904284455,
+        "attempt8_calibrated_mae": 2.784920721417652,
+        "attempt8_minus_attempt5_calibrated_mae": 0.02833183098920644
+      },
+      {
+        "drone_type": "Vestfold",
+        "count": 286,
+        "attempt5_raw_mae": 18.97735155392105,
+        "attempt8_raw_mae": 16.650121467138703,
+        "attempt8_minus_attempt5_raw_mae": -2.3272300867823468,
+        "attempt5_calibrated_mae": 3.2156146028949073,
+        "attempt8_calibrated_mae": 3.5359360814598215,
+        "attempt8_minus_attempt5_calibrated_mae": 0.3203214785649142
+      }
+    ],
+    "model_20pct_rows": [
+      {
+        "calibration_model": "global_affine",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 7.714353203721969,
+        "attempt8_mae_mean": 7.896737148501796,
+        "attempt8_minus_attempt5_mae_mean": 0.18238394477982656,
+        "attempt5_within_10m_rate_mean": 0.7008673469387753,
+        "attempt8_within_10m_rate_mean": 0.6859438775510205
+      },
+      {
+        "calibration_model": "global_quadratic",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 7.5341105807679165,
+        "attempt8_mae_mean": 7.689678537459605,
+        "attempt8_minus_attempt5_mae_mean": 0.1555679566916881,
+        "attempt5_within_10m_rate_mean": 0.6764030612244898,
+        "attempt8_within_10m_rate_mean": 0.6476530612244897
+      },
+      {
+        "calibration_model": "global_scale_only",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 7.728721710109244,
+        "attempt8_mae_mean": 7.889865488467814,
+        "attempt8_minus_attempt5_mae_mean": 0.16114377835857052,
+        "attempt5_within_10m_rate_mean": 0.6987755102040815,
+        "attempt8_within_10m_rate_mean": 0.6849744897959184
+      },
+      {
+        "calibration_model": "per_drone_affine",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 3.4065183865277593,
+        "attempt8_mae_mean": 3.8725559658958417,
+        "attempt8_minus_attempt5_mae_mean": 0.46603757936808243,
+        "attempt5_within_10m_rate_mean": 0.9443367346938775,
+        "attempt8_within_10m_rate_mean": 0.9197193877551022
+      },
+      {
+        "calibration_model": "per_drone_quadratic",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 3.073500560529563,
+        "attempt8_mae_mean": 3.2781178199310608,
+        "attempt8_minus_attempt5_mae_mean": 0.2046172594014979,
+        "attempt5_within_10m_rate_mean": 0.9654081632653062,
+        "attempt8_within_10m_rate_mean": 0.9644132653061225
+      },
+      {
+        "calibration_model": "raw_uncalibrated",
+        "calibration_fraction": 0.2,
+        "attempt5_mae_mean": 26.158570909145645,
+        "attempt8_mae_mean": 23.841020492240258,
+        "attempt8_minus_attempt5_mae_mean": -2.3175504169053873,
+        "attempt5_within_10m_rate_mean": 0.07461734693877553,
+        "attempt8_within_10m_rate_mean": 0.15956632653061223
+      }
+    ]
+  },
+  "mae_vs_rmse_plot_png": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study02\\artifacts\\plots\\mae_vs_rmse_calibration_summary.png"
+}

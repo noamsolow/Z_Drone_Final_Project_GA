@@ -1,0 +1,58 @@
+{
+  "blend_weights": {
+    "rf_weight": 0.17,
+    "xgb_weight": 0.83
+  },
+  "clip_min_distance_m": 0.0,
+  "feature_names": [
+    "bbox_only__inner50_median__object_depth__jitter_median",
+    "bbox_width_px__jitter_median",
+    "bbox_height_px__jitter_median",
+    "bbox_width_norm__jitter_median",
+    "bbox_height_norm__jitter_median",
+    "bbox_area_ratio__jitter_median",
+    "bbox_aspect_ratio__jitter_median",
+    "bbox_center_x_norm__jitter_median",
+    "bbox_center_y_norm__jitter_median",
+    "bbox_width_px__jitter_std",
+    "bbox_height_px__jitter_std",
+    "bbox_width_norm__jitter_std",
+    "bbox_height_norm__jitter_std",
+    "bbox_area_ratio__jitter_std",
+    "bbox_aspect_ratio__jitter_std",
+    "bbox_center_x_norm__jitter_std",
+    "bbox_center_y_norm__jitter_std",
+    "weather=clear_sky",
+    "weather=light_rain",
+    "time_of_day=10AM",
+    "time_of_day=8PM"
+  ],
+  "model_name": "attempt8_aggregated_rf_xgb_ensemble",
+  "rf_candidate_name": "rf_deep",
+  "rf_params": {
+    "max_depth": 24,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2,
+    "n_estimators": 300,
+    "n_jobs": 1,
+    "random_state": 20260520
+  },
+  "source_model_name": "raw_depth_geometry_metadata_rf",
+  "train_rows": 15064,
+  "training_feature_table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study_all\\artifacts\\features\\aggregated_common_feature_table.csv",
+  "xgb_candidate_name": "xgb_deep",
+  "xgb_params": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "min_child_weight": 2.0,
+    "n_estimators": 350,
+    "n_jobs": 1,
+    "random_state": 20260520,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "tree_method": "hist",
+    "verbosity": 0
+  }
+}

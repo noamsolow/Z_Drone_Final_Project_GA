@@ -1,0 +1,9 @@
+rank,model,role,description,test_mae,test_r2,within_10m_rate
+1,ensemble,poster,A tuned blend of RF+jitter and XGBoost+jitter; the final best poster model.,6.008,0.949,81.0%
+2,XGBoost+jitter,internal,A boosted-tree model trained on the same aggregated jitter-summary feature table.,6.024,0.949,80.8%
+3,RF+jitter,poster,A random forest trained on aggregated jitter-summary features for more robust bbox/depth signals.,6.387,0.941,78.2%
+4,RF,poster,"A random forest trained on exact depth, bbox geometry, and metadata features.",7.189,0.930,73.9%
+5,improved linear,poster,A stacked linear model that adds a lower-stage RF prediction as an extra feature.,12.458,0.833,48.3%
+6,linear+bb,poster,A linear model that adds bbox geometry and image metadata to the depth signal.,13.202,0.810,45.9%
+7,depth linear,poster,A linear model using relative depth as the main predictor.,32.285,0.001,16.6%
+8,scale only,poster,A minimal calibration baseline that learns a global scale from the raw depth signal.,47.702,-1.325,13.3%

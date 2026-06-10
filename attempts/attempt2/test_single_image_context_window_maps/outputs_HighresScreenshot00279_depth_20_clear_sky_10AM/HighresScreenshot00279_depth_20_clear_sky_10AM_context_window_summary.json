@@ -1,0 +1,231 @@
+{
+  "image_path": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset\\depth_20\\clear_sky\\10AM\\HighresScreenshot00279_depth_20_clear_sky_10AM.png",
+  "label_path": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset\\depth_20\\clear_sky\\10AM\\HighresScreenshot00279_depth_20_clear_sky_10AM.txt",
+  "image_size": [
+    2826,
+    1590
+  ],
+  "global_bbox": [
+    712,
+    836,
+    841,
+    950
+  ],
+  "contexts": [
+    {
+      "context_window": "full_image",
+      "crop_bbox_global": [
+        0,
+        0,
+        2826,
+        1590
+      ],
+      "local_bbox": [
+        712,
+        836,
+        841,
+        950
+      ],
+      "focus_bbox": [
+        744,
+        864,
+        809,
+        922
+      ],
+      "surrounding_bbox": [
+        660,
+        790,
+        893,
+        996
+      ],
+      "depth_map_shape": [
+        1590,
+        2826
+      ],
+      "depth_map_min": 0.19097651541233063,
+      "depth_map_max": 5.766633033752441,
+      "depth_map_mean": 3.4098703861236572,
+      "depth_map_median": 3.458782196044922,
+      "object_depth": 3.623426675796509,
+      "object_depth_percentile_5_95": 0.5761718161661895,
+      "surrounding_ring_depth": 3.4383316040039062,
+      "object_minus_ring": 0.18509507179260254,
+      "object_minus_ring_normalized": 0.043387330840154816,
+      "global_percentile_5": 1.1654150485992432,
+      "global_percentile_95": 5.43152379989624,
+      "robust_global_range": 4.266108751296997
+    },
+    {
+      "context_window": "bbox_expand_4x",
+      "crop_bbox_global": [
+        518,
+        665,
+        1034,
+        1121
+      ],
+      "local_bbox": [
+        194,
+        171,
+        323,
+        285
+      ],
+      "focus_bbox": [
+        226,
+        200,
+        291,
+        256
+      ],
+      "surrounding_bbox": [
+        142,
+        125,
+        375,
+        331
+      ],
+      "depth_map_shape": [
+        456,
+        516
+      ],
+      "depth_map_min": 0.6379289627075195,
+      "depth_map_max": 6.121876239776611,
+      "depth_map_mean": 2.6054940223693848,
+      "depth_map_median": 2.5706210136413574,
+      "object_depth": 6.029925346374512,
+      "object_depth_percentile_5_95": 1.0,
+      "surrounding_ring_depth": 2.5514180660247803,
+      "object_minus_ring": 3.4785072803497314,
+      "object_minus_ring_normalized": 1.1256058266441442,
+      "global_percentile_5": 1.0806543827056885,
+      "global_percentile_95": 4.17099666595459,
+      "robust_global_range": 3.0903422832489014
+    },
+    {
+      "context_window": "bbox_expand_2x",
+      "crop_bbox_global": [
+        648,
+        779,
+        906,
+        1007
+      ],
+      "local_bbox": [
+        64,
+        57,
+        193,
+        171
+      ],
+      "focus_bbox": [
+        96,
+        86,
+        161,
+        142
+      ],
+      "surrounding_bbox": [
+        12,
+        11,
+        245,
+        217
+      ],
+      "depth_map_shape": [
+        228,
+        258
+      ],
+      "depth_map_min": 0.48211875557899475,
+      "depth_map_max": 7.042797088623047,
+      "depth_map_mean": 1.922143578529358,
+      "depth_map_median": 1.8413901329040527,
+      "object_depth": 6.261657238006592,
+      "object_depth_percentile_5_95": 1.0,
+      "surrounding_ring_depth": 1.7990903854370117,
+      "object_minus_ring": 4.46256685256958,
+      "object_minus_ring_normalized": 1.9872708088787996,
+      "global_percentile_5": 0.7380319237709045,
+      "global_percentile_95": 2.983607530593872,
+      "robust_global_range": 2.2455756068229675
+    },
+    {
+      "context_window": "bbox_expand_1_5x",
+      "crop_bbox_global": [
+        680,
+        808,
+        873,
+        978
+      ],
+      "local_bbox": [
+        32,
+        28,
+        161,
+        142
+      ],
+      "focus_bbox": [
+        64,
+        56,
+        129,
+        114
+      ],
+      "surrounding_bbox": [
+        0,
+        0,
+        193,
+        170
+      ],
+      "depth_map_shape": [
+        170,
+        193
+      ],
+      "depth_map_min": 0.3485061526298523,
+      "depth_map_max": 6.23254919052124,
+      "depth_map_mean": 1.6859986782073975,
+      "depth_map_median": 1.5590623617172241,
+      "object_depth": 5.599292755126953,
+      "object_depth_percentile_5_95": 1.0,
+      "surrounding_ring_depth": 1.4961448907852173,
+      "object_minus_ring": 4.103147864341736,
+      "object_minus_ring_normalized": 1.0961744832043072,
+      "global_percentile_5": 0.6125335693359375,
+      "global_percentile_95": 4.355685710906982,
+      "robust_global_range": 3.743152141571045
+    },
+    {
+      "context_window": "bbox_only",
+      "crop_bbox_global": [
+        712,
+        836,
+        841,
+        950
+      ],
+      "local_bbox": [
+        0,
+        0,
+        129,
+        114
+      ],
+      "focus_bbox": [
+        32,
+        28,
+        97,
+        86
+      ],
+      "surrounding_bbox": [
+        0,
+        0,
+        129,
+        114
+      ],
+      "depth_map_shape": [
+        114,
+        129
+      ],
+      "depth_map_min": 0.26247355341911316,
+      "depth_map_max": 5.179437160491943,
+      "depth_map_mean": 1.4273693561553955,
+      "depth_map_median": 1.110595941543579,
+      "object_depth": 5.048521995544434,
+      "object_depth_percentile_5_95": 1.0,
+      "surrounding_ring_depth": 5.048521995544434,
+      "object_minus_ring": 0.0,
+      "object_minus_ring_normalized": 0.0,
+      "global_percentile_5": 0.4179384708404541,
+      "global_percentile_95": 4.693737983703613,
+      "robust_global_range": 4.275799512863159
+    }
+  ]
+}
