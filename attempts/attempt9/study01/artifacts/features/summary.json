@@ -1,0 +1,49 @@
+{
+  "num_records": 13192,
+  "weather_counts": {
+    "clear_sky": 6535,
+    "light_rain": 6657
+  },
+  "time_of_day_counts": {
+    "10AM": 8126,
+    "8PM": 5066
+  },
+  "unique_true_distances_m": [
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    115.0,
+    125.0,
+    150.0
+  ],
+  "study_name": "attempt9_study01_depth_pro_attempt1_compatible",
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "source_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt1\\artifacts\\features\\features.csv",
+  "features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts\\features\\features_available.csv",
+  "available_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts\\features\\features_available.csv",
+  "partial_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts\\features\\features_partial.csv",
+  "skipped_source_rows_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts\\features\\skipped_source_rows.csv",
+  "num_source_rows_reused_for_non_depth_fields": 14800,
+  "num_metric_depth_rows_written": 13192,
+  "num_source_rows_skipped": 1608,
+  "num_source_rows_excluded": 1608,
+  "excluded_path_fragments": [
+    "depth_20/clear_sky/10am",
+    "depth_20/light_rain/10am",
+    "depth_30/clear_sky/10am",
+    "depth_30/light_rain/10am"
+  ],
+  "is_complete_attempt1_compatible_dataset": false,
+  "depth_model_kind": "depth_pro",
+  "depth_model_semantics": "metric_model_depth_meters",
+  "output_depth_column_name": "relative_depth",
+  "schema_compatible_with_source_features_csv": true,
+  "stop_on_missing_source": false,
+  "resume_from_partial": true
+}

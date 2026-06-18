@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="760" viewBox="0 0 1380 760">
+<rect x="0" y="0" width="1380" height="760" rx="0" fill="#ffffff"/>
+<text x="120" y="54" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Attempt 9 Depth Pro CV vs Test MAE</text>
+<text x="120" y="84" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">The small gaps show that the rerun generalizes cleanly to the holdout split.</text>
+<line x1="112" y1="640.0" x2="1310" y2="640.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="646.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">0.0</text>
+<line x1="112" y1="536.0" x2="1310" y2="536.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="542.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">16.7</text>
+<line x1="112" y1="432.0" x2="1310" y2="432.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="438.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">33.5</text>
+<line x1="112" y1="327.99999999999994" x2="1310" y2="327.99999999999994" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="333.99999999999994" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">50.2</text>
+<line x1="112" y1="224.00000000000006" x2="1310" y2="224.00000000000006" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="230.00000000000006" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">67.0</text>
+<line x1="112" y1="120.0" x2="1310" y2="120.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="104" y="126.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="end">83.7</text>
+<rect x="155.65" y="601.2237040979912" width="32.725" height="38.776295902008755" rx="6" fill="#cbd5e1"/>
+<rect x="200.375" y="600.5505387507172" width="32.725" height="39.4494612492828" rx="6" fill="#059669"/>
+<text x="194.375" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">ensemble</text>
+<text x="188.375" y="591.2237040979912" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">6.25</text>
+<text x="237.1" y="590.5505387507172" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.35</text>
+<rect x="304.4" y="601.0764232020476" width="32.725" height="38.92357679795237" rx="6" fill="#cbd5e1"/>
+<rect x="349.125" y="600.3829148629059" width="32.725" height="39.61708513709408" rx="6" fill="#0284c7"/>
+<text x="343.125" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">XGBoost+jitter</text>
+<text x="337.125" y="591.0764232020476" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">6.27</text>
+<text x="385.85" y="590.3829148629059" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.38</text>
+<rect x="453.15" y="599.0280056811562" width="32.725" height="40.97199431884385" rx="6" fill="#cbd5e1"/>
+<rect x="497.875" y="598.5500538242354" width="32.725" height="41.44994617576455" rx="6" fill="#0f766e"/>
+<text x="491.875" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">RF+jitter</text>
+<text x="485.875" y="589.0280056811562" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">6.60</text>
+<text x="534.6" y="588.5500538242354" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.68</text>
+<rect x="601.9" y="593.2924507177418" width="32.725" height="46.70754928225823" rx="6" fill="#cbd5e1"/>
+<rect x="646.625" y="593.4192187441448" width="32.725" height="46.5807812558552" rx="6" fill="#334155"/>
+<text x="640.625" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">RF</text>
+<text x="634.625" y="583.2924507177418" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">7.52</text>
+<text x="683.35" y="583.4192187441448" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">7.50</text>
+<rect x="750.65" y="564.9137555774862" width="32.725" height="75.08624442251383" rx="6" fill="#cbd5e1"/>
+<rect x="795.375" y="566.046904031797" width="32.725" height="73.95309596820303" rx="6" fill="#475569"/>
+<text x="789.375" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">improved linear</text>
+<text x="783.375" y="554.9137555774862" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">12.09</text>
+<text x="832.1" y="556.046904031797" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">11.91</text>
+<rect x="899.4" y="556.6941937794427" width="32.725" height="83.3058062205573" rx="6" fill="#cbd5e1"/>
+<rect x="944.125" y="557.1792202201259" width="32.725" height="82.82077977987412" rx="6" fill="#64748b"/>
+<text x="938.125" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">linear+bb</text>
+<text x="932.125" y="546.6941937794427" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">13.42</text>
+<text x="980.85" y="547.1792202201259" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">13.34</text>
+<rect x="1048.15" y="439.2690413704463" width="32.725" height="200.73095862955373" rx="6" fill="#cbd5e1"/>
+<rect x="1092.875" y="439.00133521004614" width="32.725" height="200.99866478995386" rx="6" fill="#94a3b8"/>
+<text x="1086.875" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">depth linear</text>
+<text x="1080.875" y="429.2690413704463" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">32.33</text>
+<text x="1129.6" y="429.00133521004614" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">32.37</text>
+<rect x="1196.9" y="159.9986503110881" width="32.725" height="480.0013496889119" rx="6" fill="#cbd5e1"/>
+<rect x="1241.625" y="158.51851851851853" width="32.725" height="481.48148148148147" rx="6" fill="#cbd5e1"/>
+<text x="1235.625" y="674" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" fill="#111827" text-anchor="middle">scale only</text>
+<text x="1229.625" y="149.9986503110881" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#64748b" text-anchor="end">77.31</text>
+<text x="1278.35" y="148.51851851851853" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">77.55</text>
+<rect x="120" y="708" width="18" height="18" rx="4" fill="#cbd5e1"/>
+<text x="148" y="722" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">CV OOF MAE</text>
+<rect x="300" y="708" width="18" height="18" rx="4" fill="#059669"/>
+<text x="328" y="722" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#475569" text-anchor="start">Test MAE</text>
+</svg>

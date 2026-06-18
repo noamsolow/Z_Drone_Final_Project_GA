@@ -1,0 +1,150 @@
+study_name: attempt9_depth_pro_attempt8_comparison_merged
+
+sources:
+  attempt1_features_csv: attempts/attempt9/merged/artifacts/study01/features_merged.csv
+  study06_fused_features_csv: attempts/attempt9/merged/artifacts/study02/depth_only_feature_table_merged.csv
+  study06_metrics_csv: attempts/attempt2/studies/study_06_all_images_midpoint_random_forest/artifacts/reports/subset_random_forest_metrics.csv
+  aggregated_feature_table_csv: attempts/attempt9/merged/artifacts/study03/noisy_aggregated_feature_table_merged.csv
+  aggregated_feature_selection_csv: attempts/attempt3/studies/study03/artifacts/reports/upper_rf_selected_models.csv
+  attempt4_expanded_feature_table_csv: attempts/attempt4/studies/study01/artifacts/features/noisy_expanded_feature_table.csv
+  attempt4_test_split_json: attempts/attempt4/studies/study01/artifacts/splits/test_split.json
+  attempt4_cv_folds_json: attempts/attempt4/studies/study01/artifacts/splits/cv_folds.json
+
+benchmark:
+  use_attempt4_source_split: true
+  aggregated_source_model_name: raw_depth_geometry_metadata_rf
+
+lower_model:
+  selected_model_name: random_forest_top_24
+  inner_num_folds: 5
+  inner_seed: 20260520
+  score_feature_name: depth_lower_model_prediction
+  random_forest:
+    n_estimators: 300
+    max_depth: null
+    min_samples_leaf: 2
+    max_features: sqrt
+    random_state: 20260518
+    n_jobs: 1
+
+exact_rf:
+  raw_depth_feature_name: bbox_only__inner50_median__object_depth
+  candidate_configs:
+    - name: rf_shallow
+      n_estimators: 300
+      max_depth: 10
+      min_samples_leaf: 5
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_medium
+      n_estimators: 300
+      max_depth: 16
+      min_samples_leaf: 3
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_deep
+      n_estimators: 300
+      max_depth: 24
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_unbounded
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+
+aggregated_models:
+  rf_candidates:
+    - name: rf_shallow
+      n_estimators: 300
+      max_depth: 10
+      min_samples_leaf: 5
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_medium
+      n_estimators: 300
+      max_depth: 16
+      min_samples_leaf: 3
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_deep
+      n_estimators: 300
+      max_depth: 24
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+    - name: rf_unbounded
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 2
+      max_features: sqrt
+      random_state: 20260520
+      n_jobs: 1
+  xgb_candidates:
+    - name: xgb_shallow
+      n_estimators: 250
+      learning_rate: 0.05
+      max_depth: 3
+      min_child_weight: 4.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_medium
+      n_estimators: 300
+      learning_rate: 0.05
+      max_depth: 4
+      min_child_weight: 2.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_deep
+      n_estimators: 350
+      learning_rate: 0.05
+      max_depth: 6
+      min_child_weight: 2.0
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_lambda: 1.0
+      reg_alpha: 0.0
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+    - name: xgb_regularized
+      n_estimators: 450
+      learning_rate: 0.03
+      max_depth: 5
+      min_child_weight: 3.0
+      subsample: 0.85
+      colsample_bytree: 0.85
+      reg_lambda: 2.0
+      reg_alpha: 0.1
+      random_state: 20260520
+      n_jobs: 1
+      tree_method: hist
+      verbosity: 0
+
+blend:
+  weight_grid_step: 0.01
+  clip_min_distance_m: 0.0
+
+output_root: attempts/attempt9/study_all/artifacts_merged

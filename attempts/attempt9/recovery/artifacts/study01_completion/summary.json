@@ -1,0 +1,13 @@
+{
+  "study_name": "attempt9_study01_completion_from_study_all_dropped_rows",
+  "dropped_audit_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\audit\\dropped_rows_audit.csv",
+  "existing_exact_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study01\\features_merged.csv",
+  "output_root": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01_completion",
+  "output_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01_completion\\features_study_all_dropped_exact.csv",
+  "partial_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01_completion\\features_study_all_dropped_exact_partial.csv",
+  "target_rows": 199,
+  "already_present_in_exact": 0,
+  "samples_to_compute": 199,
+  "skipped_before_compute": 0,
+  "rows_written": 199
+}

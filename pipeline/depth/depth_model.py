@@ -11,7 +11,7 @@ Running depth on the full image preserves scene context, which is important for
 monocular depth models.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple, Union
 
@@ -25,6 +25,7 @@ except ImportError:  # pragma: no cover - exercised only in incomplete environme
 
 
 DEFAULT_DEPTH_ANYTHING_V2_MODEL = "depth-anything/Depth-Anything-V2-Small-hf"
+DEFAULT_DEPTH_PRO_CHECKPOINT = "./checkpoints/depth_pro.pt"
 
 
 def _to_pil_rgb_image(image: Union[str, Path, Image.Image, np.ndarray]) -> Image.Image:
@@ -194,6 +195,49 @@ class DepthAnythingV2Adapter:
         return _finalize_depth_map(predicted_depth, target_height, target_width)
 
 
+@dataclass
+class DepthProAdapter:
+    """
+    Thin wrapper around Apple's Depth Pro reference implementation.
+
+    The adapter returns a full-resolution metric depth map in meters, resized to
+    match the original input image dimensions.
+    """
+
+    model: Any
+    transform: Any
+    device: str
+    checkpoint_path: str = DEFAULT_DEPTH_PRO_CHECKPOINT
+
+    def estimate(self, image: Union[str, Path, Image.Image, np.ndarray]) -> np.ndarray:
+        torch_module = _require_torch()
+
+        try:
+            import depth_pro as depth_pro_package
+        except ImportError as exc:
+            raise ImportError(
+                "Depth Pro inference requires the 'depth_pro' package to be installed "
+                "in the active Python environment."
+            ) from exc
+
+        if isinstance(image, (str, Path)):
+            image_array, _, f_px = depth_pro_package.load_rgb(image)
+            image_array = np.array(image_array, copy=True)
+            target_height, target_width = int(image_array.shape[0]), int(image_array.shape[1])
+        else:
+            pil_image = _to_pil_rgb_image(image)
+            image_array = np.array(pil_image, dtype=np.uint8, copy=True)
+            target_height, target_width = pil_image.height, pil_image.width
+            f_px = None
+
+        image_tensor = self.transform(image_array)
+        with torch_module.inference_mode():
+            prediction = self.model.infer(image_tensor, f_px=f_px)
+
+        predicted_depth = prediction["depth"]
+        return _finalize_depth_map(predicted_depth, target_height, target_width)
+
+
 def load_depth_anything_v2(
     model_name: str = DEFAULT_DEPTH_ANYTHING_V2_MODEL,
     device: Optional[str] = None,
@@ -254,27 +298,84 @@ def load_depth_anything_v2(
     )
 
 
-def estimate_relative_depth(image, depth_model):
+def load_depth_pro(
+    checkpoint_path: Union[str, Path] = DEFAULT_DEPTH_PRO_CHECKPOINT,
+    device: Optional[str] = None,
+    precision: Optional[Any] = None,
+) -> DepthProAdapter:
     """
-    Estimate a full-image relative depth map from an RGB image.
+    Load Apple's Depth Pro model from the local ``depth_pro`` package.
+
+    Parameters
+    ----------
+    checkpoint_path
+        Local path to the ``depth_pro.pt`` checkpoint file.
+    device
+        Optional PyTorch device string. Defaults to ``"cuda"`` when available,
+        otherwise ``"cpu"``.
+    precision
+        Optional PyTorch dtype used by the model. Defaults to FP16 on CUDA and
+        FP32 on CPU.
+    """
+    torch_module = _require_torch()
+
+    try:
+        from depth_pro import create_model_and_transforms
+        from depth_pro.depth_pro import DEFAULT_MONODEPTH_CONFIG_DICT
+    except ImportError as exc:
+        raise ImportError(
+            "Depth Pro inference requires the 'depth_pro' package. "
+            "Install it in the active environment before calling load_depth_pro."
+        ) from exc
+
+    resolved_device = device or ("cuda" if torch_module.cuda.is_available() else "cpu")
+    resolved_precision = precision
+    if resolved_precision is None:
+        resolved_precision = (
+            torch_module.float16 if str(resolved_device).startswith("cuda") else torch_module.float32
+        )
+
+    config = replace(
+        DEFAULT_MONODEPTH_CONFIG_DICT,
+        checkpoint_uri=str(Path(checkpoint_path)),
+    )
+    model, transform = create_model_and_transforms(
+        config=config,
+        device=torch_module.device(resolved_device),
+        precision=resolved_precision,
+    )
+    model.eval()
+
+    return DepthProAdapter(
+        model=model,
+        transform=transform,
+        device=str(resolved_device),
+        checkpoint_path=str(Path(checkpoint_path)),
+    )
+
+
+def estimate_depth_map(image, depth_model):
+    """
+    Estimate a full-image depth map from an RGB image.
 
     Parameters
     ----------
     image
         Input image as a PIL image, NumPy array, or image path.
     depth_model
-        Preferably a ``DepthAnythingV2Adapter`` returned by
-        ``load_depth_anything_v2``. A generic callable is also accepted for
-        backwards compatibility, but it must return a depth-like array.
+        Preferably an adapter returned by ``load_depth_anything_v2`` or
+        ``load_depth_pro``. A generic callable is also accepted for backwards
+        compatibility, but it must return a depth-like array.
 
     Returns
     -------
     numpy.ndarray
-        2D relative depth map with dtype ``float32`` and the same ``H x W`` as
-        the input image.
+        2D depth map with dtype ``float32`` and the same ``H x W`` as the input
+        image. The actual semantics depend on the selected model: relative for
+        Depth Anything V2, metric meters for Depth Pro.
     """
     if depth_model is None:
-        raise ValueError("depth_model must be provided for real depth estimation.")
+        raise ValueError("depth_model must be provided for depth estimation.")
 
     target_height, target_width = _target_size_from_image(image)
 
@@ -288,9 +389,24 @@ def estimate_relative_depth(image, depth_model):
                 raise ValueError("Depth model output dict must contain 'predicted_depth' or 'depth'.")
         depth_map = raw_output
     else:
-        raise TypeError("depth_model must be a DepthAnythingV2Adapter or a callable model.")
+        raise TypeError(
+            "depth_model must be a supported adapter (for example DepthAnythingV2Adapter "
+            "or DepthProAdapter) or a callable model."
+        )
 
     return _finalize_depth_map(depth_map, target_height, target_width)
+
+
+def estimate_relative_depth(image, depth_model):
+    """
+    Backwards-compatible alias for depth-map estimation.
+
+    Historical code in this repository uses the name ``estimate_relative_depth``
+    because the original model family returned relative depth. Newer adapters
+    such as Depth Pro may return metric depth maps, but the downstream feature
+    extraction code still expects a dense 2D map with the same image shape.
+    """
+    return estimate_depth_map(image, depth_model)
 
 
 def estimate_relative_depth_demo(image, width=640, height=480):

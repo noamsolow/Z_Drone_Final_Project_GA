@@ -1,0 +1,9 @@
+path,description
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\poster_test_mae_ranking.png,Poster model test MAE ranking
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\poster_cv_vs_test_mae.png,CV OOF MAE versus held-out test MAE
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\poster_test_predicted_vs_true.png,Predicted versus true distance scatter plots for poster models
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\poster_test_mae_by_true_distance.png,Test MAE by true distance for poster models
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\poster_test_mae_by_distance_range.png,Test MAE by distance range for poster models
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\benchmark_rows_by_true_distance.png,Benchmark row coverage by true distance
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\blend_search_oof_mae.png,Blend-search OOF/CV MAE by RF weight
+C:\Users\depthlev\Desktop\Z_Drone_Final_Project_GA\attempts\attempt9\study_all\artifacts_merged_complete\reports\figures\candidate_cv_mae_summary.png,Candidate RF/XGBoost CV MAE summary

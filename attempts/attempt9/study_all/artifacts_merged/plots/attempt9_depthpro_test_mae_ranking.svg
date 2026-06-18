@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="806" viewBox="0 0 1280 806">
+<rect x="0" y="0" width="1280" height="806" rx="0" fill="#ffffff"/>
+<text x="260" y="54" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Attempt 9 Depth Pro Test MAE Ranking</text>
+<text x="260" y="84" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">All poster models plus the internal XGBoost branch. Lower is better.</text>
+<line x1="260.0" y1="112" x2="260.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="260.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">0.00</text>
+<line x1="415.0" y1="112" x2="415.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="415.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">12.92</text>
+<line x1="570.0" y1="112" x2="570.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="570.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">25.85</text>
+<line x1="725.0" y1="112" x2="725.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="725.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">38.77</text>
+<line x1="880.0" y1="112" x2="880.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="880.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">51.70</text>
+<line x1="1035.0" y1="112" x2="1035.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="1035.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">64.62</text>
+<line x1="1190.0" y1="112" x2="1190.0" y2="688" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="4 6"/>
+<text x="1190.0" y="714" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="middle">77.55</text>
+<line x1="260" y1="688" x2="1190" y2="688" stroke="#9ca3af" stroke-width="1.2"/>
+<text x="242" y="162.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="260" y="138.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="138.0" width="76.19815168996085" height="34" rx="8" fill="#059669"/>
+<text x="348.19815168996087" y="162.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.354 m</text>
+<text x="242" y="232.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="260" y="208.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="208.0" width="76.52192367634095" height="34" rx="8" fill="#0284c7"/>
+<text x="348.521923676341" y="232.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.381 m</text>
+<text x="242" y="302.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="260" y="278.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="278.0" width="80.0621652671883" height="34" rx="8" fill="#0f766e"/>
+<text x="352.06216526718833" y="302.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.676 m</text>
+<text x="242" y="372.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="260" y="348.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="348.0" width="89.97257056419416" height="34" rx="8" fill="#334155"/>
+<text x="361.97257056419414" y="372.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">7.502 m</text>
+<text x="242" y="442.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="260" y="418.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="418.0" width="142.84324921242907" height="34" rx="8" fill="#475569"/>
+<text x="414.8432492124291" y="442.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">11.911 m</text>
+<text x="242" y="512.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="260" y="488.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="488.0" width="159.9715215594338" height="34" rx="8" fill="#64748b"/>
+<text x="431.97152155943377" y="512.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">13.339 m</text>
+<text x="242" y="582.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="260" y="558.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="558.0" width="388.23665175967244" height="34" rx="8" fill="#94a3b8"/>
+<text x="660.2366517596724" y="582.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">32.372 m</text>
+<text x="242" y="652.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="260" y="628.0" width="930" height="34" rx="8" fill="#f8fafc"/>
+<rect x="260" y="628.0" width="930.0" height="34" rx="8" fill="#cbd5e1"/>
+<text x="1202.0" y="652.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">77.545 m</text>
+</svg>

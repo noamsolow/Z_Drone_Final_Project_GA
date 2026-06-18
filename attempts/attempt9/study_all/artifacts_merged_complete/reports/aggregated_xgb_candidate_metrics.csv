@@ -1,0 +1,5 @@
+display_name,model_name,candidate_name,oof_mae,oof_mean_relative_error,oof_rmse,oof_r2,param_n_estimators,param_learning_rate,param_max_depth,param_min_child_weight,param_subsample,param_colsample_bytree,param_reg_lambda,param_reg_alpha,param_random_state,param_n_jobs,param_tree_method,param_verbosity
+XGBoost+jitter,xgb_winner_baseline,xgb_shallow,7.3371157486786585,0.09823933125122378,10.006175865322295,0.9310743594491215,250,0.05,3,4.0,0.8,0.8,1.0,0.0,20260520,1,hist,0
+XGBoost+jitter,xgb_winner_baseline,xgb_medium,6.744307520388812,0.09082576666158228,9.264397642842749,0.9409147710956238,300,0.05,4,2.0,0.8,0.8,1.0,0.0,20260520,1,hist,0
+XGBoost+jitter,xgb_winner_baseline,xgb_deep,6.294821070343656,0.08405370097831998,8.859675007188937,0.9459643810880551,350,0.05,6,2.0,0.8,0.8,1.0,0.0,20260520,1,hist,0
+XGBoost+jitter,xgb_winner_baseline,xgb_regularized,6.519998877244381,0.08745779378408014,9.042055621232324,0.9437167851473518,450,0.03,5,3.0,0.85,0.85,2.0,0.1,20260520,1,hist,0

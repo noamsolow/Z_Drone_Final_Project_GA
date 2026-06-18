@@ -1,0 +1,25 @@
+study_name: attempt9_study01_depth_pro_attempt1_compatible
+dataset_root: C:\Users\depthlev\Desktop\droneImages\dataset
+strict: true
+max_samples: null
+
+sources:
+  base_features_csv: attempts/attempt1/artifacts/features/features.csv
+
+depth_model:
+  kind: depth_pro
+  checkpoint_path: checkpoints/depth_pro.pt
+  device: cuda
+
+study:
+  progress_log_every_rows: 50
+  checkpoint_every_rows: 1
+  resume_from_partial: true
+  stop_on_missing_source: false
+  excluded_path_fragments:
+    - depth_20/clear_sky/10AM
+    - depth_20/light_rain/10AM
+    - depth_30/clear_sky/10AM
+    - depth_30/light_rain/10AM
+
+output_root: attempts/attempt9/study01/artifacts

@@ -1,0 +1,16 @@
+study_name: attempt9_merged_clean_plus_recovery
+
+sources:
+  study01_clean_csv: attempts/attempt9/study01/artifacts/features/features_available.csv
+  study01_recovery_csv: attempts/attempt9/recovery/artifacts/study01/features_problematic_folders.csv
+  study02_clean_csv: attempts/attempt9/study02/artifacts/fused_features/depth_only_feature_table.csv
+  study02_recovery_csv: attempts/attempt9/recovery/artifacts/study02/depth_only_feature_table_problematic_folders.csv
+  study03_clean_csv: attempts/attempt9/study03/artifacts/features/noisy_aggregated_feature_table.csv
+  study03_recovery_csv: attempts/attempt9/recovery/artifacts/study03/noisy_aggregated_feature_table_problematic_folders.csv
+
+outputs:
+  study01_merged_csv: study01/features_merged.csv
+  study02_merged_csv: study02/depth_only_feature_table_merged.csv
+  study03_merged_csv: study03/noisy_aggregated_feature_table_merged.csv
+
+output_root: attempts/attempt9/merged/artifacts

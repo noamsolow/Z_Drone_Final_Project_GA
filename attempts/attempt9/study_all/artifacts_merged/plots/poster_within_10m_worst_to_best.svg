@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="799" viewBox="0 0 1360 799">
+<rect x="0" y="0" width="1360" height="799" rx="0" fill="#ffffff"/>
+<text x="270" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Within 10m Accuracy: Worst to Best</text>
+<text x="270" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Share of test images with &lt;=10m absolute error; higher bars are better.</text>
+<text x="270" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="start">Total n=14,865 | Train/CV n=12,631 | Test n=2,234 | Dropped=199</text>
+<line x1="270.0" y1="137" x2="270.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="270.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0%</text>
+<line x1="460.0" y1="137" x2="460.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="460.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">20%</text>
+<line x1="650.0" y1="137" x2="650.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="650.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">40%</text>
+<line x1="840.0" y1="137" x2="840.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="840.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">60%</text>
+<line x1="1030.0" y1="137" x2="1030.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1030.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">80%</text>
+<line x1="1220.0" y1="137" x2="1220.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1220.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">100%</text>
+<text x="252" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">scale only</text>
+<rect x="270" y="163.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="163.0" width="2.0" height="34" rx="8" fill="#9ca3af"/>
+<text x="282.42524619516564" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">0.0%</text>
+<text x="252" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="270" y="233.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="233.0" width="159.46732318710835" height="34" rx="8" fill="#64748b"/>
+<text x="441.4673231871084" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">16.8%</text>
+<text x="252" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="270" y="303.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="303.0" width="438.8540734109221" height="34" rx="8" fill="#475569"/>
+<text x="720.8540734109222" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">46.2%</text>
+<text x="252" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="270" y="373.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="373.0" width="486.4816472694718" height="34" rx="8" fill="#1f2937"/>
+<text x="768.4816472694718" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">51.2%</text>
+<text x="252" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF</text>
+<rect x="270" y="443.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="443.0" width="682.094897045658" height="34" rx="8" fill="#2563eb"/>
+<text x="964.094897045658" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">71.8%</text>
+<text x="252" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="270" y="513.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="513.0" width="731.8487018800358" height="34" rx="8" fill="#0f766e"/>
+<text x="1013.8487018800358" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">77.0%</text>
+<text x="252" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="270" y="583.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="583.0" width="748.0080572963295" height="34" rx="8" fill="#dc2626"/>
+<text x="1030.0080572963295" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">78.7%</text>
+<text x="252" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="270" y="653.0" width="950" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="653.0" width="748.8585496866607" height="34" rx="8" fill="#d97706"/>
+<text x="1030.8585496866608" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">78.8%</text>
+</svg>

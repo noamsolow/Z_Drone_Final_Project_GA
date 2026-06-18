@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -11,6 +12,8 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 ARTIFACTS_ROOT = REPO_ROOT / "attempts" / "attempt8-comprehensive run" / "studies" / "study_all" / "artifacts"
 REPORTS_DIR = ARTIFACTS_ROOT / "reports"
 PLOTS_DIR = ARTIFACTS_ROOT / "plots"
+RUN_LABEL = "Attempt 8"
+PLOT_PREFIX = "attempt8"
 
 MODEL_COLORS = {
     "scale only": "#cbd5e1",
@@ -22,6 +25,41 @@ MODEL_COLORS = {
     "XGBoost+jitter": "#0284c7",
     "ensemble": "#059669",
 }
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Create analysis SVG plots from study_all artifacts.")
+    parser.add_argument(
+        "--artifacts-root",
+        type=Path,
+        default=ARTIFACTS_ROOT,
+        help="Root artifacts directory containing reports/ and audit/.",
+    )
+    parser.add_argument(
+        "--plot-prefix",
+        default=PLOT_PREFIX,
+        help="Filename prefix for generated analysis plots.",
+    )
+    parser.add_argument(
+        "--run-label",
+        default=RUN_LABEL,
+        help="Human-readable run label used in plot titles.",
+    )
+    parser.add_argument(
+        "--skip-report",
+        action="store_true",
+        help="Only create SVG plots; do not write the narrative markdown report.",
+    )
+    return parser.parse_args()
+
+
+def configure_artifact_paths(artifacts_root: Path, plot_prefix: str, run_label: str) -> None:
+    global ARTIFACTS_ROOT, REPORTS_DIR, PLOTS_DIR, PLOT_PREFIX, RUN_LABEL
+    ARTIFACTS_ROOT = artifacts_root.resolve()
+    REPORTS_DIR = ARTIFACTS_ROOT / "reports"
+    PLOTS_DIR = ARTIFACTS_ROOT / "plots"
+    PLOT_PREFIX = plot_prefix
+    RUN_LABEL = run_label
 
 
 def read_csv_rows(path: Path) -> List[Dict[str, Any]]:
@@ -204,7 +242,7 @@ def make_r2_chart(rows: Sequence[Dict[str, Any]], output_path: Path) -> None:
 
     parts = [
         rect(0, 0, width, height, "#ffffff"),
-        text(left, 54, "Attempt 8 Test R2 Ranking", 34, "#111827", weight=700),
+        text(left, 54, "{} Test R2 Ranking".format(RUN_LABEL), 34, "#111827", weight=700),
         text(left, 84, "Negative values mean worse than predicting the global mean.", 18, "#6b7280"),
     ]
     chart_bottom = top + len(rows) * row_h
@@ -247,7 +285,7 @@ def make_grouped_cv_test_chart(rows: Sequence[Dict[str, Any]], output_path: Path
 
     parts = [
         rect(0, 0, width, height, "#ffffff"),
-        text(left, 54, "Attempt 8 CV vs Test MAE", 34, "#111827", weight=700),
+        text(left, 54, "{} CV vs Test MAE".format(RUN_LABEL), 34, "#111827", weight=700),
         text(left, 84, "The small gaps show that the rerun generalizes cleanly to the holdout split.", 18, "#6b7280"),
     ]
     for tick_index in range(6):
@@ -302,7 +340,7 @@ def make_distance_heatmap(rows: Sequence[Dict[str, Any]], output_path: Path) -> 
 
     parts = [
         rect(0, 0, width, height, "#ffffff"),
-        text(left, 56, "Attempt 8 Test MAE by Distance Range", 34, "#111827", weight=700),
+        text(left, 56, "{} Test MAE by Distance Range".format(RUN_LABEL), 34, "#111827", weight=700),
         text(left, 86, "Green is better. This shows where each model wins or collapses.", 18, "#6b7280"),
     ]
 
@@ -345,7 +383,7 @@ def make_condition_chart(rows: Sequence[Dict[str, Any]], output_path: Path) -> N
 
     parts = [
         rect(0, 0, width, height, "#ffffff"),
-        text(margin_x, 56, "Attempt 8 Test MAE by Condition", 34, "#111827", weight=700),
+        text(margin_x, 56, "{} Test MAE by Condition".format(RUN_LABEL), 34, "#111827", weight=700),
         text(margin_x, 86, "Each panel compares all 8 models under one weather or time condition.", 18, "#6b7280"),
     ]
 
@@ -488,7 +526,7 @@ def build_model_analysis(model_row: Dict[str, Any]) -> str:
         )
     if name == "XGBoost+jitter":
         return (
-            "This is the best single model in Attempt 8. Its test MAE is nearly identical to the final ensemble, "
+            "This is the best single model in this run. Its test MAE is nearly identical to the final ensemble, "
             "which means most of the blend's strength comes from this branch."
         )
     if name == "ensemble":
@@ -548,20 +586,32 @@ def build_report(model_rows: Sequence[Dict[str, Any]], summary: Dict[str, Any], 
         )
 
     lines: List[str] = []
-    lines.append("# Attempt 8 Full Analysis")
+    lines.append("# {} Full Analysis".format(RUN_LABEL))
     lines.append("")
-    lines.append("## Was Attempt 8 rerun from start to finish?")
+    lines.append("## Was {} rerun from start to finish?".format(RUN_LABEL))
     lines.append("")
-    lines.append(
-        "Yes for the modeling pipeline, but not from raw images. Attempt 8 reran model fitting, cross-validation, "
-        "held-out evaluation, the RF candidate sweep, the XGBoost candidate sweep, and the blend search. It did not "
-        "recompute depth maps or rebuild the upstream feature tables from scratch."
-    )
-    lines.append("")
-    lines.append(
-        "In practice, that means Attempt 8 is a full rerun of the comparison benchmark from the feature-table stage "
-        "through final metrics, not a full rerun of the entire computer-vision stack."
-    )
+    if RUN_LABEL == "Attempt 8":
+        lines.append(
+            "Yes for the modeling pipeline, but not from raw images. Attempt 8 reran model fitting, cross-validation, "
+            "held-out evaluation, the RF candidate sweep, the XGBoost candidate sweep, and the blend search. It did not "
+            "recompute depth maps or rebuild the upstream feature tables from scratch."
+        )
+        lines.append("")
+        lines.append(
+            "In practice, that means Attempt 8 is a full rerun of the comparison benchmark from the feature-table stage "
+            "through final metrics, not a full rerun of the entire computer-vision stack."
+        )
+    else:
+        lines.append(
+            "Yes for the modeling pipeline. This rerun uses the configured feature tables as inputs, then reruns model "
+            "fitting, cross-validation, held-out evaluation, the RF candidate sweep, the XGBoost candidate sweep, and "
+            "the blend search."
+        )
+        lines.append("")
+        lines.append(
+            "For Attempt 9 Depth Pro, the upstream depth features were rebuilt before this benchmark with Depth Pro, "
+            "while reusable non-depth fields were carried forward from the previous datasets where safe."
+        )
     lines.append("")
     lines.append("## Executive Summary")
     lines.append("")
@@ -600,7 +650,7 @@ def build_report(model_rows: Sequence[Dict[str, Any]], summary: Dict[str, Any], 
     lines.append("## CV to Test Stability")
     lines.append("")
     lines.append(
-        "The strongest sign that Attempt 8 is trustworthy is how little the top models move from OOF CV to the holdout test split."
+        "The strongest sign that this run is trustworthy is how little the top models move from OOF CV to the holdout test split."
     )
     lines.append("")
     lines.append(to_markdown_table(["Model", "CV MAE", "Test MAE", "Gap"], gap_table))
@@ -647,32 +697,44 @@ def build_report(model_rows: Sequence[Dict[str, Any]], summary: Dict[str, Any], 
     lines.append("")
     lines.append("## Methodological Caveats")
     lines.append("")
+    if RUN_LABEL == "Attempt 8":
+        lines.append(
+            "- Attempt 8 did not recompute depth maps. It reused prior feature tables from Attempts 1, 2, 3, and 4."
+        )
+    else:
+        lines.append(
+            "- This study_all rerun does not invoke Depth Pro directly; it consumes the already-built Attempt 9 Depth Pro feature tables."
+        )
+        lines.append(
+            "- Non-depth fields were reused from the previous datasets where safe; the depth-derived features were recomputed with Depth Pro."
+        )
     lines.append(
-        "- Attempt 8 did not recompute depth maps. It reused prior feature tables from Attempts 1, 2, 3, and 4."
-    )
-    lines.append(
-        f"- The benchmark now covers the full Attempt 8 universe: `{coverage['num_common_rows']}` shared rows, "
+        f"- The benchmark now covers the full {RUN_LABEL} universe: `{coverage['num_common_rows']}` shared rows, "
         f"`{coverage['num_dev_rows']}` dev rows, `{coverage['num_test_rows']}` test rows, and "
         f"`{coverage['num_dropped_rows']}` dropped rows."
     )
-    lines.append(
-        "- The original missing exact-feature rows were regenerated with the Attempt1 extraction path before this rerun, "
-        "so the current model comparison is no longer biased by the previous `10AM`/short-distance dropout."
-    )
+    if RUN_LABEL == "Attempt 8":
+        lines.append(
+            "- The original missing exact-feature rows were regenerated with the Attempt1 extraction path before this rerun, "
+            "so the current model comparison is no longer biased by the previous `10AM`/short-distance dropout."
+        )
     lines.append("")
     lines.append("## Generated Plots")
     lines.append("")
-    lines.append("- `plots/attempt8_test_mae_ranking.svg`")
-    lines.append("- `plots/attempt8_test_r2_ranking.svg`")
-    lines.append("- `plots/attempt8_cv_vs_test_mae.svg`")
-    lines.append("- `plots/attempt8_distance_range_heatmap.svg`")
-    lines.append("- `plots/attempt8_condition_mae.svg`")
-    lines.append("- `plots/attempt8_top_models_exact_distance.svg`")
+    lines.append("- `plots/{}_test_mae_ranking.svg`".format(PLOT_PREFIX))
+    lines.append("- `plots/{}_test_r2_ranking.svg`".format(PLOT_PREFIX))
+    lines.append("- `plots/{}_cv_vs_test_mae.svg`".format(PLOT_PREFIX))
+    lines.append("- `plots/{}_distance_range_heatmap.svg`".format(PLOT_PREFIX))
+    lines.append("- `plots/{}_condition_mae.svg`".format(PLOT_PREFIX))
+    lines.append("- `plots/{}_top_models_exact_distance.svg`".format(PLOT_PREFIX))
     lines.append("")
     return "\n".join(lines)
 
 
 def main() -> None:
+    args = parse_args()
+    configure_artifact_paths(args.artifacts_root, args.plot_prefix, args.run_label)
+
     PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
     model_metrics = read_csv_rows(REPORTS_DIR / "model_metrics.csv")
@@ -729,22 +791,24 @@ def main() -> None:
 
     make_horizontal_bar_chart(
         [row["test"] for row in model_rows],
-        title="Attempt 8 Test MAE Ranking",
+        title="{} Test MAE Ranking".format(RUN_LABEL),
         subtitle="All poster models plus the internal XGBoost branch. Lower is better.",
         value_key="mae",
-        output_path=PLOTS_DIR / "attempt8_test_mae_ranking.svg",
+        output_path=PLOTS_DIR / "{}_test_mae_ranking.svg".format(PLOT_PREFIX),
         value_label="m",
         min_value=0.0,
     )
-    make_r2_chart([row["test"] for row in model_rows], PLOTS_DIR / "attempt8_test_r2_ranking.svg")
-    make_grouped_cv_test_chart(model_rows, PLOTS_DIR / "attempt8_cv_vs_test_mae.svg")
-    make_distance_heatmap(model_rows, PLOTS_DIR / "attempt8_distance_range_heatmap.svg")
-    make_condition_chart(model_rows, PLOTS_DIR / "attempt8_condition_mae.svg")
-    make_top_distance_curve(model_rows, PLOTS_DIR / "attempt8_top_models_exact_distance.svg")
+    make_r2_chart([row["test"] for row in model_rows], PLOTS_DIR / "{}_test_r2_ranking.svg".format(PLOT_PREFIX))
+    make_grouped_cv_test_chart(model_rows, PLOTS_DIR / "{}_cv_vs_test_mae.svg".format(PLOT_PREFIX))
+    make_distance_heatmap(model_rows, PLOTS_DIR / "{}_distance_range_heatmap.svg".format(PLOT_PREFIX))
+    make_condition_chart(model_rows, PLOTS_DIR / "{}_condition_mae.svg".format(PLOT_PREFIX))
+    make_top_distance_curve(model_rows, PLOTS_DIR / "{}_top_models_exact_distance.svg".format(PLOT_PREFIX))
 
-    report_text = build_report(model_rows, summary, coverage)
-    (REPORTS_DIR / "attempt8_full_analysis.md").write_text(report_text, encoding="utf-8")
-    print(REPORTS_DIR / "attempt8_full_analysis.md")
+    if not args.skip_report:
+        report_text = build_report(model_rows, summary, coverage)
+        report_path = REPORTS_DIR / "{}_full_analysis.md".format(PLOT_PREFIX)
+        report_path.write_text(report_text, encoding="utf-8")
+        print(report_path)
     print(PLOTS_DIR)
 
 

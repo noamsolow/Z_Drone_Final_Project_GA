@@ -1,0 +1,2 @@
+image_path,label_path,true_distance_m,relative_depth,bbox_width_px,bbox_height_px,bbox_width_norm,bbox_height_norm,bbox_area_ratio,bbox_aspect_ratio,bbox_center_x_norm,bbox_center_y_norm,weather,time_of_day
+C:\Users\depthlev\Desktop\droneImages\dataset\depth_100\clear_sky\10AM\HighresScreenshot00001_depth_100_clear_sky_10AM.png,C:\Users\depthlev\Desktop\droneImages\dataset\depth_100\clear_sky\10AM\HighresScreenshot00001_depth_100_clear_sky_10AM.txt,100.0,3.39979506,18,18,0.00636943,0.01132075,7.211e-05,1.0,0.36942675,0.70440252,clear_sky,10AM

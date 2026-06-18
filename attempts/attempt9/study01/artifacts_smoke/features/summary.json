@@ -1,0 +1,21 @@
+{
+  "num_records": 1,
+  "weather_counts": {
+    "clear_sky": 1
+  },
+  "time_of_day_counts": {
+    "10AM": 1
+  },
+  "unique_true_distances_m": [
+    100.0
+  ],
+  "study_name": "attempt9_study01_depth_pro_attempt1_compatible",
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "source_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt1\\artifacts\\features\\features.csv",
+  "features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts_smoke\\features\\features.csv",
+  "num_source_rows_reused_for_non_depth_fields": 1,
+  "depth_model_kind": "depth_pro",
+  "depth_model_semantics": "metric_model_depth_meters",
+  "output_depth_column_name": "relative_depth",
+  "schema_compatible_with_source_features_csv": true
+}

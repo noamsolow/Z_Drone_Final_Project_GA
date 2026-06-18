@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -44,6 +45,24 @@ MODEL_DESCRIPTIONS = {
     "XGBoost+jitter": "A boosted-tree model trained on the same aggregated jitter-summary feature table.",
     "ensemble": "A tuned blend of RF+jitter and XGBoost+jitter; the final best poster model.",
 }
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Create poster SVG plots from study_all artifacts.")
+    parser.add_argument(
+        "--artifacts-root",
+        type=Path,
+        default=ARTIFACTS_ROOT,
+        help="Root artifacts directory containing reports/ and audit/.",
+    )
+    return parser.parse_args()
+
+
+def configure_artifact_paths(artifacts_root: Path) -> None:
+    global ARTIFACTS_ROOT, REPORTS_DIR, PLOTS_DIR
+    ARTIFACTS_ROOT = artifacts_root.resolve()
+    REPORTS_DIR = ARTIFACTS_ROOT / "reports"
+    PLOTS_DIR = ARTIFACTS_ROOT / "plots"
 
 
 def read_csv_rows(path: Path) -> list[dict[str, Any]]:
@@ -675,6 +694,9 @@ def delete_old_plots() -> None:
 
 
 def main() -> None:
+    args = parse_args()
+    configure_artifact_paths(args.artifacts_root)
+
     model_metrics = read_csv_rows(REPORTS_DIR / "model_metrics.csv")
     true_distance_summary = read_csv_rows(REPORTS_DIR / "true_distance_summary.csv")
     distance_range_metrics = read_csv_rows(REPORTS_DIR / "distance_range_metrics.csv")

@@ -1,0 +1,9 @@
+display_name,model_name,model_family,role,feature_basis
+scale only,scale_only,linear,poster,attempt1 relative_depth only via global scale factor
+depth linear,depth_only_linear,linear,poster,attempt1 relative_depth only
+linear+bb,depth_geometry_metadata_linear,linear,poster,attempt1 relative_depth + bbox geometry + metadata
+improved linear,stacked_rf_depth_geometry_metadata_linear,stacked_linear,poster,attempt2 study06 lower RF prediction + bbox geometry + metadata
+RF,raw_depth_geometry_metadata_rf,random_forest,poster,bbox_only__inner50_median__object_depth + bbox geometry + metadata
+RF+jitter,rf_winner_baseline,aggregated_rf,poster,aggregated jitter-summary row with inner50 jitter median + geometry medians/stds + metadata
+XGBoost+jitter,xgb_winner_baseline,aggregated_xgb,internal,same aggregated jitter-summary row as RF+jitter
+ensemble,tuned_weight_blend,aggregated_blend,poster,weighted blend of RF+jitter and XGBoost+jitter

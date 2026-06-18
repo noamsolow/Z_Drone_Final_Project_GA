@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="799" viewBox="0 0 1360 799">
+<rect x="0" y="0" width="1360" height="799" rx="0" fill="#ffffff"/>
+<text x="330" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Generalization Gap: Test MAE - CV MAE</text>
+<text x="330" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Values near zero mean the holdout test mirrors cross-validation.</text>
+<text x="330" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="start">Total n=14,865 | Train/CV n=12,631 | Test n=2,234 | Dropped=199</text>
+<line x1="770.0" y1="133" x2="770.0" y2="717" stroke="#111827" stroke-width="2"/>
+<line x1="330.0" y1="137" x2="330.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="330.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">-0.29</text>
+<line x1="476.66666666666663" y1="137" x2="476.66666666666663" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="476.66666666666663" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">-0.19</text>
+<line x1="623.3333333333333" y1="137" x2="623.3333333333333" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="623.3333333333333" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">-0.10</text>
+<line x1="770.0" y1="137" x2="770.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="770.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0.00</text>
+<line x1="916.6666666666666" y1="137" x2="916.6666666666666" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="916.6666666666666" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0.10</text>
+<line x1="1063.3333333333335" y1="137" x2="1063.3333333333335" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1063.3333333333335" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0.19</text>
+<line x1="1210.0" y1="137" x2="1210.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1210.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0.29</text>
+<text x="312" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="493.8918224915849" y="163.0" width="276.1081775084151" height="34" rx="8" fill="#1f2937"/>
+<text x="481.8918224915849" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="end">-0.182m</text>
+<text x="312" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="651.8162209276641" y="233.0" width="118.18377907233594" height="34" rx="8" fill="#475569"/>
+<text x="639.8162209276641" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="end">-0.078m</text>
+<text x="312" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF</text>
+<rect x="739.1111181387369" y="303.0" width="30.888881861263144" height="34" rx="8" fill="#2563eb"/>
+<text x="727.1111181387369" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="end">-0.020m</text>
+<text x="312" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="770.0" y="373.0" width="65.23051747955788" height="34" rx="8" fill="#64748b"/>
+<text x="847.2305174795579" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">+0.043m</text>
+<text x="312" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="770.0" y="443.0" width="116.45995337071861" height="34" rx="8" fill="#0f766e"/>
+<text x="898.4599533707186" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">+0.077m</text>
+<text x="312" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="770.0" y="513.0" width="164.02657259123418" height="34" rx="8" fill="#dc2626"/>
+<text x="946.0265725912342" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">+0.108m</text>
+<text x="312" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="770.0" y="583.0" width="168.98343979453716" height="34" rx="8" fill="#d97706"/>
+<text x="950.9834397945372" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">+0.112m</text>
+<text x="312" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">scale only</text>
+<rect x="770.0" y="653.0" width="360.655737704918" height="34" rx="8" fill="#9ca3af"/>
+<text x="1142.655737704918" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">+0.238m</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="845" viewBox="0 0 1080 845">
+<rect x="0" y="0" width="1080" height="845" rx="0" fill="#ffffff"/>
+<text x="260" y="58" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">MAE by Distance Band</text>
+<text x="260" y="88" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Test MAE split into near, mid, and far ranges to reveal where each model fails.</text>
+<text x="260" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="start">Total n=15,064 | Train/CV n=12,804 | Test n=2,260 | Dropped=0</text>
+<text x="365.0" y="151" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">near</text>
+<text x="575.0" y="151" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">mid</text>
+<text x="785.0" y="151" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">far</text>
+<text x="236" y="217" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">scale only</text>
+<rect x="260" y="175" width="200" height="56" rx="10" fill="#97a025"/>
+<text x="360.0" y="213" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">40.39m</text>
+<rect x="470" y="175" width="200" height="56" rx="10" fill="#ed7c12"/>
+<text x="570.0" y="213" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">84.59m</text>
+<rect x="680" y="175" width="200" height="56" rx="10" fill="#dc2626"/>
+<text x="780.0" y="213" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">130.01m</text>
+<text x="236" y="283" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="260" y="241" width="200" height="56" rx="10" fill="#8aa028"/>
+<text x="360.0" y="279" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">36.74m</text>
+<rect x="470" y="241" width="200" height="56" rx="10" fill="#31a242"/>
+<text x="570.0" y="279" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">11.44m</text>
+<rect x="680" y="241" width="200" height="56" rx="10" fill="#c39f18"/>
+<text x="780.0" y="279" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">52.84m</text>
+<text x="236" y="349" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="260" y="307" width="200" height="56" rx="10" fill="#36a240"/>
+<text x="360.0" y="345" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">12.97m</text>
+<rect x="470" y="307" width="200" height="56" rx="10" fill="#2ba244"/>
+<text x="570.0" y="345" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">9.59m</text>
+<rect x="680" y="307" width="200" height="56" rx="10" fill="#4ca13a"/>
+<text x="780.0" y="345" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">19.05m</text>
+<text x="236" y="415" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="260" y="373" width="200" height="56" rx="10" fill="#2ea243"/>
+<text x="360.0" y="411" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">10.64m</text>
+<rect x="470" y="373" width="200" height="56" rx="10" fill="#2da243"/>
+<text x="570.0" y="411" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">10.30m</text>
+<rect x="680" y="373" width="200" height="56" rx="10" fill="#42a13d"/>
+<text x="780.0" y="411" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">16.34m</text>
+<text x="236" y="481" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">RF</text>
+<rect x="260" y="439" width="200" height="56" rx="10" fill="#18a249"/>
+<text x="360.0" y="477" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">4.21m</text>
+<rect x="470" y="439" width="200" height="56" rx="10" fill="#28a244"/>
+<text x="570.0" y="477" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">8.88m</text>
+<rect x="680" y="439" width="200" height="56" rx="10" fill="#31a242"/>
+<text x="780.0" y="477" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">11.36m</text>
+<text x="236" y="547" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="260" y="505" width="200" height="56" rx="10" fill="#16a249"/>
+<text x="360.0" y="543" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">3.75m</text>
+<rect x="470" y="505" width="200" height="56" rx="10" fill="#25a245"/>
+<text x="570.0" y="543" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">8.09m</text>
+<rect x="680" y="505" width="200" height="56" rx="10" fill="#2ba243"/>
+<text x="780.0" y="543" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">9.85m</text>
+<text x="236" y="613" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="260" y="571" width="200" height="56" rx="10" fill="#16a249"/>
+<text x="360.0" y="609" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">3.69m</text>
+<rect x="470" y="571" width="200" height="56" rx="10" fill="#23a246"/>
+<text x="570.0" y="609" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">7.42m</text>
+<rect x="680" y="571" width="200" height="56" rx="10" fill="#2aa244"/>
+<text x="780.0" y="609" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">9.43m</text>
+<text x="236" y="679" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="260" y="637" width="200" height="56" rx="10" fill="#16a34a"/>
+<text x="360.0" y="675" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">3.64m</text>
+<rect x="470" y="637" width="200" height="56" rx="10" fill="#23a246"/>
+<text x="570.0" y="675" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">7.42m</text>
+<rect x="680" y="637" width="200" height="56" rx="10" fill="#2aa244"/>
+<text x="780.0" y="675" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#ffffff" text-anchor="middle">9.44m</text>
+</svg>

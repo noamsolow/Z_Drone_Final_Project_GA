@@ -1,0 +1,44 @@
+{
+  "study_name": "attempt9_merged_clean_plus_recovery",
+  "output_root": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts",
+  "datasets": [
+    {
+      "dataset": "study01",
+      "clean_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study01\\artifacts\\features\\features_available.csv",
+      "recovery_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01\\features_problematic_folders.csv",
+      "merged_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study01\\features_merged.csv",
+      "clean_rows": 13192,
+      "recovery_rows": 1673,
+      "merged_rows": 14865,
+      "column_count": 14,
+      "schema_compatible": true
+    },
+    {
+      "dataset": "study02",
+      "clean_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study02\\artifacts\\fused_features\\depth_only_feature_table.csv",
+      "recovery_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study02\\depth_only_feature_table_problematic_folders.csv",
+      "merged_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study02\\depth_only_feature_table_merged.csv",
+      "clean_rows": 13391,
+      "recovery_rows": 1673,
+      "merged_rows": 15064,
+      "column_count": 22,
+      "schema_compatible": true
+    },
+    {
+      "dataset": "study03",
+      "clean_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study03\\artifacts\\features\\noisy_aggregated_feature_table.csv",
+      "recovery_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study03\\noisy_aggregated_feature_table_problematic_folders.csv",
+      "merged_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study03\\noisy_aggregated_feature_table_merged.csv",
+      "clean_rows": 13391,
+      "recovery_rows": 1673,
+      "merged_rows": 15064,
+      "column_count": 47,
+      "schema_compatible": true
+    }
+  ],
+  "common_image_ids_across_merged_sources": 14865,
+  "study01_missing_from_study02": 0,
+  "study02_missing_from_study01": 199,
+  "study01_missing_from_study03": 0,
+  "study03_missing_from_study01": 199
+}

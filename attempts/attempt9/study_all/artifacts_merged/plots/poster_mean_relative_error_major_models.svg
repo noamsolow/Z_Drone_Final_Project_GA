@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="900" viewBox="0 0 1480 900">
+<rect x="0" y="0" width="1480" height="900" rx="0" fill="#ffffff"/>
+<text x="120" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Mean Relative Error Across Major Models</text>
+<text x="120" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Upward bars show normalized test error, making near/far performance easier to compare.</text>
+<text x="120" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="start">Total n=14,865 | Train/CV n=12,631 | Test n=2,234 | Dropped=199</text>
+<text x="760.0" y="876" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#374151" text-anchor="middle">Major models</text>
+<text x="34" y="437.5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#374151" text-anchor="middle" transform="rotate(-90 34 437.5)">Mean relative error</text>
+<line x1="120" y1="730.0" x2="1400" y2="730.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="736.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">0%</text>
+<line x1="120" y1="632.5" x2="1400" y2="632.5" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="638.5" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">18%</text>
+<line x1="120" y1="535.0" x2="1400" y2="535.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="541.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">37%</text>
+<line x1="120" y1="437.5" x2="1400" y2="437.5" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="443.5" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">55%</text>
+<line x1="120" y1="340.0" x2="1400" y2="340.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="346.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">73%</text>
+<line x1="120" y1="242.50000000000006" x2="1400" y2="242.50000000000006" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="248.50000000000006" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">91%</text>
+<line x1="120" y1="145.0" x2="1400" y2="145.0" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="104" y="151.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="end">110%</text>
+<line x1="120" y1="730" x2="1400" y2="730" stroke="#111827" stroke-width="1.5"/>
+<line x1="120" y1="145" x2="120" y2="730" stroke="#111827" stroke-width="1.5"/>
+<rect x="150.4" y="198.18181818181824" width="99.2" height="531.8181818181818" rx="10" fill="#9ca3af"/>
+<text x="200.0" y="186.18181818181824" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">99.7%</text>
+<text x="200.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 200.0 758)">scale only</text>
+<rect x="310.4" y="382.9652672594244" width="99.2" height="347.0347327405756" rx="10" fill="#64748b"/>
+<text x="360.0" y="370.9652672594244" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">65.1%</text>
+<text x="360.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 360.0 758)">depth linear</text>
+<rect x="470.4" y="615.4387250600424" width="99.2" height="114.56127493995761" rx="10" fill="#475569"/>
+<text x="520.0" y="603.4387250600424" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">21.5%</text>
+<text x="520.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 520.0 758)">linear+bb</text>
+<rect x="630.4" y="631.2612623335986" width="99.2" height="98.73873766640143" rx="10" fill="#1f2937"/>
+<text x="680.0" y="619.2612623335986" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">18.5%</text>
+<text x="680.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 680.0 758)">improved linear</text>
+<rect x="790.4" y="678.7550753884966" width="99.2" height="51.244924611503436" rx="10" fill="#2563eb"/>
+<text x="840.0" y="666.7550753884966" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">9.6%</text>
+<text x="840.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 840.0 758)">RF</text>
+<rect x="950.4" y="684.0249562088006" width="99.2" height="45.97504379119935" rx="10" fill="#0f766e"/>
+<text x="1000.0" y="672.0249562088006" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">8.6%</text>
+<text x="1000.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 1000.0 758)">RF+jitter</text>
+<rect x="1110.4" y="685.2815137702705" width="99.2" height="44.71848622972943" rx="10" fill="#d97706"/>
+<text x="1160.0" y="673.2815137702705" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">8.4%</text>
+<text x="1160.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#111827" text-anchor="end" transform="rotate(-28 1160.0 758)">XGBoost+jitter</text>
+<rect x="1270.4" y="685.714243329672" width="99.2" height="44.28575667032802" rx="10" fill="#dc2626"/>
+<text x="1320.0" y="673.714243329672" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="middle">8.3%</text>
+<text x="1320.0" y="758" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="end" transform="rotate(-28 1320.0 758)">ensemble</text>
+</svg>

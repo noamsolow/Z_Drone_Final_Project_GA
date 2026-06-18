@@ -1,0 +1,5 @@
+display_name,model_name,candidate_name,oof_mae,oof_mean_relative_error,oof_rmse,oof_r2,param_n_estimators,param_max_depth,param_min_samples_leaf,param_max_features,param_random_state,param_n_jobs
+RF+jitter,rf_winner_baseline,rf_shallow,7.211009502864135,0.09377304643945651,10.019678112005789,0.9313528371213415,300,10,5,sqrt,20260520,1
+RF+jitter,rf_winner_baseline,rf_medium,6.694069562411291,0.08748733965595411,9.455685859137052,0.9388634222795827,300,16,3,sqrt,20260520,1
+RF+jitter,rf_winner_baseline,rf_deep,6.598751440490791,0.08613759191524578,9.385630798897836,0.9397659609375194,300,24,2,sqrt,20260520,1
+RF+jitter,rf_winner_baseline,rf_unbounded,6.599790469841266,0.08617406942131364,9.386480153514597,0.9397550586603831,300,,2,sqrt,20260520,1

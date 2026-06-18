@@ -1,0 +1,37 @@
+{
+  "study_name": "attempt9_study02_depth_pro_study06_fused_features",
+  "source_fused_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt2\\studies\\study_06_all_images_midpoint_random_forest\\artifacts\\fused_features\\depth_only_feature_table.csv",
+  "fused_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study02\\artifacts\\fused_features\\depth_only_feature_table.csv",
+  "partial_fused_features_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study02\\artifacts\\fused_features\\depth_only_feature_table_partial.csv",
+  "skipped_source_rows_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study02\\artifacts\\audit\\skipped_source_rows.csv",
+  "source_rows": 15064,
+  "rows_written": 13391,
+  "rows_skipped": 1673,
+  "rows_excluded": 1673,
+  "excluded_path_fragments": [
+    "depth_20/clear_sky/10am",
+    "depth_20/light_rain/10am",
+    "depth_30/clear_sky/10am",
+    "depth_30/light_rain/10am"
+  ],
+  "depth_model_kind": "depth_pro",
+  "depth_model_semantics": "metric_model_depth_meters",
+  "schema_compatible_with_source_fused_features_csv": true,
+  "depth_columns_recomputed": [
+    "bbox_expand_1_5x__bbox_mean__object_depth",
+    "bbox_expand_1_5x__bbox_midpoint__object_depth",
+    "bbox_expand_1_5x__inner50_median__object_depth",
+    "bbox_expand_2x__bbox_mean__object_depth",
+    "bbox_expand_2x__bbox_midpoint__object_depth",
+    "bbox_expand_2x__inner50_median__object_depth",
+    "bbox_expand_4x__bbox_mean__object_depth",
+    "bbox_expand_4x__bbox_midpoint__object_depth",
+    "bbox_expand_4x__inner50_median__object_depth",
+    "bbox_only__bbox_mean__object_depth",
+    "bbox_only__bbox_midpoint__object_depth",
+    "bbox_only__inner50_median__object_depth",
+    "full_image__bbox_mean__object_depth",
+    "full_image__bbox_midpoint__object_depth",
+    "full_image__inner50_median__object_depth"
+  ]
+}

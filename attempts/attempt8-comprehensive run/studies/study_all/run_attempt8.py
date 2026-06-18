@@ -19,6 +19,17 @@ import yaml
 from sklearn.ensemble import RandomForestRegressor
 
 try:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+except Exception as exc:  # pragma: no cover
+    plt = None  # type: ignore[assignment]
+    MATPLOTLIB_IMPORT_ERROR = exc
+else:
+    MATPLOTLIB_IMPORT_ERROR = None
+
+try:
     from xgboost import XGBRegressor
 except Exception as exc:  # pragma: no cover
     XGBRegressor = None  # type: ignore[assignment]
@@ -516,6 +527,274 @@ def _metrics_row(
         "config_name": config_name,
         **dict(metrics),
     }
+
+
+def _figure_record(path: Path, description: str) -> Dict[str, str]:
+    return {"path": str(path), "description": description}
+
+
+def _distance_range_sort_key(label: str) -> Tuple[int, str]:
+    known_order = {
+        "near_0_50m": 0,
+        "mid_50_100m": 1,
+        "far_100m_plus": 2,
+    }
+    return known_order.get(str(label), 99), str(label)
+
+
+def _save_current_figure(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    plt.tight_layout()  # type: ignore[union-attr]
+    plt.savefig(path, dpi=180, bbox_inches="tight")  # type: ignore[union-attr]
+    plt.close()  # type: ignore[union-attr]
+
+
+def _poster_display_names(ranked_poster_test_rows: Sequence[Dict[str, Any]]) -> List[str]:
+    return [str(row["display_name"]) for row in ranked_poster_test_rows]
+
+
+def _write_study_figures(
+    *,
+    figures_dir: Path,
+    metrics_rows: Sequence[Dict[str, Any]],
+    prediction_rows: Sequence[Dict[str, Any]],
+    true_distance_summary_rows: Sequence[Dict[str, Any]],
+    distance_range_metric_rows: Sequence[Dict[str, Any]],
+    ranked_poster_test_rows: Sequence[Dict[str, Any]],
+    benchmark_audit_summary: Dict[str, Any],
+    blend_search_rows: Sequence[Dict[str, Any]],
+    exact_rf_candidate_rows: Sequence[Dict[str, Any]],
+    aggregated_rf_candidate_rows: Sequence[Dict[str, Any]],
+    xgb_candidate_rows: Sequence[Dict[str, Any]],
+) -> List[Dict[str, str]]:
+    figures_dir.mkdir(parents=True, exist_ok=True)
+    if plt is None:
+        payload = {"matplotlib_import_error": str(MATPLOTLIB_IMPORT_ERROR)}
+        _write_json(figures_dir / "figure_generation_error.json", payload)
+        return [_figure_record(figures_dir / "figure_generation_error.json", "Matplotlib import failure")]
+
+    written: List[Dict[str, str]] = []
+    poster_names = _poster_display_names(ranked_poster_test_rows)
+
+    ranking_path = figures_dir / "poster_test_mae_ranking.png"
+    labels = [str(row["display_name"]) for row in ranked_poster_test_rows]
+    values = [float(row["mae"]) for row in ranked_poster_test_rows]
+    plt.figure(figsize=(9, max(4, 0.45 * len(labels))))  # type: ignore[union-attr]
+    y_positions = np.arange(len(labels))
+    plt.barh(y_positions, values, color="#2f6f9f")  # type: ignore[union-attr]
+    plt.yticks(y_positions, labels)  # type: ignore[union-attr]
+    plt.gca().invert_yaxis()  # type: ignore[union-attr]
+    plt.xlabel("Test MAE (m)")  # type: ignore[union-attr]
+    plt.title("Poster Model Ranking by Test MAE")  # type: ignore[union-attr]
+    for y_pos, value in zip(y_positions, values):
+        plt.text(value, y_pos, " {:.2f}".format(value), va="center", fontsize=8)  # type: ignore[union-attr]
+    _save_current_figure(ranking_path)
+    written.append(_figure_record(ranking_path, "Poster model test MAE ranking"))
+
+    cv_test_path = figures_dir / "poster_cv_vs_test_mae.png"
+    metric_lookup = {
+        (str(row["display_name"]), str(row["split_name"])): float(row["mae"])
+        for row in metrics_rows
+        if str(row.get("role")) == "poster"
+    }
+    x_positions = np.arange(len(poster_names))
+    cv_values = [metric_lookup.get((name, "cv_oof"), np.nan) for name in poster_names]
+    test_values = [metric_lookup.get((name, "test"), np.nan) for name in poster_names]
+    plt.figure(figsize=(11, 5.5))  # type: ignore[union-attr]
+    width = 0.38
+    plt.bar(x_positions - width / 2, cv_values, width, label="CV OOF", color="#6aa6b8")  # type: ignore[union-attr]
+    plt.bar(x_positions + width / 2, test_values, width, label="Test", color="#d9822b")  # type: ignore[union-attr]
+    plt.xticks(x_positions, poster_names, rotation=30, ha="right")  # type: ignore[union-attr]
+    plt.ylabel("MAE (m)")  # type: ignore[union-attr]
+    plt.title("CV vs Test MAE by Poster Model")  # type: ignore[union-attr]
+    plt.legend()  # type: ignore[union-attr]
+    _save_current_figure(cv_test_path)
+    written.append(_figure_record(cv_test_path, "CV OOF MAE versus held-out test MAE"))
+
+    scatter_path = figures_dir / "poster_test_predicted_vs_true.png"
+    test_predictions_by_model: Dict[str, List[Dict[str, Any]]] = {}
+    for row in prediction_rows:
+        if str(row["split_name"]) == "test" and str(row["display_name"]) in poster_names:
+            test_predictions_by_model.setdefault(str(row["display_name"]), []).append(dict(row))
+    cols = 3
+    rows_count = int(np.ceil(len(poster_names) / float(cols))) if poster_names else 1
+    fig, axes = plt.subplots(rows_count, cols, figsize=(5.0 * cols, 4.3 * rows_count), squeeze=False)  # type: ignore[union-attr]
+    for axis_index, display_name in enumerate(poster_names):
+        ax = axes[axis_index // cols][axis_index % cols]
+        model_rows = test_predictions_by_model.get(display_name, [])
+        true_values = np.asarray([float(row["true_distance_m"]) for row in model_rows], dtype=np.float64)
+        pred_values = np.asarray([float(row["predicted_distance_m"]) for row in model_rows], dtype=np.float64)
+        ax.scatter(true_values, pred_values, s=8, alpha=0.35, color="#2f6f9f")
+        if true_values.size:
+            min_value = float(min(true_values.min(), pred_values.min()))
+            max_value = float(max(true_values.max(), pred_values.max()))
+            ax.plot([min_value, max_value], [min_value, max_value], color="#111111", linewidth=1.0)
+        ax.set_title(display_name)
+        ax.set_xlabel("True distance (m)")
+        ax.set_ylabel("Predicted distance (m)")
+    for axis_index in range(len(poster_names), rows_count * cols):
+        axes[axis_index // cols][axis_index % cols].axis("off")
+    fig.suptitle("Held-out Test Predictions vs True Distance", y=1.02)
+    _save_current_figure(scatter_path)
+    written.append(_figure_record(scatter_path, "Predicted versus true distance scatter plots for poster models"))
+
+    distance_path = figures_dir / "poster_test_mae_by_true_distance.png"
+    plt.figure(figsize=(11, 6))  # type: ignore[union-attr]
+    for display_name in poster_names:
+        rows_for_model = [
+            row
+            for row in true_distance_summary_rows
+            if str(row["split_name"]) == "test" and str(row["display_name"]) == display_name
+        ]
+        rows_for_model = sorted(rows_for_model, key=lambda row: float(row["true_distance_m"]))
+        if not rows_for_model:
+            continue
+        plt.plot(  # type: ignore[union-attr]
+            [float(row["true_distance_m"]) for row in rows_for_model],
+            [float(row["mae"]) for row in rows_for_model],
+            marker="o",
+            linewidth=1.5,
+            markersize=3,
+            label=display_name,
+        )
+    plt.xlabel("True distance (m)")  # type: ignore[union-attr]
+    plt.ylabel("Test MAE (m)")  # type: ignore[union-attr]
+    plt.title("Test MAE by True Distance")  # type: ignore[union-attr]
+    plt.legend(fontsize=8, ncol=2)  # type: ignore[union-attr]
+    plt.grid(alpha=0.25)  # type: ignore[union-attr]
+    _save_current_figure(distance_path)
+    written.append(_figure_record(distance_path, "Test MAE by true distance for poster models"))
+
+    range_path = figures_dir / "poster_test_mae_by_distance_range.png"
+    ranges = sorted(
+        {
+            str(row["distance_range"])
+            for row in distance_range_metric_rows
+            if str(row["split_name"]) == "test" and str(row.get("role")) == "poster"
+        },
+        key=_distance_range_sort_key,
+    )
+    plt.figure(figsize=(10, 6))  # type: ignore[union-attr]
+    x_positions = np.arange(len(ranges))
+    for display_name in poster_names:
+        lookup = {
+            str(row["distance_range"]): float(row["mae"])
+            for row in distance_range_metric_rows
+            if str(row["split_name"]) == "test"
+            and str(row["display_name"]) == display_name
+            and str(row.get("role")) == "poster"
+        }
+        plt.plot(  # type: ignore[union-attr]
+            x_positions,
+            [lookup.get(distance_range, np.nan) for distance_range in ranges],
+            marker="o",
+            linewidth=1.5,
+            label=display_name,
+        )
+    plt.xticks(x_positions, ranges)  # type: ignore[union-attr]
+    plt.xlabel("Distance range")  # type: ignore[union-attr]
+    plt.ylabel("Test MAE (m)")  # type: ignore[union-attr]
+    plt.title("Test MAE by Distance Range")  # type: ignore[union-attr]
+    plt.legend(fontsize=8, ncol=2)  # type: ignore[union-attr]
+    plt.grid(alpha=0.25)  # type: ignore[union-attr]
+    _save_current_figure(range_path)
+    written.append(_figure_record(range_path, "Test MAE by distance range for poster models"))
+
+    coverage_path = figures_dir / "benchmark_rows_by_true_distance.png"
+    raw_distance_counts = dict(benchmark_audit_summary.get("distance_counts", {}))
+    distance_counts = {
+        float(distance): dict(counts)
+        for distance, counts in raw_distance_counts.items()
+    }
+    distances = sorted(distance_counts.keys())
+    dev_counts = [int(distance_counts[distance].get("dev", 0)) for distance in distances]
+    test_counts = [int(distance_counts[distance].get("test", 0)) for distance in distances]
+    plt.figure(figsize=(11, 5))  # type: ignore[union-attr]
+    x_positions = np.arange(len(distances))
+    plt.bar(x_positions, dev_counts, label="Dev", color="#6aa6b8")  # type: ignore[union-attr]
+    plt.bar(x_positions, test_counts, bottom=dev_counts, label="Test", color="#d9822b")  # type: ignore[union-attr]
+    plt.xticks(x_positions, ["{:g}".format(distance) for distance in distances], rotation=30)  # type: ignore[union-attr]
+    plt.xlabel("True distance (m)")  # type: ignore[union-attr]
+    plt.ylabel("Rows")  # type: ignore[union-attr]
+    plt.title("Benchmark Row Coverage by True Distance")  # type: ignore[union-attr]
+    plt.legend()  # type: ignore[union-attr]
+    _save_current_figure(coverage_path)
+    written.append(_figure_record(coverage_path, "Benchmark row coverage by true distance"))
+
+    blend_rows = [dict(row) for row in blend_search_rows]
+    if blend_rows:
+        blend_path = figures_dir / "blend_search_oof_mae.png"
+        weight_key = "rf_weight" if "rf_weight" in blend_rows[0] else "weight"
+        mae_key = (
+            "test_mae"
+            if "test_mae" in blend_rows[0]
+            else "cv_mae"
+            if "cv_mae" in blend_rows[0]
+            else "oof_mae"
+            if "oof_mae" in blend_rows[0]
+            else "mae"
+        )
+        usable_rows = [
+            row for row in blend_rows if weight_key in row and mae_key in row
+        ]
+        if usable_rows:
+            usable_rows = sorted(usable_rows, key=lambda row: float(row[weight_key]))
+            metric_label = "Test MAE (m)" if mae_key == "test_mae" else "OOF/CV MAE (m)"
+            title = "Blend Search Test MAE" if mae_key == "test_mae" else "Blend Search OOF/CV MAE"
+            plt.figure(figsize=(8, 5))  # type: ignore[union-attr]
+            plt.plot(  # type: ignore[union-attr]
+                [float(row[weight_key]) for row in usable_rows],
+                [float(row[mae_key]) for row in usable_rows],
+                color="#2f6f9f",
+                linewidth=1.8,
+            )
+            plt.xlabel("RF blend weight")  # type: ignore[union-attr]
+            plt.ylabel(metric_label)  # type: ignore[union-attr]
+            plt.title(title)  # type: ignore[union-attr]
+            plt.grid(alpha=0.25)  # type: ignore[union-attr]
+            _save_current_figure(blend_path)
+            written.append(_figure_record(blend_path, "Blend-search OOF/CV MAE by RF weight"))
+
+    candidate_groups = [
+        ("exact RF", exact_rf_candidate_rows),
+        ("aggregated RF", aggregated_rf_candidate_rows),
+        ("XGBoost", xgb_candidate_rows),
+    ]
+    candidate_records = []
+    for family_name, rows_for_family in candidate_groups:
+        for row in rows_for_family:
+            split_name = str(row.get("split_name", ""))
+            if split_name and split_name != "cv_oof":
+                continue
+            mae_value = row.get(
+                "mae",
+                row.get("cv_mae", row.get("oof_mae", row.get("mean_mae"))),
+            )
+            candidate_name = row.get("candidate_name", row.get("config_name", row.get("name", "")))
+            if mae_value is None or not candidate_name:
+                continue
+            candidate_records.append(
+                {
+                    "family": family_name,
+                    "candidate_name": str(candidate_name),
+                    "mae": float(mae_value),
+                }
+            )
+    if candidate_records:
+        candidate_path = figures_dir / "candidate_cv_mae_summary.png"
+        labels = ["{}: {}".format(row["family"], row["candidate_name"]) for row in candidate_records]
+        values = [float(row["mae"]) for row in candidate_records]
+        plt.figure(figsize=(10, max(4, 0.35 * len(labels))))  # type: ignore[union-attr]
+        y_positions = np.arange(len(labels))
+        plt.barh(y_positions, values, color="#748cab")  # type: ignore[union-attr]
+        plt.yticks(y_positions, labels, fontsize=8)  # type: ignore[union-attr]
+        plt.gca().invert_yaxis()  # type: ignore[union-attr]
+        plt.xlabel("CV MAE (m)")  # type: ignore[union-attr]
+        plt.title("Candidate Model CV MAE Summary")  # type: ignore[union-attr]
+        _save_current_figure(candidate_path)
+        written.append(_figure_record(candidate_path, "Candidate RF/XGBoost CV MAE summary"))
+
+    return written
 
 
 def _run_simple_linear_model(
@@ -1527,6 +1806,22 @@ def run_study(config_path: Optional[Path] = None) -> Dict[str, Any]:
     _write_csv_rows(reports_dir / "aggregated_blend_search.csv", aggregated_family["blend_search_rows"])
     _write_csv_rows(reports_dir / "poster_test_ranking.csv", ranked_poster_test_rows)
 
+    figures_dir = reports_dir / "figures"
+    figure_rows = _write_study_figures(
+        figures_dir=figures_dir,
+        metrics_rows=metrics_rows,
+        prediction_rows=prediction_rows,
+        true_distance_summary_rows=true_distance_summary_rows,
+        distance_range_metric_rows=distance_range_metric_rows,
+        ranked_poster_test_rows=ranked_poster_test_rows,
+        benchmark_audit_summary=benchmark["audit_summary"],
+        blend_search_rows=aggregated_family["blend_search_rows"],
+        exact_rf_candidate_rows=exact_rf_candidate_rows,
+        aggregated_rf_candidate_rows=aggregated_rf_candidate_rows,
+        xgb_candidate_rows=xgb_candidate_rows,
+    )
+    _write_csv_rows(reports_dir / "figure_manifest.csv", figure_rows)
+
     summary = {
         "study_name": str(config["study_name"]),
         "config_path": str(config_path.resolve()),
@@ -1549,6 +1844,9 @@ def run_study(config_path: Optional[Path] = None) -> Dict[str, Any]:
             "grouped_error_summary_csv": str(reports_dir / "grouped_error_summary.csv"),
             "true_distance_summary_csv": str(reports_dir / "true_distance_summary.csv"),
             "poster_test_ranking_csv": str(reports_dir / "poster_test_ranking.csv"),
+            "figure_manifest_csv": str(reports_dir / "figure_manifest.csv"),
+            "figures_dir": str(figures_dir),
+            "figures": figure_rows,
         },
     }
     _write_json(reports_dir / "summary.json", summary)
@@ -1556,6 +1854,7 @@ def run_study(config_path: Optional[Path] = None) -> Dict[str, Any]:
     print("[attempt8] Rerun finished")
     print("  common_rows: {}".format(len(exact_common_rows)))
     print("  summary_json: {}".format(reports_dir / "summary.json"))
+    print("  figures_dir: {}".format(figures_dir))
     return summary
 
 

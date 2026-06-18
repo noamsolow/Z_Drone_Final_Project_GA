@@ -1,0 +1,78 @@
+{
+  "study_name": "attempt9_problematic_folder_recovery",
+  "dataset_root": "C:\\Users\\depthlev\\Desktop\\droneImages\\dataset",
+  "output_root": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts",
+  "problematic_path_fragments": [
+    "depth_20/clear_sky/10AM",
+    "depth_20/light_rain/10AM",
+    "depth_30/clear_sky/10AM",
+    "depth_30/light_rain/10AM"
+  ],
+  "target_samples": 1673,
+  "skipped_problematic_samples": 0,
+  "depth_model_kind": "depth_pro",
+  "depth_model_semantics": "metric_model_depth_meters",
+  "datasets": [
+    {
+      "dataset": "study01",
+      "output_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01\\features_problematic_folders.csv",
+      "partial_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01\\features_problematic_folders_partial.csv",
+      "rows": 1673
+    },
+    {
+      "dataset": "study02",
+      "output_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study02\\depth_only_feature_table_problematic_folders.csv",
+      "partial_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study02\\depth_only_feature_table_problematic_folders_partial.csv",
+      "rows": 1673,
+      "depth_columns_recomputed": [
+        "bbox_expand_1_5x__bbox_mean__object_depth",
+        "bbox_expand_1_5x__bbox_midpoint__object_depth",
+        "bbox_expand_1_5x__inner50_median__object_depth",
+        "bbox_expand_2x__bbox_mean__object_depth",
+        "bbox_expand_2x__bbox_midpoint__object_depth",
+        "bbox_expand_2x__inner50_median__object_depth",
+        "bbox_expand_4x__bbox_mean__object_depth",
+        "bbox_expand_4x__bbox_midpoint__object_depth",
+        "bbox_expand_4x__inner50_median__object_depth",
+        "bbox_only__bbox_mean__object_depth",
+        "bbox_only__bbox_midpoint__object_depth",
+        "bbox_only__inner50_median__object_depth",
+        "full_image__bbox_mean__object_depth",
+        "full_image__bbox_midpoint__object_depth",
+        "full_image__inner50_median__object_depth"
+      ]
+    },
+    {
+      "dataset": "study03",
+      "output_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study03\\noisy_aggregated_feature_table_problematic_folders.csv",
+      "partial_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study03\\noisy_aggregated_feature_table_problematic_folders_partial.csv",
+      "rows": 1673,
+      "depth_columns_recomputed": [
+        "bbox_expand_4x__bbox_midpoint__object_depth__jitter_median",
+        "bbox_expand_4x__bbox_midpoint__object_depth__jitter_std",
+        "bbox_expand_4x__bbox_mean__object_depth__jitter_median",
+        "bbox_expand_4x__bbox_mean__object_depth__jitter_std",
+        "bbox_expand_4x__inner50_median__object_depth__jitter_median",
+        "bbox_expand_4x__inner50_median__object_depth__jitter_std",
+        "bbox_expand_2x__bbox_midpoint__object_depth__jitter_median",
+        "bbox_expand_2x__bbox_midpoint__object_depth__jitter_std",
+        "bbox_expand_2x__bbox_mean__object_depth__jitter_median",
+        "bbox_expand_2x__bbox_mean__object_depth__jitter_std",
+        "bbox_expand_2x__inner50_median__object_depth__jitter_median",
+        "bbox_expand_2x__inner50_median__object_depth__jitter_std",
+        "bbox_expand_1_5x__bbox_midpoint__object_depth__jitter_median",
+        "bbox_expand_1_5x__bbox_midpoint__object_depth__jitter_std",
+        "bbox_expand_1_5x__bbox_mean__object_depth__jitter_median",
+        "bbox_expand_1_5x__bbox_mean__object_depth__jitter_std",
+        "bbox_expand_1_5x__inner50_median__object_depth__jitter_median",
+        "bbox_expand_1_5x__inner50_median__object_depth__jitter_std",
+        "bbox_only__bbox_midpoint__object_depth__jitter_median",
+        "bbox_only__bbox_midpoint__object_depth__jitter_std",
+        "bbox_only__bbox_mean__object_depth__jitter_median",
+        "bbox_only__bbox_mean__object_depth__jitter_std",
+        "bbox_only__inner50_median__object_depth__jitter_median",
+        "bbox_only__inner50_median__object_depth__jitter_std"
+      ]
+    }
+  ]
+}

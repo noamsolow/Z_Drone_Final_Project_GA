@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="799" viewBox="0 0 1360 799">
+<rect x="0" y="0" width="1360" height="799" rx="0" fill="#ffffff"/>
+<text x="270" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Test Error Across Models</text>
+<text x="270" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Lower bars mean better distance estimates; the weakest baselines are shown first.</text>
+<text x="270" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#64748b" text-anchor="start">Total n=14,865 | Train/CV n=12,631 | Test n=2,234 | Dropped=199</text>
+<line x1="270.0" y1="137" x2="270.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="270.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">0</text>
+<line x1="426.66666666666663" y1="137" x2="426.66666666666663" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="426.66666666666663" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">14</text>
+<line x1="583.3333333333333" y1="137" x2="583.3333333333333" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="583.3333333333333" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">28</text>
+<line x1="740.0" y1="137" x2="740.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="740.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">42</text>
+<line x1="896.6666666666666" y1="137" x2="896.6666666666666" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="896.6666666666666" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">56</text>
+<line x1="1053.3333333333335" y1="137" x2="1053.3333333333335" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1053.3333333333335" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">70</text>
+<line x1="1210.0" y1="137" x2="1210.0" y2="713" stroke="#e5e7eb" stroke-width="1.0" stroke-dasharray="5 7"/>
+<text x="1210.0" y="739" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#6b7280" text-anchor="middle">84</text>
+<text x="252" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">scale only</text>
+<rect x="270" y="163.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="163.0" width="870.3703703703703" height="34" rx="8" fill="#9ca3af"/>
+<text x="1152.3703703703704" y="187.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">77.545 m</text>
+<text x="252" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="270" y="233.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="233.0" width="363.3437401972243" height="34" rx="8" fill="#64748b"/>
+<text x="645.3437401972243" y="257.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">32.372 m</text>
+<text x="252" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="270" y="303.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="303.0" width="149.71448652515707" height="34" rx="8" fill="#475569"/>
+<text x="431.7144865251571" y="327.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">13.339 m</text>
+<text x="252" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="270" y="373.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="373.0" width="133.68444271175161" height="34" rx="8" fill="#1f2937"/>
+<text x="415.6844427117516" y="397.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">11.911 m</text>
+<text x="252" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF</text>
+<rect x="270" y="443.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="443.0" width="84.20371996250748" height="34" rx="8" fill="#2563eb"/>
+<text x="366.2037199625075" y="467.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">7.502 m</text>
+<text x="252" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="270" y="513.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="513.0" width="74.92874885618977" height="34" rx="8" fill="#0f766e"/>
+<text x="356.92874885618977" y="537.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.676 m</text>
+<text x="252" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="270" y="583.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="583.0" width="71.61550005551622" height="34" rx="8" fill="#d97706"/>
+<text x="353.61550005551624" y="607.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.381 m</text>
+<text x="252" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="270" y="653.0" width="940" height="34" rx="8" fill="#f8fafc"/>
+<rect x="270" y="653.0" width="71.31248764293429" height="34" rx="8" fill="#dc2626"/>
+<text x="353.3124876429343" y="677.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="start">6.354 m</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="742" viewBox="0 0 1000 742">
+<rect x="0" y="0" width="1000" height="742" rx="0" fill="#ffffff"/>
+<text x="280" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Attempt 9 Depth Pro Test MAE by Distance Range</text>
+<text x="280" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Green is better. This shows where each model wins or collapses.</text>
+<text x="380.0" y="122" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">NEAR</text>
+<text x="580.0" y="122" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">MID</text>
+<text x="780.0" y="122" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">FAR</text>
+<text x="262" y="179" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="280" y="140" width="192" height="56" rx="10" fill="rgb(46,220,93)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="170" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">3.64</text>
+<text x="302" y="192" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 92.0%</text>
+<rect x="480" y="140" width="192" height="56" rx="10" fill="rgb(51,215,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="170" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">7.42</text>
+<text x="502" y="192" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 75.9%</text>
+<rect x="680" y="140" width="192" height="56" rx="10" fill="rgb(53,213,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="170" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">9.44</text>
+<text x="702" y="192" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 61.5%</text>
+<text x="262" y="243" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="280" y="204" width="192" height="56" rx="10" fill="rgb(46,219,93)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="234" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">3.69</text>
+<text x="302" y="256" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 92.2%</text>
+<rect x="480" y="204" width="192" height="56" rx="10" fill="rgb(51,215,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="234" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">7.42</text>
+<text x="502" y="256" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 75.9%</text>
+<rect x="680" y="204" width="192" height="56" rx="10" fill="rgb(53,213,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="234" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">9.43</text>
+<text x="702" y="256" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 61.3%</text>
+<text x="262" y="307" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="280" y="268" width="192" height="56" rx="10" fill="rgb(46,219,93)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="298" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">3.75</text>
+<text x="302" y="320" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 91.0%</text>
+<rect x="480" y="268" width="192" height="56" rx="10" fill="rgb(51,215,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="298" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">8.09</text>
+<text x="502" y="320" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 72.0%</text>
+<rect x="680" y="268" width="192" height="56" rx="10" fill="rgb(54,213,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="298" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">9.85</text>
+<text x="702" y="320" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 59.7%</text>
+<text x="262" y="371" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="280" y="332" width="192" height="56" rx="10" fill="rgb(46,219,93)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="362" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">4.21</text>
+<text x="302" y="384" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 89.3%</text>
+<rect x="480" y="332" width="192" height="56" rx="10" fill="rgb(53,214,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="362" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">8.88</text>
+<text x="502" y="384" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 65.8%</text>
+<rect x="680" y="332" width="192" height="56" rx="10" fill="rgb(56,211,95)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="362" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">11.36</text>
+<text x="702" y="384" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 48.7%</text>
+<text x="262" y="435" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="280" y="396" width="192" height="56" rx="10" fill="rgb(55,212,95)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="426" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">10.64</text>
+<text x="302" y="448" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 56.0%</text>
+<rect x="480" y="396" width="192" height="56" rx="10" fill="rgb(54,212,95)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="426" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">10.30</text>
+<text x="502" y="448" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 56.8%</text>
+<rect x="680" y="396" width="192" height="56" rx="10" fill="rgb(63,205,97)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="426" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">16.34</text>
+<text x="702" y="448" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 36.9%</text>
+<text x="262" y="499" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="280" y="460" width="192" height="56" rx="10" fill="rgb(58,209,95)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="490" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">12.97</text>
+<text x="302" y="512" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 47.0%</text>
+<rect x="480" y="460" width="192" height="56" rx="10" fill="rgb(54,213,94)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="490" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">9.59</text>
+<text x="502" y="512" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 58.4%</text>
+<rect x="680" y="460" width="192" height="56" rx="10" fill="rgb(66,202,97)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="490" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">19.05</text>
+<text x="702" y="512" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 28.7%</text>
+<text x="262" y="563" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="280" y="524" width="192" height="56" rx="10" fill="rgb(90,183,103)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="554" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">36.74</text>
+<text x="302" y="576" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 0.1%</text>
+<rect x="480" y="524" width="192" height="56" rx="10" fill="rgb(56,211,95)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="554" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">11.44</text>
+<text x="502" y="576" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 49.6%</text>
+<rect x="680" y="524" width="192" height="56" rx="10" fill="rgb(112,165,108)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="554" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">52.84</text>
+<text x="702" y="576" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 0.0%</text>
+<text x="262" y="627" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="280" y="588" width="192" height="56" rx="10" fill="rgb(95,179,104)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="302" y="618" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">40.39</text>
+<text x="302" y="640" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 0.0%</text>
+<rect x="480" y="588" width="192" height="56" rx="10" fill="rgb(154,130,118)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="502" y="618" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">84.59</text>
+<text x="502" y="640" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 0.1%</text>
+<rect x="680" y="588" width="192" height="56" rx="10" fill="rgb(216,80,133)" stroke="#ffffff" stroke-width="1.5"/>
+<text x="702" y="618" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">130.01</text>
+<text x="702" y="640" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ecfeff" text-anchor="start">within10: 0.0%</text>
+</svg>

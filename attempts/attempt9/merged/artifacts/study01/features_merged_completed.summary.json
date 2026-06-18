@@ -1,0 +1,11 @@
+{
+  "base_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study01\\features_merged.csv",
+  "supplement_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\recovery\\artifacts\\study01_completion\\features_study_all_dropped_exact.csv",
+  "output_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\merged\\artifacts\\study01\\features_merged_completed.csv",
+  "base_rows": 14865,
+  "supplement_rows": 199,
+  "completed_rows": 15064,
+  "column_count": 14,
+  "schema_compatible": true,
+  "duplicate_rows": 0
+}

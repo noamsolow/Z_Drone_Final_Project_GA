@@ -1,0 +1,22 @@
+{
+  "source_summary_json": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\summary.json",
+  "num_common_rows": 14865,
+  "num_dev_rows": 12631,
+  "num_test_rows": 2234,
+  "num_dropped_rows": 199,
+  "best_model": "ensemble",
+  "best_test_mae": 6.353539620734678,
+  "plots": [
+    "poster_all_models_mae_by_true_distance.svg",
+    "poster_all_models_mae_by_true_distance_zoomed.svg",
+    "poster_all_models_relative_error_by_true_distance.svg",
+    "poster_best_model_mae_by_true_distance_bars.svg",
+    "poster_cv_test_generalization_gap.svg",
+    "poster_distance_band_mae_heatmap.svg",
+    "poster_mean_relative_error_major_models.svg",
+    "poster_test_mae_worst_to_best.svg",
+    "poster_within_10m_worst_to_best.svg"
+  ],
+  "table_csv": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\poster_model_table.csv",
+  "table_md": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\poster_model_table.md"
+}

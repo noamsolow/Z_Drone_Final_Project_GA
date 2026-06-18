@@ -1,0 +1,38 @@
+{
+  "plots_dir": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots",
+  "figures_dir": "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures",
+  "svg_plot_count": 15,
+  "png_figure_count": 8,
+  "markdown_report_count": 2,
+  "svg_plots": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_condition_mae.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_cv_vs_test_mae.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_distance_range_heatmap.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_test_mae_ranking.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_test_r2_ranking.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\attempt9_depthpro_top_models_exact_distance.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_all_models_mae_by_true_distance.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_all_models_mae_by_true_distance_zoomed.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_all_models_relative_error_by_true_distance.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_best_model_mae_by_true_distance_bars.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_cv_test_generalization_gap.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_distance_band_mae_heatmap.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_mean_relative_error_major_models.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_test_mae_worst_to_best.svg",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\plots\\poster_within_10m_worst_to_best.svg"
+  ],
+  "png_figures": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\benchmark_rows_by_true_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\blend_search_oof_mae.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\candidate_cv_mae_summary.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\poster_cv_vs_test_mae.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\poster_test_mae_by_distance_range.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\poster_test_mae_by_true_distance.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\poster_test_mae_ranking.png",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\figures\\poster_test_predicted_vs_true.png"
+  ],
+  "markdown_reports": [
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\attempt9_depthpro_full_analysis.md",
+    "C:\\Users\\depthlev\\Desktop\\Z_Drone_Final_Project_GA\\attempts\\attempt9\\study_all\\artifacts_merged\\reports\\poster_model_table.md"
+  ]
+}
