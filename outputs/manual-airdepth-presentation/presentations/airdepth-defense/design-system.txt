@@ -1,0 +1,21 @@
+Slide size: 1280x720.
+Background: pale gray #E9EDF5 with white proof panels.
+Palette:
+- Navy #0B2463 for titles, primary marks, arrows, and major numbers.
+- Steel #2E5E9E for secondary marks.
+- Mist #B9C5D8 for muted steps and connectors.
+- Orange #FF8748 for challenge, change, and calibration highlights.
+- Cream #E8DED1 for quiet secondary accents.
+- Ink #111827 for body labels.
+Typography:
+- Aptos Display for titles.
+- Aptos for body, labels, and metrics.
+Layout grammar:
+- Reference-inspired process layouts: numbered circles, stepped bars, arrows, split benefits/challenges, timeline/roadmap.
+- Minimal text; one dominant proof object per slide.
+Chart grammar:
+- Editable bar charts with direct labels; navy for final model, orange for error/problem, green for calibrated result.
+Connector grammar:
+- Arrows only when direction matters; otherwise lines or stage order.
+Banned motifs:
+- No decorative blobs, no pseudo-logos, no dense paragraphs, no more than two repeated card-grid slides.

@@ -1,0 +1,94 @@
+{
+  "attempt": "attempt10_mlp_feature_baseline",
+  "purpose": "Small neural-network baseline requested for the Proposed Method discussion.",
+  "source_attempt": "attempt8-comprehensive run",
+  "feature_table": "C:\\Users\\noams\\OneDrive\\Desktop\\school\\final project\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study_all\\artifacts\\features\\aggregated_common_feature_table.csv",
+  "split_json": "C:\\Users\\noams\\OneDrive\\Desktop\\school\\final project\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study_all\\artifacts\\splits\\unified_split.json",
+  "schema_json": "C:\\Users\\noams\\OneDrive\\Desktop\\school\\final project\\Z_Drone_Final_Project_GA\\attempts\\attempt8-comprehensive run\\studies\\study01\\artifacts\\reports\\model_schema.json",
+  "feature_count": 21,
+  "selected_mlp": {
+    "model": "attempt10_shallow_mlp",
+    "split": "test",
+    "seed": 20260520,
+    "val_mae": 7.847704009832157,
+    "epochs": 720,
+    "mae": 7.595804160552436,
+    "median_absolute_error": 5.445529032454658,
+    "mean_relative_error": 0.10201329625334432,
+    "rmse": 10.382828034287533,
+    "r2": 0.9260706588370305,
+    "within_5m_rate": 0.46946902654867256,
+    "within_10m_rate": 0.7199115044247788,
+    "within_20m_rate": 0.9323008849557523
+  },
+  "attempt8_final_ensemble": {
+    "mae": 6.008478488143669,
+    "rmse": 8.653389804079092,
+    "r2": 0.9486479188598337,
+    "within_10m_rate": 0.8097345132743363,
+    "rf_weight": 0.17,
+    "xgb_weight": 0.83
+  },
+  "ridge_full_metrics": {
+    "mae": 12.405679061115366,
+    "median_absolute_error": 10.20320613137099,
+    "mean_relative_error": 0.20605497604348946,
+    "rmse": 15.769870635054712,
+    "r2": 0.8294539068191539,
+    "within_5m_rate": 0.2646017699115044,
+    "within_10m_rate": 0.4889380530973451,
+    "within_20m_rate": 0.8084070796460177
+  },
+  "top_descriptor_leave_one_out": [
+    {
+      "removed_feature": "bbox_only__inner50_median__object_depth__jitter_median",
+      "test_mae": 13.088361191511714,
+      "delta_mae_vs_full_ridge": 0.6826821303963477
+    },
+    {
+      "removed_feature": "bbox_area_ratio__jitter_median",
+      "test_mae": 12.742179775014392,
+      "delta_mae_vs_full_ridge": 0.33650071389902614
+    },
+    {
+      "removed_feature": "bbox_aspect_ratio__jitter_median",
+      "test_mae": 12.727045356402432,
+      "delta_mae_vs_full_ridge": 0.3213662952870653
+    },
+    {
+      "removed_feature": "bbox_center_y_norm__jitter_std",
+      "test_mae": 12.455853844636659,
+      "delta_mae_vs_full_ridge": 0.050174783521292454
+    },
+    {
+      "removed_feature": "bbox_aspect_ratio__jitter_std",
+      "test_mae": 12.449408421309803,
+      "delta_mae_vs_full_ridge": 0.04372936019443685
+    },
+    {
+      "removed_feature": "bbox_width_px__jitter_median",
+      "test_mae": 12.44876614588721,
+      "delta_mae_vs_full_ridge": 0.04308708477184453
+    },
+    {
+      "removed_feature": "bbox_width_norm__jitter_std",
+      "test_mae": 12.440656549583807,
+      "delta_mae_vs_full_ridge": 0.0349774884684404
+    },
+    {
+      "removed_feature": "bbox_area_ratio__jitter_std",
+      "test_mae": 12.42505964051628,
+      "delta_mae_vs_full_ridge": 0.01938057940091298
+    },
+    {
+      "removed_feature": "bbox_height_px__jitter_median",
+      "test_mae": 12.418002513096265,
+      "delta_mae_vs_full_ridge": 0.012323451980899236
+    },
+    {
+      "removed_feature": "bbox_width_px__jitter_std",
+      "test_mae": 12.415290246053539,
+      "delta_mae_vs_full_ridge": 0.009611184938172812
+    }
+  ]
+}

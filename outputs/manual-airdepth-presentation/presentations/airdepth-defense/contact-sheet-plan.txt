@@ -1,0 +1,17 @@
+Macro-layout rhythm:
+1 cover metric rail
+2 centered problem prompt with image block
+3 left/right ambiguity comparison
+4 benefits/challenges split
+5 horizontal pipeline flow
+6 two-lane dataset strategy
+7 image grid with fact rail
+8 feature callout system
+9 vertical step/process flow
+10 model evolution ladder
+11 ranking bar proof
+12 distance-band bars
+13 before-transfer warning slide
+14 calibration before/after proof
+15 contributions/limits pillars
+16 clean closing

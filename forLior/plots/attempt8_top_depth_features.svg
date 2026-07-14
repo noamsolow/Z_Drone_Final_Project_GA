@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#e9edf5"/>
+<text x="80" y="72" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="start">ATTEMPT 8 · FEATURE IMPORTANCE</text>
+<text x="80" y="122" font-family="Aptos, Arial, sans-serif" font-size="40" font-weight="700" fill="#0b2463" text-anchor="start">Top Depth Features</text>
+<text x="80" y="157" font-family="Aptos, Arial, sans-serif" font-size="19" font-weight="normal" fill="#4b5563" text-anchor="start">Saved lower Random Forest component used in the improved-linear model</text>
+<line x1="80" y1="181" x2="1200" y2="181" stroke="#d6dde9" stroke-width="2"/>
+<text x="470" y="208" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#4b5563" text-anchor="start">Relative importance</text>
+<text x="80" y="675" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#4b5563" text-anchor="start">Higher values indicate stronger contribution within this depth-feature Random Forest.</text>
+<text x="100" y="219" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">01</text>
+<text x="145" y="219" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#111827" text-anchor="start">Drone box: midpoint depth</text>
+<rect x="470" y="192" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="192" width="600.0" height="29" rx="6" fill="#ff8748"/>
+<text x="1105" y="214" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#ff8748" text-anchor="end">0.171</text>
+<text x="100" y="262" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">02</text>
+<text x="145" y="262" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#111827" text-anchor="start">1.5x context: midpoint depth</text>
+<rect x="470" y="235" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="235" width="438.9" height="29" rx="6" fill="#0b2463"/>
+<text x="1105" y="257" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#0b2463" text-anchor="end">0.125</text>
+<text x="100" y="305" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">03</text>
+<text x="145" y="305" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#111827" text-anchor="start">Drone box: inner-50% median depth</text>
+<rect x="470" y="278" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="278" width="384.3" height="29" rx="6" fill="#0b2463"/>
+<text x="1105" y="300" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#0b2463" text-anchor="end">0.109</text>
+<text x="100" y="348" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">04</text>
+<text x="145" y="348" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">2x context: midpoint depth</text>
+<rect x="470" y="321" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="321" width="324.6" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="343" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.092</text>
+<text x="100" y="391" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">05</text>
+<text x="145" y="391" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">4x context: midpoint depth</text>
+<rect x="470" y="364" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="364" width="212.4" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="386" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.060</text>
+<text x="100" y="434" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">06</text>
+<text x="145" y="434" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">1.5x context: inner-50% median depth</text>
+<rect x="470" y="407" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="407" width="197.4" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="429" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.056</text>
+<text x="100" y="477" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">07</text>
+<text x="145" y="477" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">Drone box: mean depth</text>
+<rect x="470" y="450" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="450" width="184.9" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="472" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.053</text>
+<text x="100" y="520" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">08</text>
+<text x="145" y="520" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">1.5x context: mean depth</text>
+<rect x="470" y="493" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="493" width="165.4" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="515" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.047</text>
+<text x="100" y="563" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">09</text>
+<text x="145" y="563" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">2x context: inner-50% median depth</text>
+<rect x="470" y="536" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="536" width="163.8" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="558" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.047</text>
+<text x="100" y="606" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#8090a9" text-anchor="start">10</text>
+<text x="145" y="606" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="normal" fill="#111827" text-anchor="start">Full image: mean depth</text>
+<rect x="470" y="579" width="600" height="29" rx="6" fill="#d6dde9"/>
+<rect x="470" y="579" width="152.9" height="29" rx="6" fill="#2e5e9e"/>
+<text x="1105" y="601" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2e5e9e" text-anchor="end">0.043</text>
+</svg>

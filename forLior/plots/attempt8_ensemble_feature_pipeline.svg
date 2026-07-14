@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ff8748"/></marker></defs>
+<rect width="1600" height="900" fill="#e9edf5"/>
+<text x="80" y="72" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#ff8748" text-anchor="start">ATTEMPT 8 · FINAL MODEL</text>
+<text x="80" y="122" font-family="Aptos, Arial, sans-serif" font-size="42" font-weight="700" fill="#0b2463" text-anchor="start">From RGB Features to Metric Drone Distance</text>
+<text x="80" y="158" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563" text-anchor="start">The final RF-XGBoost ensemble converts target-centric cues into estimated Z-distance in meters.</text>
+<line x1="80" y1="186" x2="1520" y2="186" stroke="#d6dde9" stroke-width="2"/>
+<text x="80" y="223" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="start">1. ONE RGB IMAGE</text>
+<rect x="80" y="245" width="255" height="132" rx="16" fill="#ffffff"/>
+<rect x="100" y="265" width="215" height="72" rx="8" fill="#78a8d6"/>
+<rect x="190" y="286" width="45" height="31" fill="none" stroke="#ff8748" stroke-width="4"/>
+<text x="207" y="360" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="700" fill="#0b2463" text-anchor="middle">drone detection + depth map</text>
+<path d="M350 310 L425 310" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<text x="450" y="223" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="start">2. FEATURE EXTRACTION</text>
+<rect x="425" y="245" width="400" height="160" rx="16" fill="#0b2463"/>
+<text x="449" y="283" font-family="Aptos, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="start">Target depth cue</text>
+<text x="801" y="283" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">1 feature</text>
+<text x="449" y="318" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">inner-50% median relative depth</text>
+<text x="449" y="343" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">inside the detected drone box</text>
+<text x="449" y="368" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">aggregated over jittered boxes</text>
+<rect x="425" y="425" width="400" height="255" rx="16" fill="#2e5e9e"/>
+<text x="449" y="463" font-family="Aptos, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="start">Bounding-box geometry</text>
+<text x="801" y="463" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">16 features</text>
+<text x="449" y="498" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">width, height, normalized width, normalized height</text>
+<text x="449" y="523" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">area ratio, aspect ratio, center X, center Y</text>
+<text x="449" y="548" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">each represented by jitter median and jitter std</text>
+<text x="449" y="573" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">= 8 geometry signals x 2 robust statistics</text>
+<rect x="425" y="700" width="400" height="125" rx="16" fill="#173b7a"/>
+<text x="449" y="738" font-family="Aptos, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="start">Environment metadata</text>
+<text x="801" y="738" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">4 features</text>
+<text x="449" y="773" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">weather: clear sky / light rain (one-hot)</text>
+<text x="449" y="798" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="start">time: 10 AM / 8 PM (one-hot)</text>
+<path d="M845 325 L905 325" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<path d="M845 552 L905 552" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<path d="M845 762 C880 762, 875 595, 905 595" fill="none" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<rect x="915" y="402" width="235" height="210" rx="18" fill="#ffffff" stroke="#d6dde9" stroke-width="2"/>
+<text x="1032" y="447" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="middle">21-DIMENSION</text>
+<text x="1032" y="488" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#0b2463" text-anchor="middle">FEATURE VECTOR</text>
+<text x="1032" y="525" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#4b5563" text-anchor="middle">1 depth + 16 geometry</text>
+<text x="1032" y="550" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#4b5563" text-anchor="middle">+ 4 metadata features</text>
+<text x="1032" y="578" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">per detected drone</text>
+<path d="M1165 507 L1220 507" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<text x="1215" y="223" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="start">3. ENSEMBLE REGRESSION</text>
+<rect x="1225" y="245" width="285" height="165" rx="16" fill="#0b2463"/>
+<text x="1368" y="288" font-family="Aptos, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">Random Forest</text>
+<text x="1368" y="321" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">jitter-aggregated features</text>
+<text x="1368" y="370" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" fill="#ff8748" text-anchor="middle">17% blend weight</text>
+<rect x="1225" y="445" width="285" height="165" rx="16" fill="#2e5e9e"/>
+<text x="1368" y="488" font-family="Aptos, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">XGBoost</text>
+<text x="1368" y="521" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">jitter-aggregated features</text>
+<text x="1368" y="570" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" fill="#ff8748" text-anchor="middle">83% blend weight</text>
+<path d="M1368 625 L1368 690" stroke="#ff8748" stroke-width="5" marker-end="url(#arrow)"/>
+<rect x="1195" y="710" width="345" height="115" rx="16" fill="#ff8748"/>
+<text x="1368" y="752" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">OUTPUT</text>
+<text x="1368" y="790" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle">Metric Z-distance (m)</text>
+<text x="80" y="865" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#4b5563" text-anchor="start">Attempt 8 final ensemble: RF weight 0.17 + XGBoost weight 0.83. The depth model supplies relative cues; regression learns metric scale.</text>
+</svg>

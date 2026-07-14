@@ -1,0 +1,9 @@
+task mode: create
+primary deck-profile: engineering-platform
+secondary gates: strategy-leadership, because this is a judge defense narrative
+required proof objects: pipeline diagram, dataset split, feature flow, model progression, final metrics, real calibration before/after
+source requirements: repository reports and presentation plan; no external claims added
+asset requirements: use project-generated drone examples and charts only
+brand authenticity: no official logos or fabricated marks; AirDepth wordmark is project title text only
+QA gates: technical labels must remain accurate, metrics must match source reports, diagrams must connect method to results
+known missing inputs: exact desired final slide count; using 16 slides with a note that dataset slides can be merged

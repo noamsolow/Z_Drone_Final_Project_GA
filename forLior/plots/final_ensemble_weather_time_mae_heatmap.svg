@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#e9edf5"/>
+<text x="80" y="78" font-family="Aptos, Arial, sans-serif" font-size="16" font-weight="700" fill="#ff8748" text-anchor="start">FINAL ENSEMBLE</text>
+<text x="80" y="128" font-family="Aptos, Arial, sans-serif" font-size="38" font-weight="700" fill="#0b2463" text-anchor="start">MAE by Weather and Time of Day</text>
+<text x="80" y="162" font-family="Aptos, Arial, sans-serif" font-size="19" font-weight="normal" fill="#4b5563" text-anchor="start">Attempt 8 — complete 15,064-image synthetic dataset (OOF + held-out test) | lower is better</text>
+<line x1="80" y1="190" x2="1200" y2="190" stroke="#d6dde9" stroke-width="2"/>
+<text x="525.0" y="212" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" fill="#0b2463" text-anchor="middle">10 AM</text>
+<text x="875.0" y="212" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" fill="#0b2463" text-anchor="middle">8 PM</text>
+<text x="80" y="325" font-family="Aptos, Arial, sans-serif" font-size="21" font-weight="700" fill="#0b2463" text-anchor="start">Clear sky</text>
+<text x="80" y="495" font-family="Aptos, Arial, sans-serif" font-size="21" font-weight="700" fill="#0b2463" text-anchor="start">Light rain</text>
+<text x="700" y="650" font-family="Aptos, Arial, sans-serif" font-size="18" font-weight="700" fill="#0b2463" text-anchor="middle">Time of day</text>
+<text x="80" y="675" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#4b5563" text-anchor="start">Each cell: mean absolute error in meters</text>
+<rect x="350" y="235" width="342" height="162" rx="10" fill="#364c81"/>
+<text x="521.0" y="310" font-family="Aptos, Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff" text-anchor="middle">6.03 m</text>
+<text x="521.0" y="344" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">n = 5130</text>
+<rect x="700" y="235" width="342" height="162" rx="10" fill="#dce8f8"/>
+<text x="871.0" y="310" font-family="Aptos, Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff" text-anchor="middle">5.13 m</text>
+<text x="871.0" y="344" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">n = 2417</text>
+<rect x="350" y="405" width="342" height="162" rx="10" fill="#0b2463"/>
+<text x="521.0" y="480" font-family="Aptos, Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff" text-anchor="middle">6.26 m</text>
+<text x="521.0" y="514" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">n = 4868</text>
+<rect x="700" y="405" width="342" height="162" rx="10" fill="#243b75"/>
+<text x="871.0" y="480" font-family="Aptos, Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff" text-anchor="middle">6.13 m</text>
+<text x="871.0" y="514" font-family="Aptos, Arial, sans-serif" font-size="15" font-weight="normal" fill="#ffffff" text-anchor="middle">n = 2649</text>
+</svg>

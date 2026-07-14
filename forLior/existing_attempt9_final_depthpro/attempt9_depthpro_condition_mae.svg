@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="860" viewBox="0 0 1480 860">
+<rect x="0" y="0" width="1480" height="860" rx="0" fill="#ffffff"/>
+<text x="90" y="56" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#111827" text-anchor="start">Attempt 9 Depth Pro Test MAE by Condition</text>
+<text x="90" y="86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#6b7280" text-anchor="start">Each panel compares all 8 models under one weather or time condition.</text>
+<rect x="90" y="140" width="620" height="300" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.0"/>
+<text x="112" y="174" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">Weather: clear_sky</text>
+<text x="250" y="216" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="272" y="198" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="198" width="27.57070811654059" height="18" rx="6" fill="#059669"/>
+<text x="307.5707081165406" y="213" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.06</text>
+<text x="250" y="244" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="272" y="226" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="226" width="27.663687520428784" height="18" rx="6" fill="#0284c7"/>
+<text x="307.66368752042877" y="241" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.08</text>
+<text x="250" y="272" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="272" y="254" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="254" width="29.420744054357645" height="18" rx="6" fill="#0f766e"/>
+<text x="309.42074405435767" y="269" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.46</text>
+<text x="250" y="300" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="272" y="282" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="282" width="34.828379387386086" height="18" rx="6" fill="#334155"/>
+<text x="314.82837938738606" y="297" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">7.65</text>
+<text x="250" y="328" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="272" y="310" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="310" width="55.10014737099087" height="18" rx="6" fill="#475569"/>
+<text x="335.10014737099084" y="325" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">12.10</text>
+<text x="250" y="356" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="272" y="338" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="338" width="61.422817782710545" height="18" rx="6" fill="#64748b"/>
+<text x="341.4228177827105" y="353" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">13.49</text>
+<text x="250" y="384" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="272" y="366" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="366" width="143.34373742913053" height="18" rx="6" fill="#94a3b8"/>
+<text x="423.34373742913056" y="381" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">31.48</text>
+<text x="250" y="412" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="272" y="394" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="394" width="351.85185185185185" height="18" rx="6" fill="#cbd5e1"/>
+<text x="631.8518518518518" y="409" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">77.28</text>
+<rect x="790" y="140" width="620" height="300" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.0"/>
+<text x="812" y="174" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">Weather: light_rain</text>
+<text x="950" y="216" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="972" y="198" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="198" width="30.09583837944016" height="18" rx="6" fill="#059669"/>
+<text x="1010.0958383794401" y="213" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.63</text>
+<text x="950" y="244" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="972" y="226" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="226" width="30.134906805506567" height="18" rx="6" fill="#0284c7"/>
+<text x="1010.1349068055066" y="241" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.64</text>
+<text x="950" y="272" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="972" y="254" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="254" width="31.638646023460662" height="18" rx="6" fill="#0f766e"/>
+<text x="1011.6386460234606" y="269" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.97</text>
+<text x="950" y="300" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="972" y="282" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="282" width="33.76175611032507" height="18" rx="6" fill="#334155"/>
+<text x="1013.7617561103251" y="297" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">7.43</text>
+<text x="950" y="328" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="972" y="310" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="310" width="53.50586802967867" height="18" rx="6" fill="#475569"/>
+<text x="1033.5058680296786" y="325" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">11.78</text>
+<text x="950" y="356" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="972" y="338" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="338" width="60.00228218714184" height="18" rx="6" fill="#64748b"/>
+<text x="1040.0022821871419" y="353" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">13.21</text>
+<text x="950" y="384" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="972" y="366" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="366" width="150.38937745948797" height="18" rx="6" fill="#94a3b8"/>
+<text x="1130.389377459488" y="381" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">33.12</text>
+<text x="950" y="412" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="972" y="394" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="394" width="351.8518518518518" height="18" rx="6" fill="#cbd5e1"/>
+<text x="1331.8518518518517" y="409" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">77.48</text>
+<rect x="90" y="520" width="620" height="300" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.0"/>
+<text x="112" y="554" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">Time: 10AM</text>
+<text x="250" y="596" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="272" y="578" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="578" width="29.875150321770857" height="18" rx="6" fill="#059669"/>
+<text x="309.87515032177083" y="593" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.52</text>
+<text x="250" y="624" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="272" y="606" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="606" width="29.924036794512922" height="18" rx="6" fill="#0284c7"/>
+<text x="309.9240367945129" y="621" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.53</text>
+<text x="250" y="652" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="272" y="634" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="634" width="31.77342361483515" height="18" rx="6" fill="#0f766e"/>
+<text x="311.77342361483517" y="649" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.94</text>
+<text x="250" y="680" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="272" y="662" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="662" width="35.65247548713128" height="18" rx="6" fill="#334155"/>
+<text x="315.65247548713126" y="677" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">7.78</text>
+<text x="250" y="708" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="272" y="690" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="690" width="55.176151248739565" height="18" rx="6" fill="#475569"/>
+<text x="335.1761512487396" y="705" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">12.05</text>
+<text x="250" y="736" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="272" y="718" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="718" width="60.34935460776381" height="18" rx="6" fill="#64748b"/>
+<text x="340.3493546077638" y="733" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">13.18</text>
+<text x="250" y="764" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="272" y="746" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="746" width="148.37512767845422" height="18" rx="6" fill="#94a3b8"/>
+<text x="428.3751276784542" y="761" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">32.39</text>
+<text x="250" y="792" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="272" y="774" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="272" y="774" width="351.85185185185185" height="18" rx="6" fill="#cbd5e1"/>
+<text x="631.8518518518518" y="789" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">76.82</text>
+<rect x="790" y="520" width="620" height="300" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.0"/>
+<text x="812" y="554" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#111827" text-anchor="start">Time: 8PM</text>
+<text x="950" y="596" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">ensemble</text>
+<rect x="972" y="578" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="578" width="26.81599665000328" height="18" rx="6" fill="#059669"/>
+<text x="1006.8159966500033" y="593" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">5.98</text>
+<text x="950" y="624" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">XGBoost+jitter</text>
+<rect x="972" y="606" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="606" width="26.91522666510196" height="18" rx="6" fill="#0284c7"/>
+<text x="1006.915226665102" y="621" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.00</text>
+<text x="950" y="652" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF+jitter</text>
+<rect x="972" y="634" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="634" width="28.123182911717386" height="18" rx="6" fill="#0f766e"/>
+<text x="1008.1231829117174" y="649" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">6.27</text>
+<text x="950" y="680" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">RF</text>
+<rect x="972" y="662" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="662" width="31.675549920756065" height="18" rx="6" fill="#334155"/>
+<text x="1011.6755499207561" y="677" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">7.07</text>
+<text x="950" y="708" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">improved linear</text>
+<rect x="972" y="690" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="690" width="52.61983123542657" height="18" rx="6" fill="#475569"/>
+<text x="1032.6198312354265" y="705" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">11.74</text>
+<text x="950" y="736" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">linear+bb</text>
+<rect x="972" y="718" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="718" width="61.4168442596391" height="18" rx="6" fill="#64748b"/>
+<text x="1041.416844259639" y="733" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">13.70</text>
+<text x="950" y="764" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">depth linear</text>
+<rect x="972" y="746" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="746" width="143.9389131374231" height="18" rx="6" fill="#94a3b8"/>
+<text x="1123.938913137423" y="761" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">32.11</text>
+<text x="950" y="792" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="end">scale only</text>
+<rect x="972" y="774" width="380" height="18" rx="6" fill="#e2e8f0"/>
+<rect x="972" y="774" width="351.8518518518518" height="18" rx="6" fill="#cbd5e1"/>
+<text x="1331.8518518518517" y="789" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111827" text-anchor="start">78.50</text>
+</svg>

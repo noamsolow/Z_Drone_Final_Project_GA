@@ -1,0 +1,21 @@
+Thesis: AirDepth makes monocular drone distance useful by learning metric scale from relative depth, bounding-box geometry, and real-domain calibration.
+Audience: final-project judges.
+Arc: start with the monocular scale problem, show the hybrid method, prove it with synthetic ablations, then show real-domain calibration.
+
+Slides:
+1. AirDepth estimates drone distance from one RGB image; proof: title visual with key metrics.
+2. Detection is not enough; proof: RGB-only problem frame.
+3. Scale ambiguity is the core obstacle; proof: near/far projection contrast.
+4. Hardware alternatives are accurate but heavy; proof: benefits/challenges split.
+5. AirDepth separates perception from metric conversion; proof: five-stage pipeline.
+6. Synthetic and real datasets play different roles; proof: two-lane data strategy.
+7. Synthetic data gives controlled metric supervision; proof: dataset grid and labels.
+8. The bounding box becomes a measurement; proof: feature callout flow.
+9. Local depth features are cues, not answers; proof: local-depth extraction steps.
+10. The model improved through ablation; proof: MAE ladder.
+11. The final synthetic model is stable; proof: ranking chart.
+12. Distance remains the hardest axis; proof: near/mid/far bars.
+13. Real transfer exposes systematic scale bias; proof: before calibration comparison.
+14. Lightweight calibration fixes most real-domain bias; proof: before/after calibration bars.
+15. Contributions are method, experiments, and transfer; proof: three pillars plus limits.
+16. Questions; proof: closing thesis.

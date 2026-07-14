@@ -1,0 +1,11 @@
+rank,feature,importance
+1,Drone box: midpoint depth,0.170701
+2,1.5x context: midpoint depth,0.124864
+3,Drone box: inner-50% median depth,0.109327
+4,2x context: midpoint depth,0.092354
+5,4x context: midpoint depth,0.060422
+6,1.5x context: inner-50% median depth,0.056150
+7,Drone box: mean depth,0.052605
+8,1.5x context: mean depth,0.047044
+9,2x context: inner-50% median depth,0.046614
+10,Full image: mean depth,0.043491

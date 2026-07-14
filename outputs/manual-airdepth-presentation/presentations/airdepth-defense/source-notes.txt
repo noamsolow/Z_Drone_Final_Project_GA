@@ -1,0 +1,11 @@
+Sources used:
+- reserch/presentation/presentation.md: active slide plan and speaker notes
+- ATTEMPT_STUDY_REPORT.md: project attempt narrative and MAE progression
+- attempts/attempt8-comprehensive run/studies/study_all/artifacts/reports/attempt8_full_analysis.md: final synthetic metrics
+- attempts/attempt8-comprehensive run/studies/study02/artifacts/reports/analysis.md: real calibration metrics
+- experiments/background_drone_exp/data/images: project image examples
+- poster and attempt plots: optional project-generated result visuals
+
+Identity assets:
+- No third-party logos or official marks used.
+- Icons are simple lucide-style generic symbols where used.

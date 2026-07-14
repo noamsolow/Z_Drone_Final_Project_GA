@@ -1,0 +1,5 @@
+model,split,weather,time_of_day,count,mae_m
+RF-XGBoost ensemble,full dataset (OOF + test),clear_sky,10AM,5130,6.0295
+RF-XGBoost ensemble,full dataset (OOF + test),clear_sky,8PM,2417,5.1284
+RF-XGBoost ensemble,full dataset (OOF + test),light_rain,10AM,4868,6.2604
+RF-XGBoost ensemble,full dataset (OOF + test),light_rain,8PM,2649,6.1265

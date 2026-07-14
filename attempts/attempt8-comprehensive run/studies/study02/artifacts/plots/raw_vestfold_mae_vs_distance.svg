@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="700" viewBox="0 0 1280 700">
+<rect width="1280" height="700" fill="#ffffff"/>
+<rect x="115.0" y="55.0" width="1045.0" height="555.0" fill="#ffffff" stroke="#d6dde9" stroke-width="1"/>
+<line x1="115.0" y1="610.0" x2="1160.0" y2="610.0" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="615.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">0</text>
+<line x1="115.0" y1="541.0" x2="1160.0" y2="541.0" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="545.950444365616" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">5</text>
+<line x1="115.0" y1="471.9" x2="1160.0" y2="471.9" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="476.90088873123193" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">10</text>
+<line x1="115.0" y1="402.9" x2="1160.0" y2="402.9" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="407.85133309684795" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">15</text>
+<line x1="115.0" y1="333.8" x2="1160.0" y2="333.8" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="338.8017774624639" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">20</text>
+<line x1="115.0" y1="264.8" x2="1160.0" y2="264.8" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="269.7522218280798" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">25</text>
+<line x1="115.0" y1="195.7" x2="1160.0" y2="195.7" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="200.70266619369585" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">30</text>
+<line x1="115.0" y1="126.7" x2="1160.0" y2="126.7" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="131.6531105593118" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">35</text>
+<line x1="115.0" y1="57.6" x2="1160.0" y2="57.6" stroke="#edf0f5" stroke-width="1"/>
+<text x="103.0" y="62.603554924927835" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="end">40</text>
+<text x="1172.0" y="615.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">0</text>
+<text x="1172.0" y="541.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">10</text>
+<text x="1172.0" y="467.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">20</text>
+<text x="1172.0" y="393.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">30</text>
+<text x="1172.0" y="319.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">40</text>
+<text x="1172.0" y="245.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">50</text>
+<text x="1172.0" y="171.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">60</text>
+<text x="1172.0" y="97.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#2f8a67" text-anchor="start">70</text>
+<line x1="184.7" y1="55.0" x2="184.7" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="184.66666666666669" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">5</text>
+<line x1="254.3" y1="55.0" x2="254.3" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="254.33333333333334" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">10</text>
+<line x1="324.0" y1="55.0" x2="324.0" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="324.0" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">15</text>
+<line x1="393.7" y1="55.0" x2="393.7" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="393.6666666666667" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">20</text>
+<line x1="463.3" y1="55.0" x2="463.3" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="463.3333333333333" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">25</text>
+<line x1="533.0" y1="55.0" x2="533.0" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="533.0" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">30</text>
+<line x1="602.7" y1="55.0" x2="602.7" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="602.6666666666667" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">35</text>
+<line x1="672.3" y1="55.0" x2="672.3" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="672.3333333333334" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">40</text>
+<line x1="742.0" y1="55.0" x2="742.0" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="742.0" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">45</text>
+<line x1="811.7" y1="55.0" x2="811.7" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="811.6666666666666" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">50</text>
+<line x1="881.3" y1="55.0" x2="881.3" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="881.3333333333333" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">55</text>
+<line x1="951.0" y1="55.0" x2="951.0" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="951.0" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">60</text>
+<line x1="1020.7" y1="55.0" x2="1020.7" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="1020.6666666666667" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">65</text>
+<line x1="1090.3" y1="55.0" x2="1090.3" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="1090.3333333333335" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">70</text>
+<line x1="1160.0" y1="55.0" x2="1160.0" y2="610.0" stroke="#f4f6f9" stroke-width="1"/>
+<text x="1160.0" y="637.0" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="normal" fill="#4b5563" text-anchor="middle">75</text>
+<path d="M184.7,371.3 L254.3,472.0 L324.0,480.5 L393.7,452.4 L463.3,412.3 L533.0,406.0 L602.7,473.7 L672.3,467.1 L742.0,328.3 L811.7,355.1 L881.3,379.4 L951.0,462.9 L1020.7,353.0 L1090.3,102.4 L1160.0,96.1" fill="none" stroke="#0b2463" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M184.7,573.0 L254.3,536.0 L324.0,499.0 L393.7,462.0 L463.3,425.0 L533.0,388.0 L602.7,351.0 L672.3,314.0 L742.0,277.0 L811.7,240.0 L881.3,203.0 L951.0,166.0 L1020.7,129.0 L1090.3,92.0 L1160.0,55.0" fill="none" stroke="#2f8a67" stroke-width="4" stroke-dasharray="10 7"/>
+<circle cx="184.7" cy="371.3" r="6" fill="#0b2463"/>
+<text x="184.66666666666669" y="359.3122580652867" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">17.3</text>
+<circle cx="254.3" cy="472.0" r="6" fill="#0b2463"/>
+<text x="254.33333333333334" y="459.95750936685215" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">10.0</text>
+<circle cx="324.0" cy="480.5" r="6" fill="#0b2463"/>
+<text x="324.0" y="468.51136831883963" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">9.4</text>
+<circle cx="393.7" cy="452.4" r="6" fill="#0b2463"/>
+<text x="393.6666666666667" y="440.4040562023073" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">11.4</text>
+<circle cx="463.3" cy="412.3" r="6" fill="#0b2463"/>
+<text x="463.3333333333333" y="400.33874204101227" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">14.3</text>
+<circle cx="533.0" cy="406.0" r="6" fill="#0b2463"/>
+<text x="533.0" y="393.95027715371907" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">14.8</text>
+<circle cx="602.7" cy="473.7" r="6" fill="#0b2463"/>
+<text x="602.6666666666667" y="461.74036889333195" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">9.9</text>
+<circle cx="672.3" cy="467.1" r="6" fill="#0b2463"/>
+<text x="672.3333333333334" y="455.0881347035154" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">10.3</text>
+<circle cx="742.0" cy="328.3" r="6" fill="#0b2463"/>
+<text x="742.0" y="316.2847179672766" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">20.4</text>
+<circle cx="811.7" cy="355.1" r="6" fill="#0b2463"/>
+<text x="811.6666666666666" y="343.1173752867983" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">18.5</text>
+<circle cx="881.3" cy="379.4" r="6" fill="#0b2463"/>
+<text x="881.3333333333333" y="367.3661982344812" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">16.7</text>
+<circle cx="951.0" cy="462.9" r="6" fill="#0b2463"/>
+<text x="951.0" y="450.9147795609732" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">10.7</text>
+<circle cx="1020.7" cy="353.0" r="6" fill="#0b2463"/>
+<text x="1020.6666666666667" y="340.9602671687801" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">18.6</text>
+<circle cx="1090.3" cy="102.4" r="6" fill="#0b2463"/>
+<text x="1090.3333333333335" y="90.37942977160048" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">36.8</text>
+<circle cx="1160.0" cy="96.1" r="6" fill="#0b2463"/>
+<text x="1160.0" y="84.11111111111109" font-family="Aptos, Arial, sans-serif" font-size="12" font-weight="700" fill="#0b2463" text-anchor="middle">37.2</text>
+<text x="638" y="670" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#0b2463" text-anchor="middle">True depth (m)</text>
+<text x="35" y="333" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#0b2463" transform="rotate(-90 35 333)" text-anchor="middle">MAE (m)</text>
+<text x="1240" y="333" font-family="Aptos, Arial, sans-serif" font-size="17" font-weight="700" fill="#2f8a67" transform="rotate(-90 1240 333)" text-anchor="middle">True depth (m)</text>
+<line x1="955" y1="82" x2="993" y2="82" stroke="#2f8a67" stroke-width="4" stroke-dasharray="10 7"/>
+<text x="1005" y="87" font-family="Aptos, Arial, sans-serif" font-size="14" font-weight="700" fill="#2f8a67" text-anchor="start">True depth</text>
+</svg>

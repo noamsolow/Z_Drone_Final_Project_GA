@@ -1,0 +1,264 @@
+\subsection{Dataset and Data Collection}
+\label{subsec:evaluation_dataset}
+
+The main training and synthetic evaluation benchmark was generated using a
+controlled Unreal Engine simulation that was modified and automated for this
+project. The simulator rendered monocular \ac{RGB} images of a single target
+drone at known metric distances while varying the environmental conditions.
+Each rendered image was paired with one YOLO-format annotation file containing
+the normalized bounding box of the target drone.
+
+The synthetic metadata were encoded directly in the filename using a fixed
+template:
+\begin{center}
+\small
+\texttt{<frame>\_depth\_<distance>\_<weather>\_<time>.png}.
+\end{center}
+During preprocessing, the pipeline parsed this filename pattern to recover the
+ground-truth distance, weather condition, and time of day for each image. The
+paired YOLO label file provided the target-drone bounding box used for
+geometric feature extraction.
+
+The final unified synthetic benchmark contains 15,064 images. It covers 12
+discrete ground-truth distances:
+\[
+20, 30, 40, 50, 60, 70, 80, 90, 100, 115, 125, 150 \text{ m}.
+\]
+For analysis, these distances were grouped into three operating regimes:
+near range ($z \leq 60$~m), mid range ($60 < z \leq 100$~m), and far range
+($z > 100$~m). The synthetic benchmark includes two weather conditions,
+\texttt{clear\_sky} and \texttt{light\_rain}, and two time-of-day settings,
+\texttt{10AM} and \texttt{8PM}. The final experiments were conducted on still
+images; video sequences were not used for training or evaluation.
+
+Ground-truth distance in the synthetic benchmark was obtained from the
+controlled rendering configuration. Because the simulator explicitly placed the
+target drone at each specified depth, the filename and folder structure provide
+metric distance labels without requiring manual measurement. The bounding-box
+annotations were used only to localize the drone in the image and to derive
+image-space geometry features such as box size, aspect ratio, and image
+position.
+
+In addition to the synthetic benchmark, AirDepth was evaluated on a prepared
+real-drone external dataset derived from the Nenrus drone-distance dataset
+\cite{nenrus_drone_distance_dataset}. This real-image set contains 489 images
+from two subsets, Kongsberg and Vestfold, with 203 and 286 samples,
+respectively. The images have resolution $1920 \times 1080$ pixels and include
+ground-truth distance labels from 4~m to 75~m. These images were not used to
+train the synthetic AirDepth model. They were used only to evaluate
+synthetic-to-real transfer and to fit the lightweight real-world calibration
+stage described in Section~\ref{subsec:robustness_analysis}.
+
+\begin{table}[t]
+\caption{Evaluation datasets.}
+\label{tab:evaluation_datasets}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lccp{2.9cm}}
+\hline
+\textbf{Dataset} &
+\textbf{Images} &
+\textbf{Range} &
+\textbf{Conditions / purpose} \\
+\hline
+Synthetic benchmark &
+15,064 &
+20--150~m &
+Controlled Unreal Engine scenes with clear/rain weather and 10~AM/8~PM lighting \\
+Nenrus real-drone &
+489 &
+4--75~m &
+Real outdoor images used for external transfer evaluation and calibration \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Dataset Documentation}
+\label{sec:datasheet}
+
+\noindent This appendix documents the synthetic \airdepth\ drone-distance
+dataset introduced in Section~\ref{subsec:evaluation_dataset}, following the
+\emph{Datasheets for Datasets} framework of Gebru \etal~\cite{gebru2021datasheets}.
+
+% -------------------------------------------------------------------------
+\subsection{Motivation}
+
+\begin{description}
+    \item[For what purpose was the dataset created?] \hfill \\{}
+    The dataset was created to support supervised monocular drone-distance
+    estimation under controlled and repeatable conditions. It addresses the
+    lack of readily available UAV image datasets with metric ground-truth
+    distance labels, synchronized target-drone bounding boxes, and explicit
+    environmental metadata. The controlled simulation also enables systematic
+    evaluation across distance, weather, and time-of-day regimes.
+\end{description}
+
+% -------------------------------------------------------------------------
+\subsection{Composition}
+
+\begin{description}
+    \item[What do the instances represent?] \hfill \\{}
+    Each instance is a single rendered monocular \ac{RGB} frame of one target
+    drone at a known metric distance, paired with a YOLO-format bounding-box
+    annotation.
+
+    \item[How many instances are there in total?] \hfill \\{}
+    15,064 source images, partitioned into 12,804 development samples and
+    2,260 held-out test samples (85/15 split).
+
+    \item[Does the dataset contain all possible instances or a sample?] \hfill \\{}
+    The dataset is a finite synthetic benchmark rendered for this project. It
+    should be treated as a sampled coverage of the selected simulation
+    conditions rather than an exhaustive enumeration of all possible drone
+    poses, backgrounds, weather states, lighting conditions, or distances.
+
+    \item[What data does each instance consist of?] \hfill \\{}
+    An \ac{RGB} image; a YOLO-format normalized bounding box for the target
+    drone; and ground-truth metadata (distance, weather condition, time of
+    day) encoded in the filename using the template
+    \texttt{<frame>\_depth\_<distance>\_<weather>\_<time>.png}.
+
+    \item[Is there a label or target associated with each instance?] \hfill \\{}
+    Yes: the ground-truth metric distance $z$ (one of 12 discrete values:
+    20, 30, 40, 50, 60, 70, 80, 90, 100, 115, 125, 150~m).
+
+    \item[Is any information missing from individual instances?] \hfill \\{}
+    No missing fields are expected for the curated benchmark: each retained
+    image has a paired bounding-box label and distance, weather, and
+    time-of-day metadata recoverable from the filename. Frames that do not
+    follow the expected filename or label format are excluded from the feature
+    extraction tables.
+
+    \item[Are relationships between instances made explicit?] \hfill \\{}
+    Related instances are made explicit through the structured file paths and
+    filename metadata. Images are grouped by distance, weather, and time of day,
+    and downstream feature tables preserve a source-image identifier so that
+    augmented or noisy-bounding-box variants derived from the same source image
+    remain traceable.
+
+    \item[Are there recommended data splits?] \hfill \\{}
+    Yes. The recommended split is the fixed 85/15 development/test split used
+    in the experiments, with 12,804 development images and 2,260 held-out test
+    images. For augmented experiments, all rows derived from the same source
+    image are kept in the same split group to avoid leakage between train and
+    test data.
+
+    \item[Are there any errors, sources of noise, or redundancies?] \hfill \\{}
+    The distance labels are exact by construction, but the dataset can still
+    contain simulation-domain bias, visually similar frames within the same
+    condition group, quantization from the 12 discrete distance values, and
+    possible annotation or parsing errors in malformed image/label pairs.
+    Additional detector-like noise was introduced only in specific robustness
+    studies by perturbing bounding boxes; it is not part of the base rendered
+    image set.
+
+    \item[Is the dataset self-contained, or does it rely on external resources?] \hfill \\{}
+    The released synthetic image/label benchmark is self-contained. Recreating
+    the images from scratch would require the original Unreal Engine simulation
+    assets and rendering scripts.
+
+    \item[Does the dataset contain data that might be considered confidential?] \hfill \\{}
+    No.
+
+    \item[Does the dataset contain data that might be offensive, insulting, threatening, or anxiety-inducing?] \hfill \\{}
+    No.
+\end{description}
+
+% -------------------------------------------------------------------------
+\subsection{Collection Process}
+
+\begin{description}
+    \item[How was the data associated with each instance acquired?] \hfill \\{}
+    Rendered directly via a controlled Unreal Engine simulation rather than
+    measured or inferred from real-world sensors. The ground-truth distance is
+    exact by construction because the simulator places the target drone at the
+    specified metric depth.
+
+    \item[What mechanisms or procedures were used to collect the data?] \hfill \\{}
+    The collection process used an automated Unreal Engine rendering setup. For
+    each configured scene condition, the simulator positioned a single target
+    drone at one of the predefined metric distances and rendered a monocular
+    \ac{RGB} frame. The same process exported the corresponding YOLO-format
+    target-drone bounding box and embedded the distance, weather, and
+    time-of-day metadata in the image filename.
+
+    \item[If the dataset is a sample, what was the sampling strategy?] \hfill \\{}
+    The benchmark samples the Cartesian set of selected distances, weather
+    conditions, and time-of-day settings, with multiple rendered frames per
+    condition. The selected distances emphasize the operational range relevant
+    to the project, from 20~m to 150~m.
+
+    \item[Who was involved in the data collection process?] \hfill \\{}
+    The dataset was generated and curated by the project authors as part of the
+    AirDepth final project workflow.
+
+    \item[Over what timeframe was the data collected?] \hfill \\{}
+    The synthetic data were rendered during the development of this project,
+    before the final training and evaluation studies were run.
+
+    \item[Were any ethical review processes conducted?] \hfill \\{}
+    Not applicable; the dataset is fully synthetic and contains no human
+    subjects or personal data.
+\end{description}
+
+% -------------------------------------------------------------------------
+\subsection{Preprocessing, Cleaning, and Labeling}
+
+\begin{description}
+    \item[Was any preprocessing/cleaning/labeling of the data done?] \hfill \\{}
+    Yes. The pipeline parsed each filename to extract distance, weather, and
+    time-of-day metadata; matched each image with its YOLO-format label file;
+    converted normalized bounding boxes into image-space geometry features; and
+    removed rows that could not be parsed or matched consistently. Later
+    experiments also derived relative-depth features inside the target
+    bounding box and expanded context windows.
+
+    \item[Was the ``raw'' data saved in addition to the preprocessed data?] \hfill \\{}
+    Yes. The raw rendered images and YOLO label files are preserved separately
+    from derived feature tables, split files, model reports, and evaluation
+    artifacts.
+
+    \item[Is the software used to preprocess/clean/label the data available?] \hfill \\{}
+    The repository contains the Python code used for feature extraction,
+    dataset loading, split construction, calibration, and evaluation. The
+    original Unreal Engine rendering project and simulation assets are separate
+    from the derived experimental code.
+\end{description}
+
+% -------------------------------------------------------------------------
+\subsection{Uses}
+
+\begin{description}
+    \item[Has the dataset been used for any tasks already?] \hfill \\{}
+    Yes, for training and evaluating the \airdepth\ monocular
+    distance-estimation framework presented in this paper (see
+    Section~\ref{sec:evaluation}).
+
+    \item[Is there a repository that links to any papers or systems that use the dataset?] \hfill \\{}
+    The dataset is used by the AirDepth project repository associated with this
+    paper. No independent external systems using the synthetic benchmark are
+    known at the time of writing.
+
+    \item[What other tasks could the dataset be used for?] \hfill \\{}
+    The dataset may also support drone detection, monocular distance-estimation
+    baselines, bounding-box geometry studies, synthetic-to-real adaptation
+    experiments, and robustness analysis under controlled weather and lighting
+    changes.
+
+    \item[Is there anything about the composition or collection that might impact future uses?] \hfill \\{}
+    Yes. The dataset is synthetic, contains a single target drone per image,
+    uses 12 discrete distance values, and covers only two weather conditions
+    and two time-of-day settings. Results obtained on it may not generalize
+    directly to other drone shapes, camera intrinsics, cluttered real
+    backgrounds, occlusions, motion blur, adverse weather, or safety-critical
+    operational settings without additional real-world validation.
+
+    \item[Are there tasks for which the dataset should not be used?] \hfill \\{}
+    The dataset should not be used as the sole validation source for
+    safety-critical drone-distance estimation or collision-avoidance
+    deployment. It should also not be treated as a real-world UAV benchmark;
+    the external Nenrus evaluation and calibration results are needed to assess
+    synthetic-to-real transfer.
+\end{description}
